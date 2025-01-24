@@ -1,0 +1,61 @@
+[gd_scene load_steps=3 format=3 uid="uid://cult5pickc1hw"]
+
+[ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_hb7w4"]
+[ext_resource type="Texture2D" uid="uid://jocfv8j21a55" path="res://art/main menu.png" id="2_tm74w"]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_hb7w4")
+gameScene = "res://scenes/game.tscn"
+infoScene = "res://scenes/game_info.tscn"
+
+[node name="BackgroundImage" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_tm74w")
+expand_mode = 3
+
+[node name="StartButton" type="Button" parent="."]
+offset_left = 189.0
+offset_top = 374.0
+offset_right = 245.0
+offset_bottom = 405.0
+text = "START"
+
+[node name="QuitButton" type="Button" parent="."]
+offset_left = 330.0
+offset_top = 377.0
+offset_right = 377.0
+offset_bottom = 408.0
+text = "QUIT"
+
+[node name="InfoButton" type="Button" parent="."]
+offset_left = 458.0
+offset_top = 381.0
+offset_right = 575.0
+offset_bottom = 412.0
+text = "HOW TO PLAY"
+
+[node name="OptionsButton" type="Button" parent="."]
+offset_left = 284.0
+offset_top = 444.0
+offset_right = 363.0
+offset_bottom = 475.0
+text = "OPTIONS"
+
+[node name="MUTE" type="Button" parent="."]
+offset_left = 408.0
+offset_top = 447.0
+offset_right = 461.0
+offset_bottom = 478.0
+text = "MUTE"
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="InfoButton" to="." method="_on_info_button_pressed"]
+[connection signal="pressed" from="OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="MUTE" to="." method="_on_mute_pressed"]
