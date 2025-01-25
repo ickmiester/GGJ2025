@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cult5pickc1hw"]
 
 [ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_hb7w4"]
-[ext_resource type="Texture2D" uid="uid://jocfv8j21a55" path="res://art/main menu.png" id="2_tm74w"]
+[ext_resource type="Texture2D" uid="uid://wvja6xropp33" path="res://art/ColorGuideAliceBDanger.png" id="2_lgm04"]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_hb7w4")
@@ -16,7 +16,7 @@ offset_right = 960.0
 offset_bottom = 540.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_tm74w")
+texture = ExtResource("2_lgm04")
 expand_mode = 3
 
 [node name="StartButton" type="Button" parent="."]
