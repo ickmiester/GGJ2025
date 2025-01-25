@@ -30,7 +30,7 @@ func _process(delta: float) -> void:
 	var direction_angle = $Wheel.to_global($Wheel.position) - $Body.to_global($Body.position)
 	direction = direction_angle
 	if abs(direction_angle.x) > 40:
-		$Body.position.y += (1-direction_angle.normalized().y) * 4
+		$Body.position.y += (1-direction_angle.normalized().y) * 8
 		#$BodyAudio.play()
 		#print("unstable!")
 		

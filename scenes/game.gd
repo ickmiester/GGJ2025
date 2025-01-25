@@ -11,8 +11,8 @@ var player: Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#$BoardPath/BoardFollow/board.position = $StartPosition.position
-	$BoardPath/BoardFollow.progress_ratio = 0
-	$BoardPath/BoardFollow/board/Camera2D/CanvasLayer/LevelIndicator/ProgressBar.value = 0;
+	#$BoardPath/BoardFollow.progress_ratio = 0
+	#$BoardPath/BoardFollow/board/Camera2D/CanvasLayer/LevelIndicator/ProgressBar.value = 0;
 	_instantiate_new_player()
 	pass
 
@@ -20,12 +20,12 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	#$BoardPath/BoardFollow.progress += $BoardPath/BoardFollow/board.speed * delta
-	offset = $BoardPath.get_curve().get_closest_offset($BoardPath.to_local(player.get_node("Wheel").to_global(player.get_node("Wheel").position)))
-	var oldx = $BoardPath/BoardFollow.position.x;
-	$BoardPath/BoardFollow.progress = offset
-	var newx = $BoardPath/BoardFollow.position.x;
+	#offset = $BoardPath.get_curve().get_closest_offset($BoardPath.to_local(player.get_node("Wheel").to_global(player.get_node("Wheel").position)))
+	#var oldx = $BoardPath/BoardFollow.position.x;
+	#$BoardPath/BoardFollow.progress = offset
+	#var newx = $BoardPath/BoardFollow.position.x;
 	#player.get_node("Wheel").move_local_x(oldx - newx)
-	$BoardPath/BoardFollow/board/Camera2D/CanvasLayer/LevelIndicator/ProgressBar.value = $BoardPath/BoardFollow.progress_ratio * $BoardPath/BoardFollow/board/Camera2D/CanvasLayer/LevelIndicator/ProgressBar.max_value
+	#$BoardPath/BoardFollow/board/Camera2D/CanvasLayer/LevelIndicator/ProgressBar.value = $BoardPath/BoardFollow.progress_ratio * $BoardPath/BoardFollow/board/Camera2D/CanvasLayer/LevelIndicator/ProgressBar.max_value
 	pass
 	
 
@@ -37,6 +37,9 @@ func _instantiate_new_player() -> void:
 	player.scale = Vector2(0.25, 0.25)
 	#$BoardPath/BoardFollow/board.add_child(player)
 	add_child(player)
+	var cam = $Camera2D
+	cam.reparent(player.get_node("Wheel"))
+	cam.offset.y=-100
 
 func _on_win_button_pressed() -> void:
 	emit_signal("win")

@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://chxo3xx6jgmra"]
+[gd_scene load_steps=6 format=3 uid="uid://chxo3xx6jgmra"]
 
 [ext_resource type="PackedScene" uid="uid://coxxd3ndthibi" path="res://scenes/character.tscn" id="1_3wcmc"]
 [ext_resource type="Texture2D" uid="uid://cmlhfopxsvwlb" path="res://Assets/RobotBubbleWheel/Robot_BubbleWheel_0000s_0006_Layer-5.png" id="2_65ssc"]
+[ext_resource type="Texture2D" uid="uid://d0nwli2b3qmqp" path="res://Assets/CloudGround2.png" id="3_dwlhw"]
+[ext_resource type="Texture2D" uid="uid://bbuji04ax3tin" path="res://Assets/Cloud_Ground.png" id="4_68kwb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4ilcc"]
 radius = 182.888
@@ -59,3 +61,79 @@ gravity_scale = 0.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D/RigidBody2D/CollisionShape2D/RigidBody2D/CollisionShape2D/RigidBody2D/CollisionShape2D/RigidBody2D"]
 position = Vector2(297, -19)
 shape = SubResource("CircleShape2D_4ilcc")
+
+[node name="CloudGround2" type="Sprite2D" parent="."]
+position = Vector2(-96, 460)
+texture = ExtResource("3_dwlhw")
+
+[node name="CloudGround" type="Sprite2D" parent="."]
+position = Vector2(-3, 428)
+texture = ExtResource("4_68kwb")
+
+[node name="CloudGround3" type="Sprite2D" parent="."]
+position = Vector2(38, 465)
+texture = ExtResource("3_dwlhw")
+
+[node name="CloudGround4" type="Sprite2D" parent="."]
+position = Vector2(116, 410)
+texture = ExtResource("4_68kwb")
+
+[node name="CloudGround5" type="Sprite2D" parent="."]
+position = Vector2(165, 399)
+texture = ExtResource("3_dwlhw")
+
+[node name="CloudGround6" type="Sprite2D" parent="."]
+position = Vector2(229, 394)
+texture = ExtResource("4_68kwb")
+
+[node name="CloudGround7" type="Sprite2D" parent="."]
+position = Vector2(269, 437)
+texture = ExtResource("3_dwlhw")
+
+[node name="CloudGround8" type="Sprite2D" parent="."]
+position = Vector2(361, 446)
+texture = ExtResource("4_68kwb")
+
+[node name="CloudGround9" type="Sprite2D" parent="."]
+position = Vector2(407, 444)
+texture = ExtResource("3_dwlhw")
+
+[node name="CloudGround10" type="Sprite2D" parent="."]
+position = Vector2(506, 428)
+texture = ExtResource("4_68kwb")
+
+[node name="CloudGround11" type="Sprite2D" parent="."]
+position = Vector2(557, 406)
+texture = ExtResource("3_dwlhw")
+
+[node name="CloudGround12" type="Sprite2D" parent="."]
+position = Vector2(640, 383)
+texture = ExtResource("4_68kwb")
+
+[node name="CloudGround13" type="Sprite2D" parent="."]
+position = Vector2(701, 390)
+texture = ExtResource("3_dwlhw")
+
+[node name="CloudGround14" type="Sprite2D" parent="."]
+position = Vector2(774, 440)
+texture = ExtResource("3_dwlhw")
+
+[node name="CloudGround15" type="Sprite2D" parent="."]
+position = Vector2(837, 401)
+texture = ExtResource("4_68kwb")
+
+[node name="CloudGround16" type="Sprite2D" parent="."]
+position = Vector2(881, 380)
+texture = ExtResource("3_dwlhw")
+
+[node name="CloudGround17" type="Sprite2D" parent="."]
+position = Vector2(945, 363)
+texture = ExtResource("4_68kwb")
+
+[node name="CloudGround18" type="Sprite2D" parent="."]
+position = Vector2(978, 390)
+texture = ExtResource("3_dwlhw")
+
+[node name="CloudGround19" type="Sprite2D" parent="."]
+position = Vector2(1051, 402)
+texture = ExtResource("4_68kwb")
