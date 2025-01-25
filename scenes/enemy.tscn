@@ -1,8 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://dmgb3hcddtg5k"]
+[gd_scene load_steps=10 format=3 uid="uid://bibhw7mpu8iy1"]
 
 [ext_resource type="Texture2D" uid="uid://dqdxj7rlshxwy" path="res://Assets/Enemy.png" id="1_5xurf"]
 [ext_resource type="Script" path="res://scenes/enemy.gd" id="1_g22lv"]
-[ext_resource type="PackedScene" uid="uid://vexof263c8pc" path="res://scenes/killzone.tscn" id="2_irr52"]
+[ext_resource type="PackedScene" path="res://scenes/killzone.tscn" id="2_irr52"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_spokl"]
 atlas = ExtResource("1_5xurf")

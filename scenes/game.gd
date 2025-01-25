@@ -7,7 +7,6 @@ signal lose
 @export var character:PackedScene
 var player: Node2D
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#$BoardPath/BoardFollow/board.position = $StartPosition.position
@@ -21,10 +20,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	$BoardPath/BoardFollow.progress += 100 * delta
-	pass
+	$BoardPath/BoardFollow.progress += $BoardPath/BoardFollow/board.speed * delta
 	
-
 
 func _on_win_button_pressed() -> void:
 	emit_signal("win")
@@ -34,3 +31,22 @@ func _on_win_button_pressed() -> void:
 func _on_lose_button_pressed() -> void:
 	emit_signal("lose")
 	get_tree().change_scene_to_file(gameOverScene)
+
+
+func _on_new_path_button_pressed() -> void:
+	$BoardPath.curve =Curve2D.new()
+	var screenx = get_viewport().size.x
+	var screeny = get_viewport().size.y
+	var marginx = 50
+	var marginy = 20
+	var points = randf_range(4,20)
+	
+	var pointarray = PackedVector2Array()
+	
+	pointarray.append(Vector2(marginx,screeny/2))
+	for n in range(points):
+		pointarray.append(Vector2(marginx+screenx/points*n,randf_range(marginx,screeny-marginy)))
+	pointarray.append(Vector2(screenx-marginx,screeny/2))	
+
+	for n in range(points):
+		$BoardPath.curve.add_point(pointarray[n], Vector2(0,0), Vector2(0,0))
