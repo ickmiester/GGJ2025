@@ -15,10 +15,12 @@ func _process(delta: float) -> void:
 	$Wheel.velocity *= 0.85
 	if(Input.is_action_pressed("left")):
 		#print("Left Pressed")
+		$WheelAudio.play()
 		$Wheel.velocity += Vector2(-100, 0)
 		$Wheel/WheelSprite.rotate(-PI/20)
 	if(Input.is_action_pressed("right")):
 		#print("Right Pressed")
+		$WheelAudio.play()
 		$Wheel.velocity += Vector2(100, 0)
 		$Wheel/WheelSprite.rotate(PI/20)
 	$Wheel.move_and_slide()
@@ -28,6 +30,7 @@ func _process(delta: float) -> void:
 	direction = direction_angle
 	if abs(direction_angle.x) > 40:
 		$Body.position.y += (1-direction_angle.normalized().y) * 8
+		$BodyAudio.play()
 		#print("unstable!")
 		
 	#Rotate body to face center of wheel
