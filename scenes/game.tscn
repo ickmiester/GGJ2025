@@ -1,14 +1,26 @@
-[gd_scene load_steps=5 format=3 uid="uid://cg64tss28lfvx"]
+[gd_scene load_steps=10 format=3 uid="uid://cg64tss28lfvx"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_ci6ca"]
-[ext_resource type="PackedScene" path="res://board.tscn" id="2_1o0vd"]
+[ext_resource type="PackedScene" uid="uid://4bkm5ku1dlce" path="res://board.tscn" id="2_1o0vd"]
 [ext_resource type="PackedScene" uid="uid://btugersm8vbgx" path="res://scenes/character.tscn" id="2_5w011"]
+[ext_resource type="PackedScene" uid="uid://dmgb3hcddtg5k" path="res://scenes/enemy.tscn" id="4_tvnff"]
 
 [sub_resource type="Curve2D" id="Curve2D_o5dac"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 39, 252, 0, 0, 0, 0, 83, 337, 0, 0, 0, 0, 116, 377, -54.7284, 2.33597, 54.7284, -2.33597, 169, 426, 0, 0, 0, 0, 212, 372, 0, 0, 0, 0, 235, 331, 28.3653, 73.0825, -28.3653, -73.0825, 260, 265, 0, 0, 0, 0, 294, 168, 0, 0, 0, 0, 314, 123, 0, 0, 0, 0, 364, 106, 0, 0, 0, 0, 404, 127, 0, 0, 0, 0, 420, 164, 0, 0, 0, 0, 437, 283, 0, 0, 0, 0, 431, 418, 0, 0, 0, 0, 439, 466, 0, 0, 0, 0, 481, 489, 0, 0, 0, 0, 536, 459, 0, 0, 0, 0, 563, 404, 0, 0, 0, 0, 587, 309, 0, 0, 0, 0, 630, 253, 0, 0, 0, 0, 694, 228, 0, 0, 0, 0, 737, 252, 0, 0, 0, 0, 762, 283, 0, 0, 0, 0, 806, 307, 0, 0, 0, 0, 859, 296, 0, 0, 0, 0, 912, 247, 0, 0, 0, 0, 39, 252)
 }
 point_count = 27
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5p1sd"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_n8tep"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7d38f"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6gnbg"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_ci6ca")
@@ -42,6 +54,27 @@ rotation = 1.09313
 loop = false
 
 [node name="board" parent="BoardPath/BoardFollow" instance=ExtResource("2_1o0vd")]
+
+[node name="Enemy" parent="." instance=ExtResource("4_tvnff")]
+position = Vector2(885, 369)
+scale = Vector2(4, 4)
+
+[node name="Walls" type="Area2D" parent="."]
+
+[node name="CollisionShape2DLeft" type="CollisionShape2D" parent="Walls"]
+shape = SubResource("WorldBoundaryShape2D_5p1sd")
+
+[node name="CollisionShape2DRight" type="CollisionShape2D" parent="Walls"]
+position = Vector2(959, 0)
+shape = SubResource("WorldBoundaryShape2D_n8tep")
+
+[node name="CollisionShape2DTop" type="CollisionShape2D" parent="Walls"]
+position = Vector2(452, 0)
+shape = SubResource("WorldBoundaryShape2D_7d38f")
+
+[node name="CollisionShape2DBottom" type="CollisionShape2D" parent="Walls"]
+position = Vector2(0, 540)
+shape = SubResource("WorldBoundaryShape2D_6gnbg")
 
 [connection signal="pressed" from="WinButton" to="." method="_on_win_button_pressed"]
 [connection signal="pressed" from="LoseButton" to="." method="_on_lose_button_pressed"]
