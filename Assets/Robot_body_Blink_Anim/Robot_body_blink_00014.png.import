@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://duhmio1i0l6p8"
-path="res://.godot/imported/Robot_Body.png-89025000ec4530e5be9d68de5776529b.ctex"
+uid="uid://ha463dnga4ji"
+path="res://.godot/imported/Robot_body_blink_00014.png-235a08336cbb39a868c6a234f030eac5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Robot_Body.png"
-dest_files=["res://.godot/imported/Robot_Body.png-89025000ec4530e5be9d68de5776529b.ctex"]
+source_file="res://Assets/Robot_body_Blink_Anim/Robot_body_blink_00014.png"
+dest_files=["res://.godot/imported/Robot_body_blink_00014.png-235a08336cbb39a868c6a234f030eac5.ctex"]
 
 [params]
 
