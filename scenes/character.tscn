@@ -45,7 +45,7 @@ shape = SubResource("CircleShape2D_lr1e5")
 texture = ExtResource("2_86yh4")
 
 [node name="Body" type="CharacterBody2D" parent="."]
-position = Vector2(0, -150)
+position = Vector2(0, -172)
 collision_mask = 0
 
 [node name="BodyCollision" type="CollisionShape2D" parent="Body"]

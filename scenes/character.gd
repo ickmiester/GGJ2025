@@ -16,27 +16,43 @@ func _process(delta: float) -> void:
 	if(Input.is_action_pressed("left")):
 		#print("Left Pressed")
 		$WheelAudio.play()
-		$Wheel.velocity += Vector2(-50, 0) * scale
+		$Wheel.velocity += Vector2(-25, 0) * scale
 		$Wheel/WheelSprite.rotate(-PI/20)
 	if(Input.is_action_pressed("right")):
 		#print("Right Pressed")
 		$WheelAudio.play()
-		$Wheel.velocity += Vector2(50, 0) * scale
+		$Wheel.velocity += Vector2(25, 0) * scale
 		$Wheel/WheelSprite.rotate(PI/20)
 	$Wheel.velocity += Vector2(0, 20) * scale
+	if(Input.is_action_just_pressed("jump")):
+		$Wheel.velocity+= Vector2(0, -900)
 	$Wheel.move_and_slide()
 	
+		
 	#make body fall if off-center
 	var direction_angle = $Wheel.to_global($Wheel.position) - $Body.to_global($Body.position)
 	direction = direction_angle
-	if abs(direction_angle.x) > 40:
-		$Body.position.y += (1-direction_angle.normalized().y) * 8
+	if abs(direction_angle.normalized().x) > .3:
+		$Body.position.y += (.95-direction_angle.normalized().y) * 2
 		#$BodyAudio.play()
 		#print("unstable!")
+	else:
+		if direction_angle.y > 0:
+			$Body.position.y -= (direction_angle.normalized().y) * 100
 		
 	#Rotate body to face center of wheel
 	#Adjust body position to be a static distance from wheel
-	$Body.position = $Wheel.position - (($Wheel.position - $Body.position).normalized() * 150)
+	$Body.position = $Wheel.position - (($Wheel.position - $Body.position).normalized() * 180)
 	#$Body.look_at($Wheel.to_global($Wheel.position))
 	$Body/BodyCollision/SpriteContainer/BodySprite.rotation = ($Wheel.to_global($Wheel.position) - $Body.to_global($Body.position)).angle()
+	var body = $Body
+	var parent = body.get_parent()
+	body.reparent($Wheel)
+	
+	if(Input.is_action_pressed("balance left")):
+		body.rotate(-PI/90)
+	if(Input.is_action_pressed("balance right")):
+		body.rotate(PI/90)
+		
+	body.reparent(parent)
 	$Body.move_and_slide()
