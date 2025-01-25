@@ -12,25 +12,25 @@ func _process(delta: float) -> void:
 	if(Input.is_action_just_pressed("reset")):
 		get_tree().reload_current_scene()
 		pass
-	$Wheel.velocity *= 0.85
+	$Wheel.velocity *= 0.95
 	if(Input.is_action_pressed("left")):
 		#print("Left Pressed")
 		$WheelAudio.play()
-		$Wheel.velocity += Vector2(-100, 0) * scale
+		$Wheel.velocity += Vector2(-50, 0) * scale
 		$Wheel/WheelSprite.rotate(-PI/20)
 	if(Input.is_action_pressed("right")):
 		#print("Right Pressed")
 		$WheelAudio.play()
-		$Wheel.velocity += Vector2(100, 0) * scale
+		$Wheel.velocity += Vector2(50, 0) * scale
 		$Wheel/WheelSprite.rotate(PI/20)
-	$Wheel.velocity += Vector2(0, 50) * scale
+	$Wheel.velocity += Vector2(0, 30) * scale
 	$Wheel.move_and_slide()
 	
 	#make body fall if off-center
 	var direction_angle = $Wheel.to_global($Wheel.position) - $Body.to_global($Body.position)
 	direction = direction_angle
 	if abs(direction_angle.x) > 40:
-		$Body.position.y += (1-direction_angle.normalized().y) * 8
+		$Body.position.y += (1-direction_angle.normalized().y) * 4
 		#$BodyAudio.play()
 		#print("unstable!")
 		

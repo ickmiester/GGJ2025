@@ -1,8 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://chxo3xx6jgmra"]
+[gd_scene load_steps=3 format=3 uid="uid://chxo3xx6jgmra"]
 
 [ext_resource type="PackedScene" uid="uid://coxxd3ndthibi" path="res://scenes/character.tscn" id="1_3wcmc"]
+[ext_resource type="Texture2D" uid="uid://cmlhfopxsvwlb" path="res://Assets/RobotBubbleWheel/Robot_BubbleWheel_0000s_0006_Layer-5.png" id="2_65ssc"]
 
 [node name="EricTest" type="Node2D"]
 
 [node name="Character" parent="." instance=ExtResource("1_3wcmc")]
 position = Vector2(444, 336)
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+texture = ExtResource("2_65ssc")
+polygon = PackedVector2Array(45, -22, 421, 32, 187, 185, 34, 251, -133, 127)
