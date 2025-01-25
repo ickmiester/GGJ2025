@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://coxxd3ndthibi"]
+[gd_scene load_steps=6 format=3 uid="uid://btugersm8vbgx"]
 
 [ext_resource type="Script" path="res://scenes/character.gd" id="1_j0p02"]
 [ext_resource type="Texture2D" uid="uid://b52ebepxtp5yn" path="res://Assets/Robot_Bubble.png" id="2_86yh4"]
@@ -7,14 +7,13 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_lr1e5"]
 radius = 24.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hke7d"]
-size = Vector2(20, 45)
+[sub_resource type="CircleShape2D" id="CircleShape2D_1igwi"]
 
 [node name="Character" type="Node2D"]
 script = ExtResource("1_j0p02")
 
 [node name="Wheel" type="CharacterBody2D" parent="."]
-position = Vector2(0, 149)
+position = Vector2(0, -1)
 collision_mask = 0
 
 [node name="WheelCollision" type="CollisionShape2D" parent="Wheel"]
@@ -24,16 +23,18 @@ shape = SubResource("CircleShape2D_lr1e5")
 texture = ExtResource("2_86yh4")
 
 [node name="Body" type="CharacterBody2D" parent="."]
+position = Vector2(0, -150)
 collision_mask = 0
 
 [node name="BodyCollision" type="CollisionShape2D" parent="Body"]
 position = Vector2(0, -12.5)
-shape = SubResource("RectangleShape2D_hke7d")
+shape = SubResource("CircleShape2D_1igwi")
 
 [node name="SpriteContainer" type="Node2D" parent="Body/BodyCollision"]
-position = Vector2(0, 161.5)
+position = Vector2(0, 12.5)
+rotation = -1.5708
 
 [node name="BodySprite" type="Sprite2D" parent="Body/BodyCollision/SpriteContainer"]
-position = Vector2(0, -149)
+position = Vector2(0, 1)
 rotation = -1.5708
 texture = ExtResource("3_mdary")
