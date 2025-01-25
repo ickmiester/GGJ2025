@@ -13,7 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://bhq2r2d0hwyq2" path="res://audio/scrape3.wav" id="11_5xecq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lr1e5"]
-radius = 24.0
+radius = 54.0093
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1igwi"]
 

@@ -24,18 +24,19 @@ func _process(delta: float) -> void:
 	var oldx = $BoardPath/BoardFollow.position.x;
 	$BoardPath/BoardFollow.progress = offset
 	var newx = $BoardPath/BoardFollow.position.x;
-	player.get_node("Wheel").move_local_x(oldx - newx)
+	#player.get_node("Wheel").move_local_x(oldx - newx)
 	$BoardPath/BoardFollow/board/Camera2D/CanvasLayer/LevelIndicator/ProgressBar.value = $BoardPath/BoardFollow.progress_ratio * $BoardPath/BoardFollow/board/Camera2D/CanvasLayer/LevelIndicator/ProgressBar.max_value
 	pass
 	
 
 func _instantiate_new_player() -> void:
-	$BoardPath/BoardFollow/board.remove_child(player)
+	remove_child(player)
 	player = character.instantiate()
-	player.position.x = 0
-	player.position.y = -50
+	player.position.x = 50
+	player.position.y = 150
 	player.scale = Vector2(0.25, 0.25)
-	$BoardPath/BoardFollow/board.add_child(player)
+	#$BoardPath/BoardFollow/board.add_child(player)
+	add_child(player)
 
 func _on_win_button_pressed() -> void:
 	emit_signal("win")

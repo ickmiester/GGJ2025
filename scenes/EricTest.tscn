@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://chxo3xx6jgmra"]
+[gd_scene load_steps=4 format=3 uid="uid://chxo3xx6jgmra"]
 
 [ext_resource type="PackedScene" uid="uid://coxxd3ndthibi" path="res://scenes/character.tscn" id="1_3wcmc"]
 [ext_resource type="Texture2D" uid="uid://cmlhfopxsvwlb" path="res://Assets/RobotBubbleWheel/Robot_BubbleWheel_0000s_0006_Layer-5.png" id="2_65ssc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4ilcc"]
+radius = 182.888
 
 [node name="EricTest" type="Node2D"]
 
@@ -11,3 +14,48 @@ position = Vector2(444, 336)
 [node name="Polygon2D" type="Polygon2D" parent="."]
 texture = ExtResource("2_65ssc")
 polygon = PackedVector2Array(45, -22, 421, 32, 187, 185, 34, 251, -133, 127)
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(9, 575)
+shape = SubResource("CircleShape2D_4ilcc")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="RigidBody2D"]
+collision_layer = 2
+collision_mask = 0
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D/RigidBody2D"]
+position = Vector2(191, 523)
+shape = SubResource("CircleShape2D_4ilcc")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="RigidBody2D/RigidBody2D/CollisionShape2D"]
+collision_layer = 2
+collision_mask = 0
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D/RigidBody2D/CollisionShape2D/RigidBody2D"]
+position = Vector2(197, 46)
+shape = SubResource("CircleShape2D_4ilcc")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="RigidBody2D/RigidBody2D/CollisionShape2D/RigidBody2D/CollisionShape2D"]
+collision_layer = 2
+collision_mask = 0
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D/RigidBody2D/CollisionShape2D/RigidBody2D/CollisionShape2D/RigidBody2D"]
+position = Vector2(242, -49)
+shape = SubResource("CircleShape2D_4ilcc")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="RigidBody2D/RigidBody2D/CollisionShape2D/RigidBody2D/CollisionShape2D/RigidBody2D/CollisionShape2D"]
+collision_layer = 2
+collision_mask = 0
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D/RigidBody2D/CollisionShape2D/RigidBody2D/CollisionShape2D/RigidBody2D/CollisionShape2D/RigidBody2D"]
+position = Vector2(297, -19)
+shape = SubResource("CircleShape2D_4ilcc")

@@ -23,7 +23,7 @@ func _process(delta: float) -> void:
 		$WheelAudio.play()
 		$Wheel.velocity += Vector2(50, 0) * scale
 		$Wheel/WheelSprite.rotate(PI/20)
-	$Wheel.velocity += Vector2(0, 30) * scale
+	$Wheel.velocity += Vector2(0, 20) * scale
 	$Wheel.move_and_slide()
 	
 	#make body fall if off-center
