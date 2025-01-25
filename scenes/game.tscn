@@ -68,6 +68,20 @@ offset_right = 153.0
 offset_bottom = 47.0
 text = "WIN!"
 
+[node name="LevelIndicator" type="Control" parent="BoardPath/BoardFollow/board/Camera2D/CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ProgressBar" type="ProgressBar" parent="BoardPath/BoardFollow/board/Camera2D/CanvasLayer/LevelIndicator"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 50.0
+offset_right = 98.0
+offset_bottom = 77.0
+show_percentage = false
+
 [node name="Enemy" parent="." instance=ExtResource("4_tvnff")]
 position = Vector2(885, 369)
 scale = Vector2(4, 4)

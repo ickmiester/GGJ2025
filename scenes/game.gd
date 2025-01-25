@@ -11,6 +11,7 @@ var player: Node2D
 func _ready() -> void:
 	#$BoardPath/BoardFollow/board.position = $StartPosition.position
 	$BoardPath/BoardFollow.progress_ratio = 0
+	$BoardPath/BoardFollow/board/Camera2D/CanvasLayer/LevelIndicator/ProgressBar.value = 0;
 	_instantiate_new_player()
 	pass
 
@@ -18,6 +19,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	$BoardPath/BoardFollow.progress += $BoardPath/BoardFollow/board.speed * delta
+	$BoardPath/BoardFollow/board/Camera2D/CanvasLayer/LevelIndicator/ProgressBar.value = $BoardPath/BoardFollow.progress_ratio * $BoardPath/BoardFollow/board/Camera2D/CanvasLayer/LevelIndicator/ProgressBar.max_value
 	pass
 	
 
