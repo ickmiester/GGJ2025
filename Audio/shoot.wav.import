@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://ppkmo0ldjxb"
-path="res://.godot/imported/boing3.wav-30be6a637334be2ad278555a5dd07ff0.sample"
+uid="uid://bpgsavpw18tsc"
+path="res://.godot/imported/shoot.wav-de343206bd67215244947c5ff8043d5f.sample"
 
 [deps]
 
-source_file="res://Audio/boing3.wav"
-dest_files=["res://.godot/imported/boing3.wav-30be6a637334be2ad278555a5dd07ff0.sample"]
+source_file="res://Audio/shoot.wav"
+dest_files=["res://.godot/imported/shoot.wav-de343206bd67215244947c5ff8043d5f.sample"]
 
 [params]
 
