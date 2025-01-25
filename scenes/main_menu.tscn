@@ -41,21 +41,21 @@ offset_bottom = 341.0
 text = "HOW TO PLAY"
 
 [node name="OptionsButton" type="Button" parent="."]
-offset_left = 794.0
-offset_top = 12.0
-offset_right = 873.0
-offset_bottom = 43.0
+offset_left = 869.0
+offset_top = 33.0
+offset_right = 948.0
+offset_bottom = 64.0
 text = "OPTIONS"
 
-[node name="MUTE" type="Button" parent="."]
-offset_left = 891.0
-offset_top = 10.0
-offset_right = 944.0
-offset_bottom = 41.0
+[node name="MUTE" type="CheckButton" parent="."]
+offset_left = 864.0
+offset_top = 2.0
+offset_right = 957.0
+offset_bottom = 33.0
 text = "MUTE"
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="InfoButton" to="." method="_on_info_button_pressed"]
 [connection signal="pressed" from="OptionsButton" to="." method="_on_options_button_pressed"]
-[connection signal="pressed" from="MUTE" to="." method="_on_mute_pressed"]
+[connection signal="toggled" from="MUTE" to="." method="_on_mute_toggled"]

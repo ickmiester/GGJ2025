@@ -30,7 +30,7 @@ func _process(delta: float) -> void:
 	direction = direction_angle
 	if abs(direction_angle.x) > 40:
 		$Body.position.y += (1-direction_angle.normalized().y) * 8
-		$BodyAudio.play()
+		#$BodyAudio.play()
 		#print("unstable!")
 		
 	#Rotate body to face center of wheel

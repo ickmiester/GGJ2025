@@ -5,8 +5,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -28,6 +27,6 @@ func _on_info_button_pressed() -> void:
 func _on_options_button_pressed() -> void:
 	pass # Replace with function body.
 
-
-func _on_mute_pressed() -> void:
-	pass # Replace with function body.
+func _on_mute_toggled(toggled_on: bool) -> void:
+	var bus_idx = AudioServer.get_bus_index("Master")
+	AudioServer.set_bus_mute(bus_idx, toggled_on)
