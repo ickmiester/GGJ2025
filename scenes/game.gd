@@ -34,11 +34,13 @@ func _on_lose_button_pressed() -> void:
 
 
 func _on_new_path_button_pressed() -> void:
+	
 	$BoardPath.curve =Curve2D.new()
 	var screenx = get_viewport().size.x
 	var screeny = get_viewport().size.y
 	var marginx = 50
-	var marginy = 20
+	var marginy = 50
+	var curvescaler = 3
 	var points = randf_range(4,20)
 	
 	var pointarray = PackedVector2Array()
@@ -48,5 +50,9 @@ func _on_new_path_button_pressed() -> void:
 		pointarray.append(Vector2(marginx+screenx/points*n,randf_range(marginx,screeny-marginy)))
 	pointarray.append(Vector2(screenx-marginx,screeny/2))	
 
-	for n in range(points):
-		$BoardPath.curve.add_point(pointarray[n], Vector2(0,0), Vector2(0,0))
+	$BoardPath.curve.add_point(pointarray[0], Vector2(0,0), (pointarray[1]-pointarray[0])/curvescaler)
+	for n in range(1, points-1):
+		$BoardPath.curve.add_point(pointarray[n+1], (pointarray[n-1]-pointarray[n])/curvescaler, (pointarray[n+1]-pointarray[n])/curvescaler)
+	$BoardPath.curve.add_point(pointarray[points+1], (pointarray[points-1]-pointarray[points])/curvescaler, Vector2(0,0))
+	
+	$BoardPath/BoardFollow.progress_ratio = 0
