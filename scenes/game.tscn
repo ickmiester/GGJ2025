@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://cg64tss28lfvx"]
+[gd_scene load_steps=4 format=3 uid="uid://cg64tss28lfvx"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_ci6ca"]
+[ext_resource type="PackedScene" uid="uid://4bkm5ku1dlce" path="res://board.tscn" id="2_1o0vd"]
+
+[sub_resource type="Curve2D" id="Curve2D_o5dac"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 39, 252, 0, 0, 0, 0, 83, 337, 0, 0, 0, 0, 116, 377, -54.7284, 2.33597, 54.7284, -2.33597, 169, 426, 0, 0, 0, 0, 212, 372, 0, 0, 0, 0, 235, 331, 28.3653, 73.0825, -28.3653, -73.0825, 260, 265, 0, 0, 0, 0, 294, 168, 0, 0, 0, 0, 314, 123, 0, 0, 0, 0, 364, 106, 0, 0, 0, 0, 404, 127, 0, 0, 0, 0, 420, 164, 0, 0, 0, 0, 437, 283, 0, 0, 0, 0, 431, 418, 0, 0, 0, 0, 439, 466, 0, 0, 0, 0, 481, 489, 0, 0, 0, 0, 536, 459, 0, 0, 0, 0, 563, 404, 0, 0, 0, 0, 587, 309, 0, 0, 0, 0, 630, 253, 0, 0, 0, 0, 694, 228, 0, 0, 0, 0, 737, 252, 0, 0, 0, 0, 762, 283, 0, 0, 0, 0, 806, 307, 0, 0, 0, 0, 859, 296, 0, 0, 0, 0, 912, 247, 0, 0, 0, 0, 39, 252)
+}
+point_count = 27
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_ci6ca")
@@ -19,6 +26,20 @@ offset_top = 240.0
 offset_right = 433.0
 offset_bottom = 271.0
 text = "LOSE!"
+
+[node name="StartPosition" type="Marker2D" parent="."]
+position = Vector2(38, 251)
+
+[node name="BoardPath" type="Path2D" parent="."]
+position = Vector2(-1, 0)
+curve = SubResource("Curve2D_o5dac")
+
+[node name="BoardFollow" type="PathFollow2D" parent="BoardPath"]
+position = Vector2(39, 252)
+rotation = 1.09313
+loop = false
+
+[node name="board" parent="BoardPath/BoardFollow" instance=ExtResource("2_1o0vd")]
 
 [connection signal="pressed" from="WinButton" to="." method="_on_win_button_pressed"]
 [connection signal="pressed" from="LoseButton" to="." method="_on_lose_button_pressed"]
