@@ -4,13 +4,18 @@ signal win
 signal lose
 @export var board_scene: PackedScene
 @export_file("*.tscn") var gameOverScene: String
+@export var character:PackedScene
+var player: Node2D
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#$BoardPath/BoardFollow/board.position = $StartPosition.position
 	$BoardPath/BoardFollow.progress_ratio = 0
-
+	player = character.instantiate()
+	player.position.x = 300
+	player.position.y = 200
+	add_child(player)
 	pass
 
 

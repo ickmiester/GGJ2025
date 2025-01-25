@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cult5pickc1hw"]
 
 [ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_hb7w4"]
-[ext_resource type="Texture2D" uid="uid://wvja6xropp33" path="res://art/ColorGuideAliceBDanger.png" id="2_lgm04"]
+[ext_resource type="Texture2D" uid="uid://hpvxgf1w32yw" path="res://art/WobbleWalker_Menu_temp.png" id="2_gncqw"]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_hb7w4")
@@ -16,42 +16,42 @@ offset_right = 960.0
 offset_bottom = 540.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_lgm04")
+texture = ExtResource("2_gncqw")
 expand_mode = 3
 
 [node name="StartButton" type="Button" parent="."]
-offset_left = 189.0
-offset_top = 374.0
-offset_right = 245.0
-offset_bottom = 405.0
+offset_left = 312.0
+offset_top = 314.0
+offset_right = 368.0
+offset_bottom = 345.0
 text = "START"
 
 [node name="QuitButton" type="Button" parent="."]
-offset_left = 330.0
-offset_top = 377.0
-offset_right = 377.0
-offset_bottom = 408.0
+offset_left = 21.0
+offset_top = 488.0
+offset_right = 68.0
+offset_bottom = 519.0
 text = "QUIT"
 
 [node name="InfoButton" type="Button" parent="."]
-offset_left = 458.0
-offset_top = 381.0
-offset_right = 575.0
-offset_bottom = 412.0
+offset_left = 632.0
+offset_top = 310.0
+offset_right = 749.0
+offset_bottom = 341.0
 text = "HOW TO PLAY"
 
 [node name="OptionsButton" type="Button" parent="."]
-offset_left = 284.0
-offset_top = 444.0
-offset_right = 363.0
-offset_bottom = 475.0
+offset_left = 794.0
+offset_top = 12.0
+offset_right = 873.0
+offset_bottom = 43.0
 text = "OPTIONS"
 
 [node name="MUTE" type="Button" parent="."]
-offset_left = 408.0
-offset_top = 447.0
-offset_right = 461.0
-offset_bottom = 478.0
+offset_left = 891.0
+offset_top = 10.0
+offset_right = 944.0
+offset_bottom = 41.0
 text = "MUTE"
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
