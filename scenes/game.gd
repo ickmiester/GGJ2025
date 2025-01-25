@@ -11,11 +11,7 @@ var player: Node2D
 func _ready() -> void:
 	#$BoardPath/BoardFollow/board.position = $StartPosition.position
 	$BoardPath/BoardFollow.progress_ratio = 0
-	player = character.instantiate()
-	player.position.x = 0
-	player.position.y = -50
-	player.scale = Vector2(0.25, 0.25)
-	$BoardPath/BoardFollow/board.add_child(player)
+	_instantiate_new_player()
 	pass
 
 
@@ -24,6 +20,14 @@ func _process(delta: float) -> void:
 	$BoardPath/BoardFollow.progress += $BoardPath/BoardFollow/board.speed * delta
 	pass
 	
+
+func _instantiate_new_player() -> void:
+	$BoardPath/BoardFollow/board.remove_child(player)
+	player = character.instantiate()
+	player.position.x = 0
+	player.position.y = -50
+	player.scale = Vector2(0.25, 0.25)
+	$BoardPath/BoardFollow/board.add_child(player)
 
 func _on_win_button_pressed() -> void:
 	emit_signal("win")
@@ -58,4 +62,5 @@ func _on_new_path_button_pressed() -> void:
 		$BoardPath.curve.add_point(pointarray[n+1], (pointarray[n-1]-pointarray[n])/curvescaler, (pointarray[n+1]-pointarray[n])/curvescaler)
 	$BoardPath.curve.add_point(pointarray[points+1], (pointarray[points-1]-pointarray[points])/curvescaler, Vector2(0,0))
 	
+	_instantiate_new_player()
 	$BoardPath/BoardFollow.progress_ratio = 0
