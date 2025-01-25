@@ -18,6 +18,13 @@ func _process(delta: float) -> void:
 		$Wheel.velocity += Vector2(200, 0)
 		$Wheel/WheelSprite.rotate(PI/20)
 	$Wheel.move_and_slide()
+	
+	#make body fall if off-center
+	var direction_angle = $Wheel.position - $Body.position
+	if abs(direction_angle.x) > 40:
+		$Body.position.y += (1-direction_angle.normalized().y) * 4
+		print("unstable!")
+		
 	#Rotate body to face center of wheel
 	$Body.look_at($Wheel.to_global($Wheel.position))
 	#Adjust body position to be a static distance from wheel
