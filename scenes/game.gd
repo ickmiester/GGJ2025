@@ -5,6 +5,7 @@ signal lose
 @export var board_scene: PackedScene
 @export_file("*.tscn") var gameOverScene: String
 @export var character:PackedScene
+@export var offset:float
 var player: Node2D
 
 # Called when the node enters the scene tree for the first time.
@@ -18,7 +19,12 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	$BoardPath/BoardFollow.progress += $BoardPath/BoardFollow/board.speed * delta
+	#$BoardPath/BoardFollow.progress += $BoardPath/BoardFollow/board.speed * delta
+	offset = $BoardPath.get_curve().get_closest_offset($BoardPath.to_local(player.get_node("Wheel").to_global(player.get_node("Wheel").position)))
+	var oldx = $BoardPath/BoardFollow.position.x;
+	$BoardPath/BoardFollow.progress = offset
+	var newx = $BoardPath/BoardFollow.position.x;
+	player.get_node("Wheel").move_local_x(oldx - newx)
 	$BoardPath/BoardFollow/board/Camera2D/CanvasLayer/LevelIndicator/ProgressBar.value = $BoardPath/BoardFollow.progress_ratio * $BoardPath/BoardFollow/board/Camera2D/CanvasLayer/LevelIndicator/ProgressBar.max_value
 	pass
 	

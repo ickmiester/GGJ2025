@@ -16,13 +16,14 @@ func _process(delta: float) -> void:
 	if(Input.is_action_pressed("left")):
 		#print("Left Pressed")
 		$WheelAudio.play()
-		$Wheel.velocity += Vector2(-100, 0)
+		$Wheel.velocity += Vector2(-100, 0) * scale
 		$Wheel/WheelSprite.rotate(-PI/20)
 	if(Input.is_action_pressed("right")):
 		#print("Right Pressed")
 		$WheelAudio.play()
-		$Wheel.velocity += Vector2(100, 0)
+		$Wheel.velocity += Vector2(100, 0) * scale
 		$Wheel/WheelSprite.rotate(PI/20)
+	$Wheel.velocity += Vector2(0, 50) * scale
 	$Wheel.move_and_slide()
 	
 	#make body fall if off-center

@@ -3,14 +3,14 @@
 [ext_resource type="Script" path="res://scenes/character.gd" id="1_j0p02"]
 [ext_resource type="Texture2D" uid="uid://b52ebepxtp5yn" path="res://Assets/Robot_Bubble.png" id="2_86yh4"]
 [ext_resource type="Texture2D" uid="uid://duhmio1i0l6p8" path="res://Assets/Robot_body.png" id="3_mdary"]
-[ext_resource type="AudioStream" uid="uid://daukpxobfflgm" path="res://Audio/charactersqueak.wav" id="4_tj0aq"]
-[ext_resource type="AudioStream" uid="uid://dj3ii7bluiirx" path="res://Audio/charactersqueak2.wav" id="5_nrefp"]
-[ext_resource type="AudioStream" uid="uid://p12w4qr1grc1" path="res://Audio/charactersqueak3.wav" id="6_wnqqi"]
-[ext_resource type="AudioStream" uid="uid://byq0iw8wqk6v5" path="res://Audio/charactersqueak4.wav" id="7_f5tlc"]
-[ext_resource type="AudioStream" uid="uid://cc36iemt5u5e6" path="res://Audio/charactersqueak5.wav" id="8_tnt7r"]
-[ext_resource type="AudioStream" uid="uid://c0sfelcpxmq5c" path="res://Audio/scrape.wav" id="9_6r8m8"]
-[ext_resource type="AudioStream" uid="uid://fgvb1anuikfh" path="res://Audio/scrape2.wav" id="10_eq0hq"]
-[ext_resource type="AudioStream" uid="uid://bhq2r2d0hwyq2" path="res://Audio/scrape3.wav" id="11_5xecq"]
+[ext_resource type="AudioStream" uid="uid://daukpxobfflgm" path="res://audio/charactersqueak.wav" id="4_tj0aq"]
+[ext_resource type="AudioStream" uid="uid://dj3ii7bluiirx" path="res://audio/charactersqueak2.wav" id="5_nrefp"]
+[ext_resource type="AudioStream" uid="uid://p12w4qr1grc1" path="res://audio/charactersqueak3.wav" id="6_wnqqi"]
+[ext_resource type="AudioStream" uid="uid://byq0iw8wqk6v5" path="res://audio/charactersqueak4.wav" id="7_f5tlc"]
+[ext_resource type="AudioStream" uid="uid://cc36iemt5u5e6" path="res://audio/charactersqueak5.wav" id="8_tnt7r"]
+[ext_resource type="AudioStream" uid="uid://c0sfelcpxmq5c" path="res://audio/scrape.wav" id="9_6r8m8"]
+[ext_resource type="AudioStream" uid="uid://fgvb1anuikfh" path="res://audio/scrape2.wav" id="10_eq0hq"]
+[ext_resource type="AudioStream" uid="uid://bhq2r2d0hwyq2" path="res://audio/scrape3.wav" id="11_5xecq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lr1e5"]
 radius = 24.0
@@ -36,7 +36,7 @@ script = ExtResource("1_j0p02")
 
 [node name="Wheel" type="CharacterBody2D" parent="."]
 position = Vector2(0, -1)
-collision_mask = 0
+collision_mask = 2
 
 [node name="WheelCollision" type="CollisionShape2D" parent="Wheel"]
 shape = SubResource("CircleShape2D_lr1e5")
@@ -49,11 +49,10 @@ position = Vector2(0, -150)
 collision_mask = 0
 
 [node name="BodyCollision" type="CollisionShape2D" parent="Body"]
-position = Vector2(0, -12.5)
 shape = SubResource("CircleShape2D_1igwi")
 
 [node name="SpriteContainer" type="Node2D" parent="Body/BodyCollision"]
-position = Vector2(0, 12.5)
+position = Vector2(0, -1)
 rotation = -1.5708
 
 [node name="BodySprite" type="Sprite2D" parent="Body/BodyCollision/SpriteContainer"]
