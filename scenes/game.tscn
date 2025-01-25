@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://cg64tss28lfvx"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_ci6ca"]
-[ext_resource type="PackedScene" uid="uid://4bkm5ku1dlce" path="res://board.tscn" id="2_1o0vd"]
-[ext_resource type="PackedScene" uid="uid://btugersm8vbgx" path="res://scenes/character.tscn" id="2_5w011"]
-[ext_resource type="PackedScene" uid="uid://dmgb3hcddtg5k" path="res://scenes/enemy.tscn" id="4_tvnff"]
+[ext_resource type="PackedScene" uid="uid://4bkm5ku1dlce" path="res://scenes/board.tscn" id="2_1o0vd"]
+[ext_resource type="PackedScene" path="res://scenes/character.tscn" id="2_5w011"]
+[ext_resource type="PackedScene" uid="uid://bibhw7mpu8iy1" path="res://scenes/enemy.tscn" id="4_tvnff"]
 
 [sub_resource type="Curve2D" id="Curve2D_o5dac"]
 _data = {
@@ -33,6 +33,13 @@ offset_top = 127.0
 offset_right = 100.0
 offset_bottom = 158.0
 text = "WIN!"
+
+[node name="NewPathButton" type="Button" parent="."]
+offset_left = 20.0
+offset_top = 16.0
+offset_right = 65.0
+offset_bottom = 47.0
+text = "NEW PATH"
 
 [node name="LoseButton" type="Button" parent="."]
 offset_left = 731.0
@@ -77,4 +84,5 @@ position = Vector2(0, 540)
 shape = SubResource("WorldBoundaryShape2D_6gnbg")
 
 [connection signal="pressed" from="WinButton" to="." method="_on_win_button_pressed"]
+[connection signal="pressed" from="NewPathButton" to="." method="_on_new_path_button_pressed"]
 [connection signal="pressed" from="LoseButton" to="." method="_on_lose_button_pressed"]
