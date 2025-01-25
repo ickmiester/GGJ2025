@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_ci6ca"]
 [ext_resource type="PackedScene" uid="uid://4bkm5ku1dlce" path="res://scenes/board.tscn" id="2_1o0vd"]
-[ext_resource type="PackedScene" path="res://scenes/character.tscn" id="2_5w011"]
+[ext_resource type="PackedScene" uid="uid://coxxd3ndthibi" path="res://scenes/character.tscn" id="2_5w011"]
 [ext_resource type="PackedScene" uid="uid://bibhw7mpu8iy1" path="res://scenes/enemy.tscn" id="4_tvnff"]
 
 [sub_resource type="Curve2D" id="Curve2D_o5dac"]
@@ -31,7 +31,8 @@ character = ExtResource("2_5w011")
 position = Vector2(38, 251)
 
 [node name="BoardPath" type="Path2D" parent="."]
-position = Vector2(-1, 0)
+position = Vector2(-44.2887, 0)
+scale = Vector2(2.10997, 1)
 curve = SubResource("Curve2D_o5dac")
 
 [node name="BoardFollow" type="PathFollow2D" parent="BoardPath"]
@@ -42,7 +43,7 @@ loop = false
 [node name="board" parent="BoardPath/BoardFollow" instance=ExtResource("2_1o0vd")]
 
 [node name="Camera2D" type="Camera2D" parent="BoardPath/BoardFollow/board"]
-zoom = Vector2(2.52, 2.52)
+zoom = Vector2(2, 2)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="BoardPath/BoardFollow/board/Camera2D"]
 

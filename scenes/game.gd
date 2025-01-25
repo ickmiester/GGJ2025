@@ -12,15 +12,17 @@ func _ready() -> void:
 	#$BoardPath/BoardFollow/board.position = $StartPosition.position
 	$BoardPath/BoardFollow.progress_ratio = 0
 	player = character.instantiate()
-	player.position.x = 300
-	player.position.y = 200
-	add_child(player)
+	player.position.x = 0
+	player.position.y = -50
+	player.scale = Vector2(0.25, 0.25)
+	$BoardPath/BoardFollow/board.add_child(player)
 	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	$BoardPath/BoardFollow.progress += $BoardPath/BoardFollow/board.speed * delta
+	pass
 	
 
 func _on_win_button_pressed() -> void:
