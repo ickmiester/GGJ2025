@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_ci6ca"]
 [ext_resource type="PackedScene" uid="uid://4bkm5ku1dlce" path="res://scenes/board.tscn" id="2_1o0vd"]
-[ext_resource type="PackedScene" uid="uid://btugersm8vbgx" path="res://scenes/character.tscn" id="2_5w011"]
+[ext_resource type="PackedScene" path="res://scenes/character.tscn" id="2_5w011"]
 [ext_resource type="PackedScene" uid="uid://bibhw7mpu8iy1" path="res://scenes/enemy.tscn" id="4_tvnff"]
 
 [sub_resource type="Curve2D" id="Curve2D_o5dac"]
@@ -27,27 +27,6 @@ script = ExtResource("1_ci6ca")
 gameOverScene = "res://scenes/game_over.tscn"
 character = ExtResource("2_5w011")
 
-[node name="WinButton" type="Button" parent="."]
-offset_left = 55.0
-offset_top = 127.0
-offset_right = 100.0
-offset_bottom = 158.0
-text = "WIN!"
-
-[node name="NewPathButton" type="Button" parent="."]
-offset_left = 20.0
-offset_top = 16.0
-offset_right = 65.0
-offset_bottom = 47.0
-text = "NEW PATH"
-
-[node name="LoseButton" type="Button" parent="."]
-offset_left = 731.0
-offset_top = 132.0
-offset_right = 783.0
-offset_bottom = 163.0
-text = "LOSE!"
-
 [node name="StartPosition" type="Marker2D" parent="."]
 position = Vector2(38, 251)
 
@@ -61,6 +40,32 @@ rotation = 1.09313
 loop = false
 
 [node name="board" parent="BoardPath/BoardFollow" instance=ExtResource("2_1o0vd")]
+
+[node name="Camera2D" type="Camera2D" parent="BoardPath/BoardFollow/board"]
+zoom = Vector2(2.52, 2.52)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="BoardPath/BoardFollow/board/Camera2D"]
+
+[node name="LoseButton" type="Button" parent="BoardPath/BoardFollow/board/Camera2D/CanvasLayer"]
+offset_left = 163.0
+offset_top = 16.0
+offset_right = 215.0
+offset_bottom = 47.0
+text = "LOSE!"
+
+[node name="NewPathButton" type="Button" parent="BoardPath/BoardFollow/board/Camera2D/CanvasLayer"]
+offset_left = 8.0
+offset_top = 16.0
+offset_right = 99.0
+offset_bottom = 47.0
+text = "NEW PATH"
+
+[node name="WinButton" type="Button" parent="BoardPath/BoardFollow/board/Camera2D/CanvasLayer"]
+offset_left = 108.0
+offset_top = 16.0
+offset_right = 153.0
+offset_bottom = 47.0
+text = "WIN!"
 
 [node name="Enemy" parent="." instance=ExtResource("4_tvnff")]
 position = Vector2(885, 369)
@@ -83,6 +88,6 @@ shape = SubResource("WorldBoundaryShape2D_7d38f")
 position = Vector2(0, 540)
 shape = SubResource("WorldBoundaryShape2D_6gnbg")
 
-[connection signal="pressed" from="WinButton" to="." method="_on_win_button_pressed"]
-[connection signal="pressed" from="NewPathButton" to="." method="_on_new_path_button_pressed"]
-[connection signal="pressed" from="LoseButton" to="." method="_on_lose_button_pressed"]
+[connection signal="pressed" from="BoardPath/BoardFollow/board/Camera2D/CanvasLayer/LoseButton" to="." method="_on_lose_button_pressed"]
+[connection signal="pressed" from="BoardPath/BoardFollow/board/Camera2D/CanvasLayer/NewPathButton" to="." method="_on_new_path_button_pressed"]
+[connection signal="pressed" from="BoardPath/BoardFollow/board/Camera2D/CanvasLayer/WinButton" to="." method="_on_win_button_pressed"]

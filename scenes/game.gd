@@ -40,6 +40,7 @@ func _on_new_path_button_pressed() -> void:
 	var screeny = get_viewport().size.y
 	var marginx = 50
 	var marginy = 50
+	var xscaler = 10
 	var curvescaler = 3
 	var points = randf_range(4,20)
 	
@@ -47,8 +48,8 @@ func _on_new_path_button_pressed() -> void:
 	
 	pointarray.append(Vector2(marginx,screeny/2))
 	for n in range(points):
-		pointarray.append(Vector2(marginx+screenx/points*n,randf_range(marginx,screeny-marginy)))
-	pointarray.append(Vector2(screenx-marginx,screeny/2))	
+		pointarray.append(Vector2((marginx+screenx/points*n)*xscaler,randf_range(marginx,screeny-marginy)))
+	pointarray.append(Vector2((screenx-marginx)*xscaler,screeny/2))	
 
 	$BoardPath.curve.add_point(pointarray[0], Vector2(0,0), (pointarray[1]-pointarray[0])/curvescaler)
 	for n in range(1, points-1):
