@@ -61,14 +61,14 @@ func _process(delta: float) -> void:
 	$Body/BodyCollision/SpriteContainer/BodySprite.rotation = ($Wheel.to_global($Wheel.position) - $Body.to_global($Body.position)).angle()
 	var body = $Body
 	var parent = body.get_parent()
-	body.reparent($Wheel)
+	#body.reparent($Wheel)
 	
 	if(Input.is_action_pressed("balance left")):
 		body.rotate(-PI/90)
 	if(Input.is_action_pressed("balance right")):
 		body.rotate(PI/90)
 		
-	body.reparent(parent)
+	#body.reparent(parent)
 	body.get_node("BodyCollision/SpriteContainer/BodySprite").play()
 	$Body.move_and_slide()
 
