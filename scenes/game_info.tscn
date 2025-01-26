@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://bn01my0anig87"]
+[gd_scene load_steps=7 format=3 uid="uid://bn01my0anig87"]
 
 [ext_resource type="Script" path="res://scenes/game_info.gd" id="1_telsd"]
 [ext_resource type="Texture2D" uid="uid://bbfe1bgr8kbhc" path="res://art/game info.png" id="2_r74qy"]
+[ext_resource type="PackedScene" uid="uid://kjt5bcuhwbfv" path="res://scenes/buttonaudio.tscn" id="3_8f6e8"]
 [ext_resource type="PackedScene" uid="uid://dld18w03p50k8" path="res://scenes/menumusic.tscn" id="3_tval3"]
+[ext_resource type="Texture2D" uid="uid://rp51a030w5l" path="res://art/IGDATC Logo.png" id="5_lebhk"]
+[ext_resource type="Texture2D" uid="uid://cgaasws5ix4ui" path="res://art/ggjlogo.png" id="6_vxmqa"]
 
 [node name="GameInfo" type="Node2D"]
 script = ExtResource("1_telsd")
@@ -16,19 +19,37 @@ expand_mode = 2
 stretch_mode = 4
 
 [node name="NextButton" type="Button" parent="."]
-offset_left = 366.0
-offset_top = 442.0
-offset_right = 415.0
-offset_bottom = 473.0
+offset_left = 848.0
+offset_top = 448.0
+offset_right = 897.0
+offset_bottom = 479.0
+scale = Vector2(2, 2)
 text = "NEXT"
 
 [node name="BackButton" type="Button" parent="."]
-offset_left = 459.0
-offset_top = 441.0
-offset_right = 509.0
-offset_bottom = 472.0
+offset_left = 16.0
+offset_top = 448.0
+offset_right = 66.0
+offset_bottom = 479.0
+scale = Vector2(2, 2)
 text = "BACK"
 
 [node name="Music" parent="." instance=ExtResource("3_tval3")]
 
+[node name="ButtonAudio" parent="." instance=ExtResource("3_8f6e8")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(59.375, 57.375)
+scale = Vector2(0.481915, 0.481915)
+texture = ExtResource("5_lebhk")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(900, 61)
+scale = Vector2(0.117778, 0.117778)
+texture = ExtResource("6_vxmqa")
+
+[connection signal="mouse_entered" from="NextButton" to="ButtonAudio" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="NextButton" to="ButtonAudio" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="BackButton" to="ButtonAudio" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="BackButton" to="ButtonAudio" method="_on_mouse_exited"]
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

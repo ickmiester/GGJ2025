@@ -1,0 +1,19 @@
+[gd_scene load_steps=6 format=3 uid="uid://kjt5bcuhwbfv"]
+
+[ext_resource type="Script" path="res://scenes/buttonaudio.gd" id="1_8uy4k"]
+[ext_resource type="AudioStream" uid="uid://q6srwi3gxeqy" path="res://audio/boing.wav" id="2_oco4f"]
+[ext_resource type="AudioStream" uid="uid://d1278343vnpp2" path="res://audio/boing2.wav" id="3_uqkb5"]
+[ext_resource type="AudioStream" uid="uid://ppkmo0ldjxb" path="res://audio/boing3.wav" id="4_c5tkp"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_sad6j"]
+streams_count = 3
+stream_0/stream = ExtResource("2_oco4f")
+stream_1/stream = ExtResource("3_uqkb5")
+stream_2/stream = ExtResource("4_c5tkp")
+
+[node name="ButtonAudio" type="Node2D"]
+script = ExtResource("1_8uy4k")
+
+[node name="ButtonAudio" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_sad6j")
+volume_db = -3.0
