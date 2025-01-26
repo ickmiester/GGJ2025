@@ -8,9 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://ds1l83prb22pg" path="res://Assets/Enemy_Anim/Enemy02_idle.png" id="3_nkmb1"]
 [ext_resource type="Texture2D" uid="uid://djbar586gi36n" path="res://Assets/Enemy_Anim/Enemy05_Blowbubb.png" id="4_v72i1"]
 [ext_resource type="Texture2D" uid="uid://drwyanl8sih1b" path="res://Assets/Enemy_Anim/Enemy06_Blowbubb.png" id="5_a767j"]
-[ext_resource type="AudioStream" uid="uid://lqip4agk6obt" path="res://Audio/enemysqueak2.wav" id="10_2jq2d"]
-[ext_resource type="AudioStream" uid="uid://by1jy3n0nrh2a" path="res://Audio/enemyshoot1.wav" id="11_lchna"]
-[ext_resource type="AudioStream" uid="uid://dcidv0fgb6dlm" path="res://Audio/enemyshoot2.wav" id="12_mppt8"]
+[ext_resource type="AudioStream" uid="uid://lqip4agk6obt" path="res://audio/enemysqueak2.wav" id="10_2jq2d"]
+[ext_resource type="AudioStream" uid="uid://by1jy3n0nrh2a" path="res://audio/enemyshoot1.wav" id="11_lchna"]
+[ext_resource type="AudioStream" uid="uid://dcidv0fgb6dlm" path="res://audio/enemyshoot2.wav" id="12_mppt8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sykow"]
 atlas = ExtResource("2_0puw5")

@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://e13i84qvlh83"]
+[gd_scene load_steps=13 format=3 uid="uid://e13i84qvlh83"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_d7gh1"]
 [ext_resource type="PackedScene" uid="uid://coxxd3ndthibi" path="res://scenes/character.tscn" id="2_8jj5n"]
 [ext_resource type="Script" path="res://scenes/timer.gd" id="3_gdc8q"]
+[ext_resource type="Texture2D" uid="uid://ti2sn4g4di73" path="res://Assets/CloudGroundTile_1.png" id="4_iuwj1"]
 [ext_resource type="Texture2D" uid="uid://cbd5asmfkd7do" path="res://art/fullsizebg_temp.png" id="4_tuos5"]
 [ext_resource type="Texture2D" uid="uid://8juqu68ng3qq" path="res://Assets/BubbleGroundSquare.png" id="5_kt28r"]
 
@@ -141,7 +142,7 @@ offset_top = 80.1139
 offset_right = 529981.0
 offset_bottom = 250080.0
 scale = Vector2(0.004, 0.002)
-texture = ExtResource("5_kt28r")
+texture = ExtResource("4_iuwj1")
 stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 

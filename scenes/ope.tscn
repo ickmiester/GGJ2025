@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scenes/ope.gd" id="1_vbq8o"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qskxp"]
-radius = 69.8713
+radius = 79.0569
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ynknb"]
 animations = [{

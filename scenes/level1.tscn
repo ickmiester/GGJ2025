@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bibhw7mpu8iy1" path="res://scenes/enemy.tscn" id="4_ydkmp"]
 [ext_resource type="Texture2D" uid="uid://d0nwli2b3qmqp" path="res://Assets/CloudGround2.png" id="5_k4a64"]
 [ext_resource type="PackedScene" uid="uid://cu8ogd3ah2g0x" path="res://scenes/bubble.tscn" id="6_3iblh"]
-[ext_resource type="PackedScene" path="res://scenes/ope.tscn" id="8_husmu"]
+[ext_resource type="PackedScene" uid="uid://bjlu3ce7053b6" path="res://scenes/ope.tscn" id="8_husmu"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5p1sd"]
 normal = Vector2(1, 0)
@@ -42,7 +42,7 @@ rotation = 0.00787386
 scale = Vector2(2.10974, 1.00048)
 skew = 0.0271667
 offset = Vector2(0, 200)
-zoom = Vector2(2, 2)
+zoom = Vector2(1.5, 1.5)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
 
