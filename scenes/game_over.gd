@@ -27,4 +27,8 @@ func _on_retry_button_pressed() -> void:
 
 
 func _on_main_menu_button_pressed() -> void:
+	Game.currentLevel = 0;
+	Game.totalTimeElapsed = 0;
+	Game.maxSpeed = 0;
+	Game.totalDistanceCovered = 0
 	get_tree().change_scene_to_file(mainMenuScene)
