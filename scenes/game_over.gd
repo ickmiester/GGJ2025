@@ -15,12 +15,19 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if(Input.is_action_pressed("jump")):
+	if(Input.is_action_pressed("start")):
 		call_deferred("_on_retry_button_pressed")
 	pass
 
 
 func _on_retry_button_pressed() -> void:
+	Game.currentLevel = Game.oldCurrentLevel;
+	Game.totalTimeElapsed = Game.oldTimeElapsed;
+	Game.maxSpeed = Game.oldMaxSpeed;
+	Game.totalDistanceCovered = Game.oldDistanceCovered
+	get_tree().change_scene_to_file(Game.lastPlayedScene)
+	
+func _on_replay_button_pressed() -> void:
 	Game.currentLevel = 0;
 	Game.totalTimeElapsed = 0;
 	Game.maxSpeed = 0;

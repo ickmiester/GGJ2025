@@ -23,7 +23,7 @@ offset_left = 407.0
 offset_top = 481.0
 offset_right = 463.0
 offset_bottom = 512.0
-text = "RETRY"
+text = "REPLAY"
 
 [node name="MainMenuButton" type="Button" parent="."]
 offset_left = 489.0
@@ -44,5 +44,5 @@ texture = ExtResource("4_gihq0")
 
 [node name="Music" parent="." instance=ExtResource("5_fdkl8")]
 
-[connection signal="pressed" from="RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="RetryButton" to="." method="_on_replay_button_pressed"]
 [connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_button_pressed"]

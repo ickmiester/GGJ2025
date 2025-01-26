@@ -30,6 +30,7 @@ size = Vector2(125, 403.5)
 script = ExtResource("1_7t7mm")
 gameOverScene = "res://scenes/game_over.tscn"
 winScene = "res://scenes/longlevel.tscn"
+currentScene = "res://scenes/level2.tscn"
 character = ExtResource("2_7mbek")
 spedometer = NodePath("Camera2D/CanvasLayer/LevelIndicator/Spedometer")
 

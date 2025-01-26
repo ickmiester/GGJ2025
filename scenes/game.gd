@@ -6,15 +6,21 @@ signal lose
 @export var board_scene: PackedScene
 @export_file("*.tscn") var gameOverScene: String
 @export_file("*.tscn") var winScene:String
+@export_file("*.tscn") var currentScene:String
 @export var character:PackedScene
 @export var offset:float
 var player: Node2D
 
+static var oldDistanceCovered = 0
+static var oldTimeElapsed = 0
+static var oldMaxSpeed = 0
+static var oldCurrentLevel = 0
 static var totalDistanceCovered = 0
 static var totalTimeElapsed = 0
 static var maxSpeed = 0
 static var currentLevel = 0
 static var success = false
+static var lastPlayedScene = null
 
 @export var distanceCovered = 0;
 @export var timeElapsed = 0
@@ -31,6 +37,7 @@ func _ready() -> void:
 	#$BoardPath/BoardFollow/board/Camera2D/CanvasLayer/LevelIndicator/ProgressBar.value = 0;
 	distanceCovered = 0
 	timeElapsed = 0
+	lastPlayedScene = currentScene
 	print("distance:" + str(distanceCovered))
 	print("totalDistance:" + str(totalDistanceCovered))
 	print("timeElapsed:" + str(timeElapsed))
@@ -42,6 +49,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	oldDistanceCovered = totalDistanceCovered
+	oldTimeElapsed = totalTimeElapsed
+	oldMaxSpeed = maxSpeed
+	oldCurrentLevel = currentLevel
 	currentSpeed = player.currentSpeed.x
 	if(player.maxSpeed.x > maxSpeed):
 		maxSpeed = player.maxSpeed.x
