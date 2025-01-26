@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cbd5asmfkd7do" path="res://art/fullsizebg_temp.png" id="4_820c0"]
 [ext_resource type="Texture2D" uid="uid://ti2sn4g4di73" path="res://Assets/CloudGroundTile_1.png" id="5_ogyt0"]
 [ext_resource type="PackedScene" uid="uid://b1bf8fklhk05i" path="res://scenes/enemy2.tscn" id="6_7n7hx"]
-[ext_resource type="PackedScene" uid="uid://dt0ab06cirdx5" path="res://scenes/music.tscn" id="7_nufkf"]
+[ext_resource type="PackedScene" path="res://scenes/music.tscn" id="7_nufkf"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5p1sd"]
 normal = Vector2(1, 0)
