@@ -5,7 +5,7 @@
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_hb7w4")
-gameScene = "res://scenes/game.tscn"
+gameScene = "res://scenes/level1.tscn"
 infoScene = "res://scenes/game_info.tscn"
 bubbleScene = "res://scenes/bubblesSample.tscn"
 
