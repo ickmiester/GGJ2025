@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dayayrnpsw6jh"]
+[gd_scene load_steps=21 format=3 uid="uid://dayayrnpsw6jh"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_7t7mm"]
 [ext_resource type="PackedScene" uid="uid://coxxd3ndthibi" path="res://scenes/character.tscn" id="2_7mbek"]
@@ -12,6 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://dx5o2p1d4k50f" path="res://art/Minnesota Flag.png" id="6_rf3ev"]
 [ext_resource type="Texture2D" uid="uid://8juqu68ng3qq" path="res://Assets/BubbleGroundSquare.png" id="6_yp5gx"]
 [ext_resource type="PackedScene" uid="uid://dt0ab06cirdx5" path="res://scenes/music.tscn" id="7_nufkf"]
+[ext_resource type="Texture2D" uid="uid://d0nwli2b3qmqp" path="res://Assets/CloudGround2.png" id="13_6utm1"]
+[ext_resource type="Texture2D" uid="uid://bbuji04ax3tin" path="res://Assets/Cloud_Ground.png" id="14_1140e"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5p1sd"]
 normal = Vector2(1, 0)
@@ -220,7 +222,7 @@ texture = ExtResource("4_820c0")
 collision_layer = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Floor/StaticBody2D"]
-polygon = PackedVector2Array(0, 256, 88, 256, 1976, 688, 2240, 704, 2240, 256, 2248, 704, -11, 696, -11, 0, 0, 0)
+polygon = PackedVector2Array(0, 256, 88, 256, 1976, 688, 2248, 688, 2240, 256, 2248, 944, 0, 936, -11, 0, 0, 0)
 
 [node name="TextureRect" type="TextureRect" parent="Floor/StaticBody2D/CollisionPolygon2D"]
 visible = false
@@ -234,7 +236,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Polygon2D" type="Polygon2D" parent="Floor/StaticBody2D/CollisionPolygon2D"]
 position = Vector2(0, 168)
-polygon = PackedVector2Array(0, 88, 88, 88, 1976, 520, 2264, 536, 0, 536)
+polygon = PackedVector2Array(-8, 88, 88, 88, 1976, 520, 2248, 520, 2248, 776, 1160, 776, -8, 768)
 uv = PackedVector2Array(0, 88, 88, 88, 1976, 520, 0, 536)
 
 [node name="MinnesotaFlag" type="Sprite2D" parent="Floor/StaticBody2D"]
@@ -540,3 +542,227 @@ position = Vector2(1770, 626)
 scale = Vector2(0.35, 0.35)
 
 [node name="Music" parent="." instance=ExtResource("7_nufkf")]
+
+[node name="CloudGroundTiles" type="Node2D" parent="."]
+position = Vector2(2107, 820)
+scale = Vector2(1.48324, 1.48324)
+
+[node name="CloudGroundTile3" type="Sprite2D" parent="CloudGroundTiles"]
+scale = Vector2(1, 1)
+texture = ExtResource("5_ogyt0")
+
+[node name="CloudGroundTile21" type="Sprite2D" parent="CloudGroundTiles"]
+position = Vector2(-230.286, 452.218)
+scale = Vector2(1.48324, 1.48324)
+texture = ExtResource("5_ogyt0")
+
+[node name="CloudGroundTile22" type="Sprite2D" parent="CloudGroundTiles"]
+position = Vector2(-52.2975, 489.974)
+scale = Vector2(1.48324, 1.48324)
+texture = ExtResource("5_ogyt0")
+
+[node name="CloudGroundTile16" type="Sprite2D" parent="CloudGroundTiles"]
+position = Vector2(-1296.49, -273.725)
+rotation = 0.226893
+scale = Vector2(1, 1)
+texture = ExtResource("5_ogyt0")
+
+[node name="CloudGroundTile23" type="Sprite2D" parent="CloudGroundTiles"]
+position = Vector2(-1123.89, -233.947)
+rotation = 0.226893
+scale = Vector2(1, 1)
+texture = ExtResource("5_ogyt0")
+
+[node name="CloudGroundTile24" type="Sprite2D" parent="CloudGroundTiles"]
+position = Vector2(-962.083, -197.54)
+rotation = 0.226893
+scale = Vector2(1, 1)
+texture = ExtResource("5_ogyt0")
+
+[node name="CloudGroundTile25" type="Sprite2D" parent="CloudGroundTiles"]
+position = Vector2(-789.488, -157.763)
+rotation = 0.226893
+scale = Vector2(1, 1)
+texture = ExtResource("5_ogyt0")
+
+[node name="CloudGroundTile26" type="Sprite2D" parent="CloudGroundTiles"]
+position = Vector2(-616.893, -117.985)
+rotation = 0.226893
+scale = Vector2(1, 1)
+texture = ExtResource("5_ogyt0")
+
+[node name="CloudGroundTile27" type="Sprite2D" parent="CloudGroundTiles"]
+position = Vector2(-444.298, -78.2072)
+rotation = 0.226893
+scale = Vector2(1, 1)
+texture = ExtResource("5_ogyt0")
+
+[node name="CloudGroundTile19" type="Sprite2D" parent="CloudGroundTiles"]
+position = Vector2(-1452.9, -117.985)
+scale = Vector2(1, 1)
+texture = ExtResource("5_ogyt0")
+
+[node name="CloudGroundTile28" type="Sprite2D" parent="CloudGroundTiles"]
+position = Vector2(-271.703, -39.1036)
+rotation = 0.226893
+scale = Vector2(1, 1)
+texture = ExtResource("5_ogyt0")
+
+[node name="CloudGroundTile15" type="Sprite2D" parent="CloudGroundTiles"]
+position = Vector2(-1450.2, -291.254)
+scale = Vector2(1, 1)
+texture = ExtResource("5_ogyt0")
+
+[node name="CloudGroundTile18" type="Sprite2D" parent="CloudGroundTiles"]
+position = Vector2(-1334.77, -100.988)
+rotation = 0.226893
+scale = Vector2(1, 1)
+texture = ExtResource("5_ogyt0")
+
+[node name="CloudGroundTile29" type="Sprite2D" parent="CloudGroundTiles"]
+position = Vector2(-99.7816, 0.674194)
+rotation = 0.226893
+scale = Vector2(1, 1)
+texture = ExtResource("5_ogyt0")
+
+[node name="CloudGroundTile17" type="Sprite2D" parent="CloudGroundTiles"]
+position = Vector2(-1296.49, -273.725)
+rotation = 0.226893
+scale = Vector2(1, 1)
+texture = ExtResource("5_ogyt0")
+
+[node name="CloudGroundTile30" type="Sprite2D" parent="CloudGroundTiles"]
+position = Vector2(-1123.89, -233.947)
+rotation = 0.226893
+scale = Vector2(1, 1)
+texture = ExtResource("5_ogyt0")
+
+[node name="CloudGroundTile31" type="Sprite2D" parent="CloudGroundTiles"]
+position = Vector2(-962.083, -197.54)
+rotation = 0.226893
+scale = Vector2(1, 1)
+texture = ExtResource("5_ogyt0")
+
+[node name="CloudGroundTile32" type="Sprite2D" parent="CloudGroundTiles"]
+position = Vector2(-789.488, -157.763)
+rotation = 0.226893
+scale = Vector2(1, 1)
+texture = ExtResource("5_ogyt0")
+
+[node name="CloudGroundTile33" type="Sprite2D" parent="CloudGroundTiles"]
+position = Vector2(-616.893, -117.985)
+rotation = 0.226893
+scale = Vector2(1, 1)
+texture = ExtResource("5_ogyt0")
+
+[node name="CloudGroundTile34" type="Sprite2D" parent="CloudGroundTiles"]
+position = Vector2(-444.298, -78.2072)
+rotation = 0.226893
+scale = Vector2(1, 1)
+texture = ExtResource("5_ogyt0")
+
+[node name="CloudGroundTile35" type="Sprite2D" parent="CloudGroundTiles"]
+position = Vector2(-271.703, -39.1036)
+rotation = 0.226893
+scale = Vector2(1, 1)
+texture = ExtResource("5_ogyt0")
+
+[node name="CloudGroundTile36" type="Sprite2D" parent="CloudGroundTiles"]
+position = Vector2(-99.7816, 0.674194)
+rotation = 0.226893
+scale = Vector2(1, 1)
+texture = ExtResource("5_ogyt0")
+
+[node name="CloudGroundTile37" type="Sprite2D" parent="CloudGroundTiles"]
+position = Vector2(-1162.18, -61.2106)
+rotation = 0.226893
+scale = Vector2(1, 1)
+texture = ExtResource("5_ogyt0")
+
+[node name="CloudGroundTile38" type="Sprite2D" parent="CloudGroundTiles"]
+position = Vector2(-1000.37, -24.8039)
+rotation = 0.226893
+scale = Vector2(1, 1)
+texture = ExtResource("5_ogyt0")
+
+[node name="CloudGroundTile39" type="Sprite2D" parent="CloudGroundTiles"]
+position = Vector2(-827.776, 14.9739)
+rotation = 0.226893
+scale = Vector2(1, 1)
+texture = ExtResource("5_ogyt0")
+
+[node name="CloudGroundTile40" type="Sprite2D" parent="CloudGroundTiles"]
+position = Vector2(-655.181, 54.7516)
+rotation = 0.226893
+scale = Vector2(1, 1)
+texture = ExtResource("5_ogyt0")
+
+[node name="CloudGroundTile41" type="Sprite2D" parent="CloudGroundTiles"]
+position = Vector2(-482.586, 94.5294)
+rotation = 0.226893
+scale = Vector2(1, 1)
+texture = ExtResource("5_ogyt0")
+
+[node name="CloudGroundTile42" type="Sprite2D" parent="CloudGroundTiles"]
+position = Vector2(-309.99, 133.633)
+rotation = 0.226893
+scale = Vector2(1, 1)
+texture = ExtResource("5_ogyt0")
+
+[node name="CloudGroundTile43" type="Sprite2D" parent="CloudGroundTiles"]
+position = Vector2(-138.07, 173.411)
+rotation = 0.226893
+scale = Vector2(1, 1)
+texture = ExtResource("5_ogyt0")
+
+[node name="CloudGround" type="Node2D" parent="CloudGroundTiles"]
+visible = false
+position = Vector2(-352.606, -99.7816)
+scale = Vector2(0.6742, 0.6742)
+
+[node name="CloudGround2" type="Sprite2D" parent="CloudGroundTiles/CloudGround"]
+texture = ExtResource("13_6utm1")
+
+[node name="CloudGround3" type="Sprite2D" parent="CloudGroundTiles/CloudGround"]
+position = Vector2(-64, -16)
+texture = ExtResource("13_6utm1")
+
+[node name="CloudGround" type="Sprite2D" parent="CloudGroundTiles/CloudGround"]
+position = Vector2(-112, -32)
+texture = ExtResource("14_1140e")
+
+[node name="CloudGround4" type="Sprite2D" parent="CloudGroundTiles/CloudGround"]
+position = Vector2(72, 1)
+texture = ExtResource("14_1140e")
+
+[node name="CloudGround5" type="Sprite2D" parent="CloudGroundTiles/CloudGround"]
+position = Vector2(136, 24)
+texture = ExtResource("14_1140e")
+
+[node name="CloudGround6" type="Sprite2D" parent="CloudGroundTiles/CloudGround"]
+position = Vector2(192, 48)
+texture = ExtResource("13_6utm1")
+
+[node name="CloudGround7" type="Sprite2D" parent="CloudGroundTiles/CloudGround"]
+position = Vector2(264, 48)
+texture = ExtResource("14_1140e")
+
+[node name="CloudGround8" type="Sprite2D" parent="CloudGroundTiles/CloudGround"]
+position = Vector2(304, 72)
+texture = ExtResource("13_6utm1")
+
+[node name="CloudGround9" type="Sprite2D" parent="CloudGroundTiles/CloudGround"]
+position = Vector2(376, 72)
+texture = ExtResource("14_1140e")
+
+[node name="CloudGround10" type="Sprite2D" parent="CloudGroundTiles/CloudGround"]
+position = Vector2(-1576, -336)
+texture = ExtResource("13_6utm1")
+
+[node name="CloudGround11" type="Sprite2D" parent="CloudGroundTiles/CloudGround"]
+position = Vector2(-1496, -344)
+texture = ExtResource("14_1140e")
+
+[node name="CloudGround12" type="Sprite2D" parent="CloudGroundTiles/CloudGround"]
+position = Vector2(-1589, -304)
+texture = ExtResource("13_6utm1")
