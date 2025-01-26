@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://d0nwli2b3qmqp" path="res://Assets/CloudGround2.png" id="5_k4a64"]
 [ext_resource type="Texture2D" uid="uid://ymsx5481bwin" path="res://Assets/Backgrounds/BK_Near.png" id="5_n72a5"]
 [ext_resource type="PackedScene" uid="uid://cu8ogd3ah2g0x" path="res://scenes/bubble.tscn" id="6_3iblh"]
-[ext_resource type="PackedScene" uid="uid://bjlu3ce7053b6" path="res://scenes/ope.tscn" id="8_husmu"]
+[ext_resource type="PackedScene" path="res://scenes/ope.tscn" id="8_husmu"]
 [ext_resource type="PackedScene" uid="uid://dt0ab06cirdx5" path="res://scenes/music.tscn" id="9_8qkhf"]
 [ext_resource type="Texture2D" uid="uid://boxafbldesq6b" path="res://Assets/Backgrounds/BK_Far.png" id="10_qn8a5"]
 [ext_resource type="Texture2D" uid="uid://dx5o2p1d4k50f" path="res://art/Minnesota Flag.png" id="13_w81ac"]
@@ -51,41 +51,46 @@ currentScene = "res://scenes/level1.tscn"
 character = ExtResource("2_wnbct")
 spedometer = NodePath("Camera2D/CanvasLayer/LevelIndicator/Spedometer")
 
-[node name="Background" type="Node2D" parent="."]
+[node name="Background" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.01, 0.01)
 
 [node name="base" type="ColorRect" parent="Background"]
-offset_left = -864.0
-offset_top = -438.0
-offset_right = 2376.0
-offset_bottom = 212.0
+offset_top = 5.0
+offset_right = 3240.0
+offset_bottom = 655.0
+scale = Vector2(0.25, 0.25)
 color = Color(0, 0.180392, 0.552941, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="dark" type="TextureRect" parent="Background"]
 visibility_layer = 524288
 z_as_relative = false
-offset_left = -864.0
-offset_top = -476.0
-offset_right = 2376.0
-offset_bottom = 892.0
+offset_top = 64.0
+offset_right = 3240.0
+offset_bottom = 1432.0
+scale = Vector2(0.25, 0.25)
 texture = ExtResource("10_qn8a5")
+metadata/_edit_use_anchors_ = true
 
 [node name="mid" type="TextureRect" parent="Background"]
 visibility_layer = 524288
 z_as_relative = false
-offset_left = -864.0
-offset_top = -245.0
-offset_right = 2376.0
-offset_bottom = 1123.0
+offset_top = 136.0
+offset_right = 3240.0
+offset_bottom = 1504.0
+scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_ugro6")
+metadata/_edit_use_anchors_ = true
 
 [node name="light" type="TextureRect" parent="Background"]
 visibility_layer = 524288
 z_as_relative = false
-offset_left = -864.0
-offset_top = -64.0
-offset_right = 2376.0
-offset_bottom = 1304.0
+offset_top = 200.0
+offset_right = 3240.0
+offset_bottom = 1568.0
+scale = Vector2(0.25, 0.25)
 texture = ExtResource("5_n72a5")
+metadata/_edit_use_anchors_ = true
 
 [node name="StartPosition" type="Marker2D" parent="."]
 position = Vector2(38, 251)
@@ -725,8 +730,8 @@ position = Vector2(287, 246)
 [node name="Music" parent="." instance=ExtResource("9_8qkhf")]
 
 [node name="MinnesotaFlag" type="Sprite2D" parent="."]
-position = Vector2(1652, 142)
-scale = Vector2(0.0493744, 0.0493744)
+position = Vector2(1660.47, 126.752)
+scale = Vector2(0.0642652, 0.0642652)
 texture = ExtResource("13_w81ac")
 
 [connection signal="pressed" from="Camera2D/CanvasLayer/LoseButton" to="." method="_on_lose_button_pressed"]
