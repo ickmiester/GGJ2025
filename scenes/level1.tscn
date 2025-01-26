@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://badrcqltcbtgn"]
+[gd_scene load_steps=16 format=3 uid="uid://badrcqltcbtgn"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_x0ot6"]
 [ext_resource type="PackedScene" uid="uid://coxxd3ndthibi" path="res://scenes/character.tscn" id="2_wnbct"]
@@ -21,7 +21,10 @@ normal = Vector2(0, 1)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6gnbg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_oywe4"]
-radius = 102.044
+radius = 97.2523
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4yxc6"]
+radius = 104.019
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hfm01"]
 size = Vector2(108, 245)
@@ -150,6 +153,14 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/Colliders/StaticBody2D3"]
 shape = SubResource("CircleShape2D_oywe4")
+
+[node name="StaticBody2D13" type="StaticBody2D" parent="Floors/Colliders"]
+position = Vector2(1251, 546)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/Colliders/StaticBody2D13"]
+shape = SubResource("CircleShape2D_4yxc6")
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="Floors/Colliders"]
 position = Vector2(354, 362)

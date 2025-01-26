@@ -38,7 +38,7 @@ rotation = 0.00787386
 scale = Vector2(2.10974, 1.00048)
 skew = 0.0271667
 offset = Vector2(0, 200)
-zoom = Vector2(2, 2)
+zoom = Vector2(1.5, 1.5)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
 
