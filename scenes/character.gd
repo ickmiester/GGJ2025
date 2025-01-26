@@ -25,7 +25,7 @@ func _process(delta: float) -> void:
 		$Wheel/WheelSprite.rotate(PI/20)
 	$Wheel.velocity += Vector2(0, 20) * scale
 	if(Input.is_action_just_pressed("jump")):
-		$Wheel.velocity+= Vector2(0, -900)
+		$Wheel.velocity+= Vector2(0, -900) * scale
 	$Wheel.move_and_slide()
 	
 		

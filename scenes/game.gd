@@ -30,7 +30,8 @@ func _process(delta: float) -> void:
 	
 
 func _instantiate_new_player() -> void:
-	remove_child(player)
+	if(player != null):
+		remove_child(player)
 	player = character.instantiate()
 	player.position.x = 50
 	player.position.y = 150
