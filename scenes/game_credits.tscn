@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dkxcdv3vfmgr8"]
+[gd_scene load_steps=7 format=3 uid="uid://df7622tlti63m"]
 
 [ext_resource type="Script" path="res://scenes/game_info.gd" id="1_63fpd"]
 [ext_resource type="Texture2D" uid="uid://bbfe1bgr8kbhc" path="res://art/game info.png" id="2_p0gom"]
@@ -9,8 +9,8 @@
 
 [node name="GameCredits" type="Node2D"]
 script = ExtResource("1_63fpd")
-MainMenuScene = "res://scenes/main_menu.tscn"
-CreditScene = "res://scenes/game_credits.tscn"
+MainMenuScene = "res://scenes/game_info.tscn"
+CreditScene = "res://scenes/main_menu.tscn"
 InfoScene = "res://scenes/game_info.tscn"
 
 [node name="Background" type="TextureRect" parent="."]
