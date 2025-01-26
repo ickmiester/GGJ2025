@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://c8vbugfvukqgs"]
+[gd_scene load_steps=7 format=3 uid="uid://c8vbugfvukqgs"]
 
 [ext_resource type="Script" path="res://scenes/game_over.gd" id="1_wfhyj"]
 [ext_resource type="Texture2D" uid="uid://b3x6c1qmmc7wo" path="res://art/game over.png" id="2_dk1yy"]
+[ext_resource type="PackedScene" uid="uid://kjt5bcuhwbfv" path="res://scenes/buttonaudio.tscn" id="3_0ewri"]
 [ext_resource type="Texture2D" uid="uid://c4nem2pcx55ky" path="res://Assets/Enemy_Anim/Enemy_Prickle.png" id="3_e8sp7"]
 [ext_resource type="Texture2D" uid="uid://ds1l83prb22pg" path="res://Assets/Enemy_Anim/Enemy02_idle.png" id="4_srknp"]
-[ext_resource type="PackedScene" path="res://scenes/menumusic.tscn" id="5_fuqf1"]
+[ext_resource type="PackedScene" uid="uid://dld18w03p50k8" path="res://scenes/menumusic.tscn" id="5_fuqf1"]
 
 [node name="GameOver" type="Node2D"]
 script = ExtResource("1_wfhyj")
@@ -19,17 +20,19 @@ expand_mode = 2
 stretch_mode = 4
 
 [node name="RetryButton" type="Button" parent="."]
-offset_left = 407.0
-offset_top = 481.0
-offset_right = 463.0
-offset_bottom = 512.0
+offset_left = 267.0
+offset_top = 464.0
+offset_right = 323.0
+offset_bottom = 495.0
+scale = Vector2(1.5, 1.5)
 text = "RETRY"
 
 [node name="MainMenuButton" type="Button" parent="."]
-offset_left = 489.0
-offset_top = 481.0
-offset_right = 593.0
-offset_bottom = 512.0
+offset_left = 574.0
+offset_top = 464.0
+offset_right = 678.0
+offset_bottom = 495.0
+scale = Vector2(1.5, 1.5)
 text = "MAIN MENU"
 
 [node name="EnemyPrickle" type="Sprite2D" parent="."]
@@ -44,5 +47,14 @@ texture = ExtResource("4_srknp")
 
 [node name="Music" parent="." instance=ExtResource("5_fuqf1")]
 
+[node name="ButtonAudio" parent="." instance=ExtResource("3_0ewri")]
+position = Vector2(407, 481)
+
+[connection signal="button_down" from="RetryButton" to="ButtonAudio" method="_on_button_down"]
+[connection signal="mouse_entered" from="RetryButton" to="ButtonAudio" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="RetryButton" to="ButtonAudio" method="_on_mouse_exited"]
 [connection signal="pressed" from="RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="button_down" from="MainMenuButton" to="ButtonAudio" method="_on_button_down"]
+[connection signal="mouse_entered" from="MainMenuButton" to="ButtonAudio" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="MainMenuButton" to="ButtonAudio" method="_on_mouse_exited"]
 [connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_button_pressed"]

@@ -20,3 +20,8 @@ func _on_mouse_entered() -> void:
 func _on_mouse_exited() -> void:
 	$ButtonAudio.play()
 	pass # Replace with function body.
+
+
+func _on_button_down() -> void:
+	$ClickAudio.play()
+	pass # Replace with function body.

@@ -19,19 +19,19 @@ expand_mode = 2
 stretch_mode = 4
 
 [node name="NextButton" type="Button" parent="."]
-offset_left = 848.0
-offset_top = 448.0
-offset_right = 897.0
-offset_bottom = 479.0
-scale = Vector2(2, 2)
+offset_left = 872.0
+offset_top = 480.0
+offset_right = 921.0
+offset_bottom = 511.0
+scale = Vector2(1.5, 1.5)
 text = "NEXT"
 
 [node name="BackButton" type="Button" parent="."]
 offset_left = 16.0
-offset_top = 448.0
+offset_top = 480.0
 offset_right = 66.0
-offset_bottom = 479.0
-scale = Vector2(2, 2)
+offset_bottom = 511.0
+scale = Vector2(1.5, 1.5)
 text = "BACK"
 
 [node name="Music" parent="." instance=ExtResource("3_tval3")]
@@ -48,8 +48,10 @@ position = Vector2(900, 61)
 scale = Vector2(0.117778, 0.117778)
 texture = ExtResource("6_vxmqa")
 
+[connection signal="button_down" from="NextButton" to="ButtonAudio" method="_on_button_down"]
 [connection signal="mouse_entered" from="NextButton" to="ButtonAudio" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="NextButton" to="ButtonAudio" method="_on_mouse_exited"]
+[connection signal="button_down" from="BackButton" to="ButtonAudio" method="_on_button_down"]
 [connection signal="mouse_entered" from="BackButton" to="ButtonAudio" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="BackButton" to="ButtonAudio" method="_on_mouse_exited"]
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cult5pickc1hw"]
+[gd_scene load_steps=5 format=3 uid="uid://cult5pickc1hw"]
 
 [ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_hb7w4"]
 [ext_resource type="Texture2D" uid="uid://hpvxgf1w32yw" path="res://art/WobbleWalker_Menu_temp.png" id="2_gncqw"]
-[ext_resource type="PackedScene" path="res://scenes/menumusic.tscn" id="3_fqrjr"]
+[ext_resource type="PackedScene" uid="uid://dld18w03p50k8" path="res://scenes/menumusic.tscn" id="3_fqrjr"]
+[ext_resource type="PackedScene" uid="uid://kjt5bcuhwbfv" path="res://scenes/buttonaudio.tscn" id="4_ma4bj"]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_hb7w4")
@@ -22,27 +23,31 @@ texture = ExtResource("2_gncqw")
 expand_mode = 3
 
 [node name="StartButton" type="Button" parent="."]
-offset_left = 312.0
-offset_top = 314.0
-offset_right = 368.0
-offset_bottom = 345.0
+offset_left = 468.0
+offset_top = 233.0
+offset_right = 524.0
+offset_bottom = 264.0
+scale = Vector2(1.5, 1.5)
 text = "START"
 
 [node name="QuitButton" type="Button" parent="."]
-offset_left = 21.0
-offset_top = 488.0
-offset_right = 68.0
-offset_bottom = 519.0
+offset_left = 480.0
+offset_top = 360.0
+offset_right = 527.0
+offset_bottom = 391.0
+scale = Vector2(1.5, 1.5)
 text = "QUIT"
 
 [node name="InfoButton" type="Button" parent="."]
-offset_left = 632.0
-offset_top = 310.0
-offset_right = 749.0
-offset_bottom = 341.0
+offset_left = 424.0
+offset_top = 296.0
+offset_right = 541.0
+offset_bottom = 327.0
+scale = Vector2(1.5, 1.5)
 text = "HOW TO PLAY"
 
 [node name="OptionsButton" type="Button" parent="."]
+visible = false
 offset_left = 869.0
 offset_top = 33.0
 offset_right = 948.0
@@ -50,16 +55,31 @@ offset_bottom = 64.0
 text = "OPTIONS"
 
 [node name="MUTE" type="CheckButton" parent="."]
-offset_left = 864.0
+offset_left = 820.0
 offset_top = 2.0
-offset_right = 957.0
+offset_right = 913.0
 offset_bottom = 33.0
+scale = Vector2(1.5, 1.5)
 text = "MUTE"
 
 [node name="Music" parent="." instance=ExtResource("3_fqrjr")]
 
+[node name="ButtonAudio" parent="." instance=ExtResource("4_ma4bj")]
+
+[connection signal="button_down" from="StartButton" to="ButtonAudio" method="_on_button_down"]
+[connection signal="mouse_entered" from="StartButton" to="ButtonAudio" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="StartButton" to="ButtonAudio" method="_on_mouse_exited"]
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="button_down" from="QuitButton" to="ButtonAudio" method="_on_button_down"]
+[connection signal="mouse_entered" from="QuitButton" to="ButtonAudio" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="QuitButton" to="ButtonAudio" method="_on_mouse_exited"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="button_down" from="InfoButton" to="ButtonAudio" method="_on_button_down"]
+[connection signal="mouse_entered" from="InfoButton" to="ButtonAudio" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="InfoButton" to="ButtonAudio" method="_on_mouse_exited"]
 [connection signal="pressed" from="InfoButton" to="." method="_on_info_button_pressed"]
+[connection signal="button_down" from="OptionsButton" to="ButtonAudio" method="_on_button_down"]
+[connection signal="mouse_entered" from="OptionsButton" to="ButtonAudio" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="OptionsButton" to="ButtonAudio" method="_on_mouse_exited"]
 [connection signal="pressed" from="OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="toggled" from="MUTE" to="." method="_on_mute_toggled"]
