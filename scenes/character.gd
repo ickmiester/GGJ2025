@@ -7,6 +7,8 @@ var currentSpeed = Vector2.ZERO
 var maxSpeed = Vector2.ZERO
 var consecutiveAccel = 0
 
+const JUMP_HEIGHT = -2500 #was -1800 before
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -37,7 +39,7 @@ func _process(delta: float) -> void:
 	$Wheel.velocity += Vector2(0, 40) * scale
 	if(Input.is_action_just_pressed("jump")):
 		if($Wheel.is_on_floor()):
-			$Wheel.velocity+= Vector2(0, -1800) * scale
+			$Wheel.velocity+= Vector2(0, JUMP_HEIGHT) * scale
 			$Wheel/WheelSprite.frame = 0;
 			$Wheel/WheelSprite.pause()
 	currentSpeed = $Wheel.velocity
