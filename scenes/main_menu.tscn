@@ -41,13 +41,6 @@ offset_right = 749.0
 offset_bottom = 341.0
 text = "HOW TO PLAY"
 
-[node name="BubbleButton" type="Button" parent="."]
-offset_left = 445.0
-offset_top = 310.0
-offset_right = 562.0
-offset_bottom = 341.0
-text = "BUBBLES"
-
 [node name="OptionsButton" type="Button" parent="."]
 offset_left = 869.0
 offset_top = 33.0
@@ -65,7 +58,5 @@ text = "MUTE"
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="InfoButton" to="." method="_on_info_button_pressed"]
-[connection signal="button_down" from="BubbleButton" to="." method="_on_bubble_button_down"]
-[connection signal="pressed" from="BubbleButton" to="." method="_on_info_button_pressed"]
 [connection signal="pressed" from="OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="toggled" from="MUTE" to="." method="_on_mute_toggled"]

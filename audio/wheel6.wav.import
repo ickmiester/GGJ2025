@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://ctr5ey30oradm"
-path="res://.godot/imported/wheel6.wav-67a5bb589b980b89721431e519ca55d1.sample"
+path="res://.godot/imported/wheel6.wav-5cbf5f0b5f830cf122f6f67586e506f5.sample"
 
 [deps]
 
-source_file="res://audio/wheel6.wav"
-dest_files=["res://.godot/imported/wheel6.wav-67a5bb589b980b89721431e519ca55d1.sample"]
+source_file="res://Audio/wheel6.wav"
+dest_files=["res://.godot/imported/wheel6.wav-5cbf5f0b5f830cf122f6f67586e506f5.sample"]
 
 [params]
 
