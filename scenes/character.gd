@@ -1,6 +1,8 @@
 extends Node2D
 
 @export var direction: Vector2
+signal win
+signal lose
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -69,3 +71,9 @@ func _process(delta: float) -> void:
 	body.reparent(parent)
 	body.get_node("BodyCollision/SpriteContainer/BodySprite").play()
 	$Body.move_and_slide()
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	print("onEnter")
+	emit_signal("win")
+	pass # Replace with function body.

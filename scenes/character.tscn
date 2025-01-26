@@ -4,21 +4,21 @@
 [ext_resource type="Texture2D" uid="uid://b52ebepxtp5yn" path="res://Assets/Robot_Bubble.png" id="2_86yh4"]
 [ext_resource type="Texture2D" uid="uid://byv1sjft5pcob" path="res://Assets/RobotBubbleWheel/Robot_BubbleWheel_0000s_0000_Layer-11.png" id="2_mbynl"]
 [ext_resource type="Texture2D" uid="uid://dah7y71441tdg" path="res://Assets/RobotBubbleWheel/Robot_BubbleWheel_0000s_0001_Layer-10.png" id="3_c75q8"]
-[ext_resource type="AudioStream" uid="uid://daukpxobfflgm" path="res://Audio/charactersqueak.wav" id="4_tj0aq"]
+[ext_resource type="AudioStream" uid="uid://daukpxobfflgm" path="res://audio/charactersqueak.wav" id="4_tj0aq"]
 [ext_resource type="Texture2D" uid="uid://d3gxtqpcs1esv" path="res://Assets/RobotBubbleWheel/Robot_BubbleWheel_0000s_0002_Layer-9.png" id="4_yrrsb"]
-[ext_resource type="AudioStream" uid="uid://dj3ii7bluiirx" path="res://Audio/charactersqueak2.wav" id="5_nrefp"]
+[ext_resource type="AudioStream" uid="uid://dj3ii7bluiirx" path="res://audio/charactersqueak2.wav" id="5_nrefp"]
 [ext_resource type="Texture2D" uid="uid://ckux46dvj0rjx" path="res://Assets/RobotBubbleWheel/Robot_BubbleWheel_0000s_0003_Layer-8.png" id="5_qibud"]
 [ext_resource type="Texture2D" uid="uid://xabl4q7bkvh2" path="res://Assets/RobotBubbleWheel/Robot_BubbleWheel_0000s_0004_Layer-7.png" id="6_rm85d"]
-[ext_resource type="AudioStream" uid="uid://p12w4qr1grc1" path="res://Audio/charactersqueak3.wav" id="6_wnqqi"]
-[ext_resource type="AudioStream" uid="uid://byq0iw8wqk6v5" path="res://Audio/charactersqueak4.wav" id="7_f5tlc"]
+[ext_resource type="AudioStream" uid="uid://p12w4qr1grc1" path="res://audio/charactersqueak3.wav" id="6_wnqqi"]
+[ext_resource type="AudioStream" uid="uid://byq0iw8wqk6v5" path="res://audio/charactersqueak4.wav" id="7_f5tlc"]
 [ext_resource type="Texture2D" uid="uid://r1ydckeig4vc" path="res://Assets/RobotBubbleWheel/Robot_BubbleWheel_0000s_0005_Layer-6.png" id="7_pni1d"]
 [ext_resource type="Texture2D" uid="uid://cmlhfopxsvwlb" path="res://Assets/RobotBubbleWheel/Robot_BubbleWheel_0000s_0006_Layer-5.png" id="8_lh4r0"]
-[ext_resource type="AudioStream" uid="uid://cc36iemt5u5e6" path="res://Audio/charactersqueak5.wav" id="8_tnt7r"]
-[ext_resource type="AudioStream" uid="uid://c0sfelcpxmq5c" path="res://Audio/scrape.wav" id="9_6r8m8"]
+[ext_resource type="AudioStream" uid="uid://cc36iemt5u5e6" path="res://audio/charactersqueak5.wav" id="8_tnt7r"]
+[ext_resource type="AudioStream" uid="uid://c0sfelcpxmq5c" path="res://audio/scrape.wav" id="9_6r8m8"]
 [ext_resource type="Texture2D" uid="uid://bp1ynodw2fjxo" path="res://Assets/RobotBubbleWheel/Robot_BubbleWheel_0000s_0007_Layer-4.png" id="9_ude4y"]
-[ext_resource type="AudioStream" uid="uid://fgvb1anuikfh" path="res://Audio/scrape2.wav" id="10_eq0hq"]
+[ext_resource type="AudioStream" uid="uid://fgvb1anuikfh" path="res://audio/scrape2.wav" id="10_eq0hq"]
 [ext_resource type="Texture2D" uid="uid://entllnwcoqcq" path="res://Assets/RobotBubbleWheel/Robot_BubbleWheel_0000s_0008_Layer-3.png" id="10_rqd3o"]
-[ext_resource type="AudioStream" uid="uid://bhq2r2d0hwyq2" path="res://Audio/scrape3.wav" id="11_5xecq"]
+[ext_resource type="AudioStream" uid="uid://bhq2r2d0hwyq2" path="res://audio/scrape3.wav" id="11_5xecq"]
 [ext_resource type="Texture2D" uid="uid://dpki83eremsqb" path="res://Assets/RobotBubbleWheel/Robot_BubbleWheel_0000s_0009_Layer-2.png" id="11_itpry"]
 [ext_resource type="Texture2D" uid="uid://3ntl7c8qfwx5" path="res://Assets/RobotBubbleWheel/Robot_BubbleWheel_0000s_0010_Layer-1.png" id="12_4j1sq"]
 [ext_resource type="Texture2D" uid="uid://10xgn7ori35o" path="res://Assets/Robot_body_Blink_Anim/Robot_body_blink_00004.png" id="14_c1bdb"]
@@ -234,6 +234,7 @@ position = Vector2(0, 1)
 rotation = -1.5708
 sprite_frames = SubResource("SpriteFrames_vqmry")
 autoplay = "default"
+frame = 1
 
 [node name="WheelAudio" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_3byy5")

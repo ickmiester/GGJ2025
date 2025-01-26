@@ -41,6 +41,9 @@ func _instantiate_new_player() -> void:
 	var cam = $Camera2D
 	cam.reparent(player.get_node("Wheel"))
 	cam.offset.y=-100
+	$WinArea.body_entered.connect(player._on_area_2d_body_entered)
+	player.win.connect(onWin)
+	
 
 func _on_win_button_pressed() -> void:
 	emit_signal("win")
@@ -77,3 +80,7 @@ func _on_new_path_button_pressed() -> void:
 	
 	_instantiate_new_player()
 	$BoardPath/BoardFollow.progress_ratio = 0
+
+func onWin() -> void:
+	print("and win")
+	get_tree().change_scene_to_file(gameOverScene)
