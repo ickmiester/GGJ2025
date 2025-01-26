@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://coxxd3ndthibi" path="res://scenes/character.tscn" id="2_7mbek"]
 [ext_resource type="Script" path="res://scenes/timer.gd" id="3_ejcoc"]
 [ext_resource type="Texture2D" uid="uid://cbd5asmfkd7do" path="res://art/fullsizebg_temp.png" id="4_820c0"]
-[ext_resource type="Texture2D" uid="uid://8juqu68ng3qq" path="res://Assets/BubbleGroundSquare.png" id="4_jc4li"]
+[ext_resource type="Texture2D" uid="uid://ti2sn4g4di73" path="res://Assets/CloudGroundTile_1.png" id="5_ogyt0"]
 [ext_resource type="PackedScene" uid="uid://b1bf8fklhk05i" path="res://scenes/enemy2.tscn" id="6_7n7hx"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5p1sd"]
@@ -145,7 +145,7 @@ offset_top = 176.0
 offset_right = 8000.0
 offset_bottom = 2320.0
 scale = Vector2(0.25, 0.25)
-texture = ExtResource("4_jc4li")
+texture = ExtResource("5_ogyt0")
 stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
