@@ -67,8 +67,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tccmo"]
-size = Vector2(170, 109)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wswic"]
+radius = 35.0
+height = 113.0
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_8hfob"]
 playback_mode = 2
@@ -94,7 +95,7 @@ flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 position = Vector2(0, 0.5)
-shape = SubResource("RectangleShape2D_tccmo")
+shape = SubResource("CapsuleShape2D_wswic")
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
 target_position = Vector2(90, 0)
