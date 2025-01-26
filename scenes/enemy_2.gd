@@ -12,7 +12,7 @@ const SPEED = 50.0
 const BUBBLE = preload("res://scenes/bubble.tscn")
 const MIN_WAIT_TIME = 1 #minimum timer for bubbles to spawn
 const MAX_WAIT_TIME = 5 #maximum timer for bubbles to spawn
-const MIN_BUBBLE_SCALE = 0.2
+const MIN_BUBBLE_SCALE = 0.4
 const MAX_BUBBLE_SCALE = 0.8
 
 var direction: int = 1
