@@ -17,15 +17,27 @@ func _process(delta: float) -> void:
 		#print("Left Pressed")
 		$WheelAudio.play()
 		$Wheel.velocity += Vector2(-25, 0) * scale
-		$Wheel/WheelSprite.rotate(-PI/20)
+		#$Wheel/WheelSprite.rotate(-PI/20)
+		if($Wheel.is_on_floor()):
+			$Wheel/WheelSprite.play()
 	if(Input.is_action_pressed("right")):
 		#print("Right Pressed")
 		$WheelAudio.play()
 		$Wheel.velocity += Vector2(25, 0) * scale
-		$Wheel/WheelSprite.rotate(PI/20)
+		#$Wheel/WheelSprite.rotate(PI/20)
+		if($Wheel.is_on_floor()):
+			$Wheel/WheelSprite.play()
 	$Wheel.velocity += Vector2(0, 20) * scale
 	if(Input.is_action_just_pressed("jump")):
 		$Wheel.velocity+= Vector2(0, -900) * scale
+		$Wheel/WheelSprite.frame = 0;
+		$Wheel/WheelSprite.pause()
+	
+	if(!Input.is_action_pressed("left") and !Input.is_action_pressed("right")):
+		if($Wheel.is_on_floor()):
+			$Wheel/WheelSprite.frame = 1;
+		$Wheel/WheelSprite.pause()
+		
 	$Wheel.move_and_slide()
 	
 		
@@ -55,4 +67,5 @@ func _process(delta: float) -> void:
 		body.rotate(PI/90)
 		
 	body.reparent(parent)
+	body.get_node("BodyCollision/SpriteContainer/BodySprite").play()
 	$Body.move_and_slide()
