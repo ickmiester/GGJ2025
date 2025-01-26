@@ -1,16 +1,19 @@
 [gd_scene load_steps=3 format=3 uid="uid://dfnbq7dx4qbdq"]
 
 [ext_resource type="Script" path="res://scenes/bubbles_sample.gd" id="1_woe2b"]
-[ext_resource type="Texture2D" uid="uid://c6hwrqs5nxd5j" path="res://Assets/EnemyUffda.png" id="2_rjq72"]
+[ext_resource type="PackedScene" uid="uid://bibhw7mpu8iy1" path="res://scenes/enemy.tscn" id="3_dtb5x"]
 
 [node name="BubblesSample" type="Node2D"]
 position = Vector2(704, 436)
 script = ExtResource("1_woe2b")
 mainScene = "res://scenes/main_menu.tscn"
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("2_rjq72")
+[node name="Enemy" parent="." instance=ExtResource("3_dtb5x")]
+position = Vector2(0, 1)
+scale = Vector2(0.5, 0.5)
+
+[node name="Mouth" type="Node2D" parent="Enemy"]
+position = Vector2(12, -2)
 
 [node name="BackButton" type="Button" parent="."]
 offset_left = -224.0

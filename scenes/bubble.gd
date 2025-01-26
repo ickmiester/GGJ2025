@@ -15,7 +15,9 @@ func _physics_process(delta: float) -> void:
 func set_direction_speed() -> void:
 	direction = Vector2(randf_range(-1,1), -1).normalized()
 	speed = randi_range(50,100)
-	print(speed)
 
 func _on_timer_timeout() -> void:
 	set_direction_speed()
+
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	queue_free()

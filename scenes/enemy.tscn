@@ -1,71 +1,98 @@
-[gd_scene load_steps=10 format=3 uid="uid://bibhw7mpu8iy1"]
+[gd_scene load_steps=17 format=3 uid="uid://bibhw7mpu8iy1"]
 
-[ext_resource type="Texture2D" uid="uid://dqdxj7rlshxwy" path="res://Assets/Enemy.png" id="1_5xurf"]
 [ext_resource type="Script" path="res://scenes/enemy.gd" id="1_g22lv"]
+[ext_resource type="Texture2D" uid="uid://dyia21rvfs7ls" path="res://Assets/Enemy_Anim/Enemy03_gulpAir.png" id="2_0puw5"]
 [ext_resource type="PackedScene" uid="uid://vexof263c8pc" path="res://scenes/killzone.tscn" id="2_irr52"]
+[ext_resource type="Texture2D" uid="uid://boqwkblok1ovi" path="res://Assets/Enemy_Anim/Enemy01_Idle.png" id="2_mewoc"]
+[ext_resource type="Texture2D" uid="uid://ccw5goxhon5kj" path="res://Assets/Enemy_Anim/Enemy04_hold.png" id="3_ejes6"]
+[ext_resource type="Texture2D" uid="uid://ds1l83prb22pg" path="res://Assets/Enemy_Anim/Enemy02_idle.png" id="3_nkmb1"]
+[ext_resource type="Texture2D" uid="uid://djbar586gi36n" path="res://Assets/Enemy_Anim/Enemy05_Blowbubb.png" id="4_v72i1"]
+[ext_resource type="Texture2D" uid="uid://drwyanl8sih1b" path="res://Assets/Enemy_Anim/Enemy06_Blowbubb.png" id="5_a767j"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_spokl"]
-atlas = ExtResource("1_5xurf")
-region = Rect2(0, 24, 24, 24)
+[sub_resource type="AtlasTexture" id="AtlasTexture_sykow"]
+atlas = ExtResource("2_0puw5")
+region = Rect2(0, 0, 345, 220)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_54m5g"]
-atlas = ExtResource("1_5xurf")
-region = Rect2(24, 24, 24, 24)
+[sub_resource type="AtlasTexture" id="AtlasTexture_cqqld"]
+atlas = ExtResource("3_ejes6")
+region = Rect2(0, 0, 346, 220)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ccurn"]
-atlas = ExtResource("1_5xurf")
-region = Rect2(48, 24, 24, 24)
+[sub_resource type="AtlasTexture" id="AtlasTexture_hgsjh"]
+atlas = ExtResource("4_v72i1")
+region = Rect2(0, 0, 346, 220)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_uo8g4"]
-atlas = ExtResource("1_5xurf")
-region = Rect2(72, 24, 24, 24)
+[sub_resource type="AtlasTexture" id="AtlasTexture_66a40"]
+atlas = ExtResource("5_a767j")
+region = Rect2(0, 0, 346, 220)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4a35x"]
+atlas = ExtResource("2_mewoc")
+region = Rect2(0, 0, 346, 220)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0sfs"]
+atlas = ExtResource("3_nkmb1")
+region = Rect2(0, 0, 346, 220)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_uva1n"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_spokl")
+"texture": SubResource("AtlasTexture_sykow")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_54m5g")
+"texture": SubResource("AtlasTexture_cqqld")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ccurn")
+"texture": SubResource("AtlasTexture_hgsjh")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_uo8g4")
+"texture": SubResource("AtlasTexture_66a40")
+}],
+"loop": false,
+"name": &"bubble",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4a35x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f0sfs")
 }],
 "loop": true,
 "name": &"idle",
-"speed": 10.0
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tccmo"]
-size = Vector2(12, 15)
+size = Vector2(170, 109)
 
 [node name="Enemy" type="Node2D"]
 script = ExtResource("1_g22lv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_uva1n")
 animation = &"idle"
 autoplay = "idle"
-frame = 2
-frame_progress = 0.155439
 flip_h = true
 
 [node name="Killzone" parent="." instance=ExtResource("2_irr52")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
-position = Vector2(0, 4.5)
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_tccmo")
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
-position = Vector2(0, 5)
-target_position = Vector2(9, 0)
+target_position = Vector2(90, 0)
 collide_with_areas = true
 
 [node name="RayCastLeft" type="RayCast2D" parent="."]
-position = Vector2(0, 5)
-target_position = Vector2(-9, 0)
+target_position = Vector2(-90, 0)
 collide_with_areas = true
+
+[node name="SpawnTimer" type="Timer" parent="."]
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
