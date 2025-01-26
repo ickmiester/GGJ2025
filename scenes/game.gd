@@ -9,17 +9,39 @@ signal lose
 @export var offset:float
 var player: Node2D
 
+static var totalDistanceCovered = 0
+static var totalTimeElapsed = 0
+static var maxSpeed = 0
+
+@export var distanceCovered = 0;
+@export var timeElapsed = 0
+@export var currentSpeed = 0;
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#$BoardPath/BoardFollow/board.position = $StartPosition.position
 	#$BoardPath/BoardFollow.progress_ratio = 0
 	#$BoardPath/BoardFollow/board/Camera2D/CanvasLayer/LevelIndicator/ProgressBar.value = 0;
+	distanceCovered = 0
+	timeElapsed = 0
+	print("distance:" + str(distanceCovered))
+	print("totalDistance:" + str(totalDistanceCovered))
+	print("timeElapsed:" + str(timeElapsed))
+	print("totalTimeElapsed:" + str(totalTimeElapsed))
+	print("maxSpeed:" + str(maxSpeed))
 	_instantiate_new_player()
 	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	currentSpeed = player.currentSpeed.x
+	if(player.maxSpeed.x > maxSpeed):
+		maxSpeed = player.maxSpeed.x
+		print("New Max Speed!" + str(maxSpeed))
+	distanceCovered += currentSpeed
+	totalDistanceCovered += currentSpeed
 	#$BoardPath/BoardFollow.progress += $BoardPath/BoardFollow/board.speed * delta
 	#offset = $BoardPath.get_curve().get_closest_offset($BoardPath.to_local(player.get_node("Wheel").to_global(player.get_node("Wheel").position)))
 	#var oldx = $BoardPath/BoardFollow.position.x;
@@ -29,6 +51,10 @@ func _process(delta: float) -> void:
 	#$BoardPath/BoardFollow/board/Camera2D/CanvasLayer/LevelIndicator/ProgressBar.value = $BoardPath/BoardFollow.progress_ratio * $BoardPath/BoardFollow/board/Camera2D/CanvasLayer/LevelIndicator/ProgressBar.max_value
 	pass
 	
+
+func secondElapsed() -> void:
+	timeElapsed += 1
+	totalTimeElapsed += 1
 
 func _instantiate_new_player() -> void:
 	if(player != null):
@@ -85,4 +111,7 @@ func _on_new_path_button_pressed() -> void:
 
 func onWin() -> void:
 	print("and win")
+	call_deferred("winDeferred")
+	
+func winDeferred() -> void:
 	get_tree().change_scene_to_file(winScene)

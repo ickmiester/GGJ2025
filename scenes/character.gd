@@ -3,6 +3,9 @@ extends Node2D
 @export var direction: Vector2
 signal win
 signal lose
+var currentSpeed = Vector2.ZERO
+var maxSpeed = Vector2.ZERO
+var consecutiveAccel = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -16,16 +19,18 @@ func _process(delta: float) -> void:
 		pass
 	$Wheel.velocity *= 0.95
 	if(Input.is_action_pressed("left")):
+		consecutiveAccel += 1
 		#print("Left Pressed")
 		$WheelAudio.play()
-		$Wheel.velocity += Vector2(-25, 0) * scale
+		$Wheel.velocity += Vector2(-25 - consecutiveAccel**0.5, 0) * scale
 		#$Wheel/WheelSprite.rotate(-PI/20)
 		if($Wheel.is_on_floor()):
 			$Wheel/WheelSprite.play()
 	if(Input.is_action_pressed("right")):
+		consecutiveAccel += 1
 		#print("Right Pressed")
 		$WheelAudio.play()
-		$Wheel.velocity += Vector2(25, 0) * scale
+		$Wheel.velocity += Vector2(25 + consecutiveAccel**0.5, 0) * scale
 		#$Wheel/WheelSprite.rotate(PI/20)
 		if($Wheel.is_on_floor()):
 			$Wheel/WheelSprite.play()
@@ -34,8 +39,12 @@ func _process(delta: float) -> void:
 		$Wheel.velocity+= Vector2(0, -900) * scale
 		$Wheel/WheelSprite.frame = 0;
 		$Wheel/WheelSprite.pause()
-	
+	currentSpeed = $Wheel.velocity
+	if(currentSpeed.x > maxSpeed.x):
+		maxSpeed = currentSpeed
+		#print("New Max Speed!" + str(maxSpeed.x))
 	if(!Input.is_action_pressed("left") and !Input.is_action_pressed("right")):
+		consecutiveAccel = 0;
 		if($Wheel.is_on_floor()):
 			$Wheel/WheelSprite.frame = 1;
 		$Wheel/WheelSprite.pause()
