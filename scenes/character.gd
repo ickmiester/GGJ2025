@@ -97,6 +97,8 @@ func _process(delta: float) -> void:
 	$Body.move_and_slide()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
+	if(body.name != "Wheel"):
+		pass
 	print("onEnter")
 	emit_signal("win")
 	pass # Replace with function body.
