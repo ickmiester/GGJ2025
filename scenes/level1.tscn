@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://badrcqltcbtgn"]
+[gd_scene load_steps=20 format=3 uid="uid://badrcqltcbtgn"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_x0ot6"]
 [ext_resource type="PackedScene" uid="uid://coxxd3ndthibi" path="res://scenes/character.tscn" id="2_wnbct"]
@@ -7,8 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://bibhw7mpu8iy1" path="res://scenes/enemy.tscn" id="4_ydkmp"]
 [ext_resource type="Texture2D" uid="uid://d0nwli2b3qmqp" path="res://Assets/CloudGround2.png" id="5_k4a64"]
 [ext_resource type="PackedScene" uid="uid://cu8ogd3ah2g0x" path="res://scenes/bubble.tscn" id="6_3iblh"]
-[ext_resource type="PackedScene" path="res://scenes/ope.tscn" id="8_husmu"]
-[ext_resource type="PackedScene" uid="uid://dt0ab06cirdx5" path="res://scenes/music.tscn" id="9_8qkhf"]
+[ext_resource type="PackedScene" uid="uid://bjlu3ce7053b6" path="res://scenes/ope.tscn" id="8_husmu"]
+[ext_resource type="PackedScene" path="res://scenes/music.tscn" id="9_8qkhf"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5p1sd"]
 normal = Vector2(1, 0)
@@ -25,7 +25,16 @@ normal = Vector2(0, 1)
 radius = 97.2523
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4yxc6"]
-radius = 104.019
+radius = 162.077
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m50n8"]
+size = Vector2(80.5, 48)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qnlag"]
+radius = 112.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1t362"]
+radius = 185.181
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hfm01"]
 size = Vector2(108, 245)
@@ -107,7 +116,7 @@ offset_bottom = 40.0
 text = "Time"
 
 [node name="Enemy" parent="." instance=ExtResource("4_ydkmp")]
-position = Vector2(702, 376)
+position = Vector2(626, 340)
 scale = Vector2(0.37361, 0.38297)
 
 [node name="Walls" type="Area2D" parent="."]
@@ -156,11 +165,12 @@ collision_mask = 0
 shape = SubResource("CircleShape2D_oywe4")
 
 [node name="StaticBody2D13" type="StaticBody2D" parent="Floors/Colliders"]
-position = Vector2(1251, 546)
+position = Vector2(640, 493)
 collision_layer = 2
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/Colliders/StaticBody2D13"]
+position = Vector2(-18, 26)
 shape = SubResource("CircleShape2D_4yxc6")
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="Floors/Colliders"]
@@ -180,8 +190,17 @@ collision_mask = 0
 position = Vector2(-3, -8)
 shape = SubResource("CircleShape2D_oywe4")
 
+[node name="StaticBody2D15" type="StaticBody2D" parent="Floors/Colliders"]
+position = Vector2(460, 347)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/Colliders/StaticBody2D15"]
+position = Vector2(46.75, -69)
+shape = SubResource("RectangleShape2D_m50n8")
+
 [node name="StaticBody2D6" type="StaticBody2D" parent="Floors/Colliders"]
-position = Vector2(774, 360)
+position = Vector2(717, 344)
 collision_layer = 2
 collision_mask = 0
 
@@ -190,7 +209,7 @@ position = Vector2(80, 9)
 shape = SubResource("CircleShape2D_oywe4")
 
 [node name="StaticBody2D7" type="StaticBody2D" parent="Floors/Colliders"]
-position = Vector2(758, 499)
+position = Vector2(928, 349)
 collision_layer = 2
 collision_mask = 0
 
@@ -199,7 +218,7 @@ position = Vector2(-8, 17)
 shape = SubResource("CircleShape2D_oywe4")
 
 [node name="StaticBody2D8" type="StaticBody2D" parent="Floors/Colliders"]
-position = Vector2(659, 632)
+position = Vector2(1057, 355)
 collision_layer = 2
 collision_mask = 0
 
@@ -208,7 +227,7 @@ position = Vector2(-1, -65)
 shape = SubResource("CircleShape2D_oywe4")
 
 [node name="StaticBody2D9" type="StaticBody2D" parent="Floors/Colliders"]
-position = Vector2(508, 701)
+position = Vector2(1134, 334)
 collision_layer = 2
 collision_mask = 0
 
@@ -217,7 +236,7 @@ position = Vector2(36, -32)
 shape = SubResource("CircleShape2D_oywe4")
 
 [node name="StaticBody2D10" type="StaticBody2D" parent="Floors/Colliders"]
-position = Vector2(355, 741)
+position = Vector2(1260, 439)
 collision_layer = 2
 collision_mask = 0
 
@@ -226,7 +245,7 @@ position = Vector2(36, -32)
 shape = SubResource("CircleShape2D_oywe4")
 
 [node name="StaticBody2D11" type="StaticBody2D" parent="Floors/Colliders"]
-position = Vector2(253, 726)
+position = Vector2(1413, 337)
 collision_layer = 2
 collision_mask = 0
 
@@ -235,13 +254,21 @@ position = Vector2(36, -32)
 shape = SubResource("CircleShape2D_oywe4")
 
 [node name="StaticBody2D12" type="StaticBody2D" parent="Floors/Colliders"]
-position = Vector2(5, 351)
+position = Vector2(1579, 286)
 collision_layer = 2
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/Colliders/StaticBody2D12"]
-position = Vector2(147, 380)
-shape = SubResource("CircleShape2D_oywe4")
+position = Vector2(38, 17)
+shape = SubResource("CircleShape2D_qnlag")
+
+[node name="StaticBody2D14" type="StaticBody2D" parent="Floors/Colliders"]
+position = Vector2(-205, 205)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/Colliders/StaticBody2D14"]
+shape = SubResource("CircleShape2D_1t362")
 
 [node name="Clouds" type="Node2D" parent="Floors"]
 
@@ -334,19 +361,19 @@ position = Vector2(56, 382)
 texture = ExtResource("5_k4a64")
 
 [node name="CloudGround23" type="Sprite2D" parent="Floors/Clouds"]
-position = Vector2(281, 659)
+position = Vector2(642, 436)
 texture = ExtResource("5_k4a64")
 
 [node name="CloudGround24" type="Sprite2D" parent="Floors/Clouds"]
-position = Vector2(429, 682)
+position = Vector2(1159, 277)
 texture = ExtResource("4_y7pk5")
 
 [node name="CloudGround25" type="Sprite2D" parent="Floors/Clouds"]
-position = Vector2(527, 642)
+position = Vector2(1395, 302)
 texture = ExtResource("5_k4a64")
 
 [node name="CloudGround26" type="Sprite2D" parent="Floors/Clouds"]
-position = Vector2(693, 566)
+position = Vector2(1516, 289)
 texture = ExtResource("4_y7pk5")
 
 [node name="CloudGround27" type="Sprite2D" parent="Floors/Clouds"]
@@ -358,7 +385,7 @@ position = Vector2(694, 514)
 texture = ExtResource("5_k4a64")
 
 [node name="CloudGround29" type="Sprite2D" parent="Floors/Clouds"]
-position = Vector2(814, 287)
+position = Vector2(806, 325)
 texture = ExtResource("4_y7pk5")
 
 [node name="CloudGround30" type="Sprite2D" parent="Floors/Clouds"]
@@ -366,11 +393,11 @@ position = Vector2(821, 333)
 texture = ExtResource("5_k4a64")
 
 [node name="CloudGround31" type="Sprite2D" parent="Floors/Clouds"]
-position = Vector2(865, 305)
+position = Vector2(900, 331)
 texture = ExtResource("4_y7pk5")
 
 [node name="CloudGround32" type="Sprite2D" parent="Floors/Clouds"]
-position = Vector2(805, 290)
+position = Vector2(748, 347)
 texture = ExtResource("5_k4a64")
 
 [node name="CloudGround33" type="Sprite2D" parent="Floors/Clouds"]
@@ -386,23 +413,23 @@ position = Vector2(776, 492)
 texture = ExtResource("5_k4a64")
 
 [node name="CloudGround36" type="Sprite2D" parent="Floors/Clouds"]
-position = Vector2(629, 547)
+position = Vector2(1607, 256)
 texture = ExtResource("4_y7pk5")
 
 [node name="CloudGround37" type="Sprite2D" parent="Floors/Clouds"]
-position = Vector2(503, 636)
+position = Vector2(1199, 276)
 texture = ExtResource("4_y7pk5")
 
 [node name="CloudGround38" type="Sprite2D" parent="Floors/Clouds"]
-position = Vector2(567, 648)
+position = Vector2(1213, 317)
 texture = ExtResource("5_k4a64")
 
 [node name="CloudGround39" type="Sprite2D" parent="Floors/Clouds"]
-position = Vector2(713, 632)
+position = Vector2(1326, 384)
 texture = ExtResource("4_y7pk5")
 
 [node name="CloudGround40" type="Sprite2D" parent="Floors/Clouds"]
-position = Vector2(769, 554)
+position = Vector2(950, 354)
 texture = ExtResource("5_k4a64")
 
 [node name="CloudGround41" type="Sprite2D" parent="Floors/Clouds"]
@@ -410,46 +437,216 @@ position = Vector2(854, 452)
 texture = ExtResource("5_k4a64")
 
 [node name="CloudGround42" type="Sprite2D" parent="Floors/Clouds"]
-position = Vector2(241, 658)
+position = Vector2(682, 448)
 texture = ExtResource("4_y7pk5")
 
 [node name="CloudGround43" type="Sprite2D" parent="Floors/Clouds"]
-position = Vector2(373, 685)
+position = Vector2(1085, 284)
 texture = ExtResource("5_k4a64")
 
 [node name="CloudGround44" type="Sprite2D" parent="Floors/Clouds"]
-position = Vector2(317, 661)
+position = Vector2(581, 419)
 texture = ExtResource("4_y7pk5")
 
 [node name="CloudGround45" type="Sprite2D" parent="Floors/Clouds"]
-position = Vector2(226, 724)
+position = Vector2(723, 442)
 texture = ExtResource("5_k4a64")
 
 [node name="CloudGround46" type="Sprite2D" parent="Floors/Clouds"]
-position = Vector2(346, 741)
+position = Vector2(1066, 260)
 texture = ExtResource("4_y7pk5")
 
 [node name="CloudGround47" type="Sprite2D" parent="Floors/Clouds"]
-position = Vector2(484, 734)
+position = Vector2(1016, 280)
 texture = ExtResource("5_k4a64")
 
 [node name="CloudGround48" type="Sprite2D" parent="Floors/Clouds"]
-position = Vector2(584, 710)
+position = Vector2(1014, 293)
+texture = ExtResource("4_y7pk5")
+
+[node name="CloudGround49" type="Sprite2D" parent="Floors/Clouds"]
+position = Vector2(-101, 213)
+texture = ExtResource("5_k4a64")
+
+[node name="CloudGround50" type="Sprite2D" parent="Floors/Clouds"]
+position = Vector2(-91, 122)
+texture = ExtResource("4_y7pk5")
+
+[node name="CloudGround51" type="Sprite2D" parent="Floors/Clouds"]
+position = Vector2(-134, 26)
+texture = ExtResource("5_k4a64")
+
+[node name="CloudGround52" type="Sprite2D" parent="Floors/Clouds"]
+position = Vector2(-218, 52)
+texture = ExtResource("4_y7pk5")
+
+[node name="CloudGround53" type="Sprite2D" parent="Floors/Clouds"]
+position = Vector2(-161, 297)
+texture = ExtResource("5_k4a64")
+
+[node name="CloudGround54" type="Sprite2D" parent="Floors/Clouds"]
+position = Vector2(-173, 158)
+texture = ExtResource("4_y7pk5")
+
+[node name="CloudGround55" type="Sprite2D" parent="Floors/Clouds"]
+position = Vector2(-234, 275)
+texture = ExtResource("5_k4a64")
+
+[node name="CloudGround56" type="Sprite2D" parent="Floors/Clouds"]
+position = Vector2(-110, 223)
+texture = ExtResource("5_k4a64")
+
+[node name="CloudGround57" type="Sprite2D" parent="Floors/Clouds"]
+position = Vector2(-211, 336)
+texture = ExtResource("5_k4a64")
+
+[node name="CloudGround59" type="Sprite2D" parent="Floors/Clouds"]
+position = Vector2(1440, 281)
+texture = ExtResource("5_k4a64")
+
+[node name="CloudGround60" type="Sprite2D" parent="Floors/Clouds"]
+position = Vector2(1556, 255)
+texture = ExtResource("4_y7pk5")
+
+[node name="CloudGround61" type="Sprite2D" parent="Floors/Clouds"]
+position = Vector2(1672, 280)
+texture = ExtResource("5_k4a64")
+
+[node name="CloudGround62" type="Sprite2D" parent="Floors/Clouds"]
+position = Vector2(1780, 220)
+texture = ExtResource("4_y7pk5")
+
+[node name="CloudGround63" type="Sprite2D" parent="Floors/Clouds"]
+position = Vector2(1804, 106)
+texture = ExtResource("5_k4a64")
+
+[node name="CloudGround58" type="Sprite2D" parent="Floors/Clouds"]
+position = Vector2(-254, 152)
 texture = ExtResource("4_y7pk5")
 
 [node name="WinArea" type="Area2D" parent="."]
+position = Vector2(1679, 121)
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WinArea"]
-position = Vector2(474, 506)
+position = Vector2(3, -2)
 shape = SubResource("RectangleShape2D_hfm01")
 
-[node name="Bubble" parent="." instance=ExtResource("6_3iblh")]
-position = Vector2(287, 246)
+[node name="Opes" type="Node2D" parent="."]
 
-[node name="Ope" parent="." instance=ExtResource("8_husmu")]
+[node name="Ope" parent="Opes" instance=ExtResource("8_husmu")]
 position = Vector2(219, 262)
-scale = Vector2(-0.312495, 0.281279)
+rotation = 3.14159
+scale = Vector2(0.312495, -0.281279)
+
+[node name="Ope2" parent="Opes" instance=ExtResource("8_husmu")]
+position = Vector2(951, 266)
+rotation = 3.14159
+scale = Vector2(0.312495, -0.281279)
+
+[node name="Ope3" parent="Opes" instance=ExtResource("8_husmu")]
+position = Vector2(1276, 300)
+rotation = 3.14159
+scale = Vector2(0.312495, -0.281279)
+
+[node name="Ope4" parent="Opes" instance=ExtResource("8_husmu")]
+position = Vector2(1310, 301)
+rotation = 3.14159
+scale = Vector2(0.312495, -0.281279)
+
+[node name="Ope5" parent="Opes" instance=ExtResource("8_husmu")]
+position = Vector2(1341, 310)
+rotation = 3.14159
+scale = Vector2(0.312495, -0.281279)
+
+[node name="Ope6" parent="Opes" instance=ExtResource("8_husmu")]
+position = Vector2(1429, 99)
+rotation = 3.14159
+scale = Vector2(0.312495, -0.281279)
+
+[node name="Ope7" parent="Opes" instance=ExtResource("8_husmu")]
+position = Vector2(767, 81)
+rotation = 3.14159
+scale = Vector2(0.312495, -0.281279)
+
+[node name="Ope8" parent="Opes" instance=ExtResource("8_husmu")]
+position = Vector2(445, 120)
+rotation = 3.14159
+scale = Vector2(0.312495, -0.281279)
+
+[node name="Ope9" parent="Opes" instance=ExtResource("8_husmu")]
+position = Vector2(-24, 68)
+rotation = 3.14159
+scale = Vector2(0.312495, -0.281279)
+
+[node name="Bubbles" type="Node2D" parent="."]
+
+[node name="Bubble2" parent="Bubbles" instance=ExtResource("6_3iblh")]
+position = Vector2(1227, 891)
+scale = Vector2(0.278729, 0.314376)
+
+[node name="Bubble3" parent="Bubbles" instance=ExtResource("6_3iblh")]
+position = Vector2(945, 757)
+scale = Vector2(0.373315, 0.396469)
+
+[node name="Bubble4" parent="Bubbles" instance=ExtResource("6_3iblh")]
+position = Vector2(807, 933)
+scale = Vector2(0.373315, 0.396469)
+
+[node name="Bubble5" parent="Bubbles" instance=ExtResource("6_3iblh")]
+position = Vector2(715, 805)
+scale = Vector2(0.373315, 0.396469)
+
+[node name="Bubble6" parent="Bubbles" instance=ExtResource("6_3iblh")]
+position = Vector2(536, 943)
+scale = Vector2(0.373315, 0.396469)
+
+[node name="Bubble7" parent="Bubbles" instance=ExtResource("6_3iblh")]
+position = Vector2(961, 973)
+scale = Vector2(0.373315, 0.396469)
+
+[node name="Bubble8" parent="Bubbles" instance=ExtResource("6_3iblh")]
+position = Vector2(1076, 838)
+scale = Vector2(0.373315, 0.396469)
+
+[node name="Bubble9" parent="Bubbles" instance=ExtResource("6_3iblh")]
+position = Vector2(1175, 1020)
+scale = Vector2(0.373315, 0.396469)
+
+[node name="Bubble10" parent="Bubbles" instance=ExtResource("6_3iblh")]
+position = Vector2(1045, 1085)
+scale = Vector2(0.373315, 0.396469)
+
+[node name="Bubble11" parent="Bubbles" instance=ExtResource("6_3iblh")]
+position = Vector2(850, 1155)
+scale = Vector2(0.373315, 0.396469)
+
+[node name="Bubble12" parent="Bubbles" instance=ExtResource("6_3iblh")]
+position = Vector2(668, 1146)
+scale = Vector2(0.373315, 0.396469)
+
+[node name="Bubble13" parent="Bubbles" instance=ExtResource("6_3iblh")]
+position = Vector2(1057, 1195)
+scale = Vector2(0.373315, 0.396469)
+
+[node name="Bubble14" parent="Bubbles" instance=ExtResource("6_3iblh")]
+position = Vector2(1178, 1264)
+scale = Vector2(0.373315, 0.396469)
+
+[node name="Bubble15" parent="Bubbles" instance=ExtResource("6_3iblh")]
+position = Vector2(936, 1338)
+scale = Vector2(0.373315, 0.396469)
+
+[node name="Bubble16" parent="Bubbles" instance=ExtResource("6_3iblh")]
+position = Vector2(746, 1356)
+scale = Vector2(0.373315, 0.396469)
+
+[node name="Bubble17" parent="Bubbles" instance=ExtResource("6_3iblh")]
+position = Vector2(746, 1356)
+scale = Vector2(0.373315, 0.396469)
+
+[node name="Bubble" parent="Bubbles" instance=ExtResource("6_3iblh")]
+position = Vector2(287, 246)
 
 [node name="Music" parent="." instance=ExtResource("9_8qkhf")]
 

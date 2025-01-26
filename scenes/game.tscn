@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://coxxd3ndthibi" path="res://scenes/character.tscn" id="2_5w011"]
 [ext_resource type="Script" path="res://scenes/timer.gd" id="4_j01hf"]
 [ext_resource type="PackedScene" uid="uid://bibhw7mpu8iy1" path="res://scenes/enemy.tscn" id="4_tvnff"]
-[ext_resource type="PackedScene" uid="uid://dt0ab06cirdx5" path="res://scenes/music.tscn" id="6_he7s7"]
+[ext_resource type="PackedScene" path="res://scenes/music.tscn" id="6_he7s7"]
 
 [sub_resource type="Curve2D" id="Curve2D_j1iqu"]
 bake_interval = 2.0
