@@ -408,6 +408,10 @@ collision_layer = 2
 position = Vector2(474, 506)
 shape = SubResource("RectangleShape2D_hfm01")
 
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
 [connection signal="pressed" from="Camera2D/CanvasLayer/LoseButton" to="." method="_on_lose_button_pressed"]
 [connection signal="pressed" from="Camera2D/CanvasLayer/NewPathButton" to="." method="_on_new_path_button_pressed"]
 [connection signal="pressed" from="Camera2D/CanvasLayer/WinButton" to="." method="_on_win_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="secondElapsed"]
