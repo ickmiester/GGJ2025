@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bibhw7mpu8iy1"]
+[gd_scene load_steps=22 format=3 uid="uid://bibhw7mpu8iy1"]
 
 [ext_resource type="Script" path="res://scenes/enemy.gd" id="1_g22lv"]
 [ext_resource type="Texture2D" uid="uid://dyia21rvfs7ls" path="res://Assets/Enemy_Anim/Enemy03_gulpAir.png" id="2_0puw5"]
@@ -8,6 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://ds1l83prb22pg" path="res://Assets/Enemy_Anim/Enemy02_idle.png" id="3_nkmb1"]
 [ext_resource type="Texture2D" uid="uid://djbar586gi36n" path="res://Assets/Enemy_Anim/Enemy05_Blowbubb.png" id="4_v72i1"]
 [ext_resource type="Texture2D" uid="uid://drwyanl8sih1b" path="res://Assets/Enemy_Anim/Enemy06_Blowbubb.png" id="5_a767j"]
+[ext_resource type="AudioStream" uid="uid://lqip4agk6obt" path="res://audio/enemysqueak2.wav" id="10_2jq2d"]
+[ext_resource type="AudioStream" uid="uid://by1jy3n0nrh2a" path="res://audio/enemyshoot1.wav" id="11_lchna"]
+[ext_resource type="AudioStream" uid="uid://dcidv0fgb6dlm" path="res://audio/enemyshoot2.wav" id="12_mppt8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sykow"]
 atlas = ExtResource("2_0puw5")
@@ -64,8 +67,19 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tccmo"]
-size = Vector2(170, 109)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wswic"]
+radius = 35.0
+height = 113.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_8hfob"]
+playback_mode = 2
+streams_count = 1
+stream_0/stream = ExtResource("10_2jq2d")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_h7qgf"]
+streams_count = 2
+stream_0/stream = ExtResource("11_lchna")
+stream_1/stream = ExtResource("12_mppt8")
 
 [node name="Enemy" type="Node2D"]
 script = ExtResource("1_g22lv")
@@ -81,7 +95,7 @@ flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 position = Vector2(0, 0.5)
-shape = SubResource("RectangleShape2D_tccmo")
+shape = SubResource("CapsuleShape2D_wswic")
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
 target_position = Vector2(90, 0)
@@ -92,6 +106,14 @@ target_position = Vector2(-90, 0)
 collide_with_areas = true
 
 [node name="SpawnTimer" type="Timer" parent="."]
+
+[node name="EnemyTurnAudio" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_8hfob")
+
+[node name="EnemyMoveAudio" type="AudioStreamPlayer2D" parent="."]
+
+[node name="EnemyBubbleAudio" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_h7qgf")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]

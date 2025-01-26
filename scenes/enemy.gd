@@ -38,9 +38,11 @@ func _process(delta: float) -> void:
 		if position.x > initial_position + move_max_distance:
 			direction = -1
 			animated_sprite_2d.flip_h = false
+			$EnemyTurnAudio.play()
 		if position.x < initial_position + move_max_distance:
 			direction = 1
 			animated_sprite_2d.flip_h = true
+			$EnemyTurnAudio.play()
 		
 	position.x += direction * SPEED * delta
 
@@ -52,7 +54,7 @@ func instantiate_bubble() -> void:
 	bubbleInstance.position += Vector2(direction * 100, -12)
 	var scaleValue = randf_range(MIN_BUBBLE_SCALE, MAX_BUBBLE_SCALE)
 	bubbleInstance.scale = Vector2(scaleValue, scaleValue)
-	
+	$EnemyBubbleAudio.play()
 	add_child(bubbleInstance)
 
 func _on_animated_sprite_2d_animation_finished() -> void:
