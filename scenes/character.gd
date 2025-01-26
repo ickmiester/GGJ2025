@@ -6,9 +6,15 @@ signal lose
 var currentSpeed = Vector2.ZERO
 var maxSpeed = Vector2.ZERO
 var consecutiveAccel = 0
+var WheelAudio
+var RollAudio
+var JumpAudio
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	WheelAudio = $Wheel/WheelAudio
+	RollAudio = $Wheel/RollAudio
+	JumpAudio = $Wheel/JumpAudio
 	pass # Replace with function body.
 
 
@@ -38,7 +44,7 @@ func _process(delta: float) -> void:
 			$Wheel.velocity+= Vector2(0, -1800) * scale
 			$Wheel/WheelSprite.frame = 0;
 			$Wheel/WheelSprite.pause()
-			$JumpAudio.play()
+			JumpAudio.play()
 	currentSpeed = $Wheel.velocity
 	if(currentSpeed.x > maxSpeed.x):
 		maxSpeed = currentSpeed
@@ -50,11 +56,11 @@ func _process(delta: float) -> void:
 		$Wheel/WheelSprite.pause()
 		
 	$Wheel.move_and_slide()
-	if abs($Wheel.velocity.x) > 20 and $Wheel.is_on_floor():
-		if $RollAudio.finished: 
-			$RollAudio.play()
+	if abs($Wheel.velocity.x) > 30 and $Wheel.is_on_floor():
+		if RollAudio.finished: 
+			RollAudio.play()
 	else:
-		$RollAudio.stop()
+		RollAudio.stop()
 	
 		
 	#make body fall if off-center
@@ -79,10 +85,10 @@ func _process(delta: float) -> void:
 	
 	if(Input.is_action_pressed("balance left")):
 		body.rotate(-PI/90)
-		$WheelAudio.play()
+		WheelAudio.play()
 	if(Input.is_action_pressed("balance right")):
 		body.rotate(PI/90)
-		$WheelAudio.play()
+		WheelAudio.play()
 		
 	#body.reparent(parent)
 	body.get_node("BodyCollision/SpriteContainer/BodySprite").play()
