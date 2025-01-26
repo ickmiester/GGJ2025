@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://fgvb1anuikfh"
-path="res://.godot/imported/scrape2.wav-f3a74ea1c60b4663568b1f8c16ec3fa9.sample"
+path="res://.godot/imported/scrape2.wav-6dffe26eb0508d322ff216b8ee6a7ce4.sample"
 
 [deps]
 
-source_file="res://audio/scrape2.wav"
-dest_files=["res://.godot/imported/scrape2.wav-f3a74ea1c60b4663568b1f8c16ec3fa9.sample"]
+source_file="res://Audio/scrape2.wav"
+dest_files=["res://.godot/imported/scrape2.wav-6dffe26eb0508d322ff216b8ee6a7ce4.sample"]
 
 [params]
 

@@ -2,6 +2,7 @@ extends Node2D
 
 @export_file("*.tscn") var gameScene: String
 @export_file("*.tscn") var infoScene: String
+@export_file("*.tscn") var bubbleScene: String
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -30,3 +31,7 @@ func _on_options_button_pressed() -> void:
 func _on_mute_toggled(toggled_on: bool) -> void:
 	var bus_idx = AudioServer.get_bus_index("Master")
 	AudioServer.set_bus_mute(bus_idx, toggled_on)
+
+
+func _on_bubble_button_down() -> void:
+	get_tree().change_scene_to_file(bubbleScene)

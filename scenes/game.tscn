@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://cg64tss28lfvx"]
+[gd_scene load_steps=11 format=3 uid="uid://cg64tss28lfvx"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_ci6ca"]
 [ext_resource type="PackedScene" uid="uid://4bkm5ku1dlce" path="res://scenes/board.tscn" id="2_1o0vd"]
 [ext_resource type="PackedScene" uid="uid://coxxd3ndthibi" path="res://scenes/character.tscn" id="2_5w011"]
+[ext_resource type="Script" path="res://scenes/timer.gd" id="4_j01hf"]
 [ext_resource type="PackedScene" uid="uid://bibhw7mpu8iy1" path="res://scenes/enemy.tscn" id="4_tvnff"]
 
 [sub_resource type="Curve2D" id="Curve2D_j1iqu"]
@@ -46,7 +47,7 @@ collision_layer = 2
 collision_mask = 0
 
 [node name="Camera2D" type="Camera2D" parent="BoardPath/BoardFollow/board"]
-zoom = Vector2(2, 2)
+zoom = Vector2(1.5, 1.5)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="BoardPath/BoardFollow/board/Camera2D"]
 
@@ -84,6 +85,15 @@ offset_top = 50.0
 offset_right = 98.0
 offset_bottom = 77.0
 show_percentage = false
+
+[node name="Timer" type="Timer" parent="BoardPath/BoardFollow/board/Camera2D"]
+autostart = true
+script = ExtResource("4_j01hf")
+
+[node name="Label" type="Label" parent="BoardPath/BoardFollow/board/Camera2D/Timer"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Time"
 
 [node name="Enemy" parent="." instance=ExtResource("4_tvnff")]
 position = Vector2(885, 369)
