@@ -20,4 +20,12 @@ func _on_timer_timeout() -> void:
 	set_direction_speed()
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	$BubblePopAudio.play()
 	queue_free()
+
+func _on_killzone_body_entered(body: Node2D) -> void:
+	print("Bubble Entered by " + str(body))
+	if(body.name == "Wheel" or body.name == "Body"):
+		$BubblePopAudio.play()
+		body.get_parent().emit_signal("lose")
+	pass # Replace with function body.
