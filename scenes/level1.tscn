@@ -1,14 +1,17 @@
-[gd_scene load_steps=20 format=3 uid="uid://badrcqltcbtgn"]
+[gd_scene load_steps=23 format=3 uid="uid://badrcqltcbtgn"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_x0ot6"]
 [ext_resource type="PackedScene" uid="uid://coxxd3ndthibi" path="res://scenes/character.tscn" id="2_wnbct"]
 [ext_resource type="Script" path="res://scenes/timer.gd" id="3_j0pg0"]
+[ext_resource type="Texture2D" uid="uid://c4qlcada00j3" path="res://Assets/Backgrounds/BK_Mid.png" id="4_ugro6"]
 [ext_resource type="Texture2D" uid="uid://bbuji04ax3tin" path="res://Assets/Cloud_Ground.png" id="4_y7pk5"]
 [ext_resource type="PackedScene" uid="uid://bibhw7mpu8iy1" path="res://scenes/enemy.tscn" id="4_ydkmp"]
 [ext_resource type="Texture2D" uid="uid://d0nwli2b3qmqp" path="res://Assets/CloudGround2.png" id="5_k4a64"]
+[ext_resource type="Texture2D" uid="uid://ymsx5481bwin" path="res://Assets/Backgrounds/BK_Near.png" id="5_n72a5"]
 [ext_resource type="PackedScene" uid="uid://cu8ogd3ah2g0x" path="res://scenes/bubble.tscn" id="6_3iblh"]
-[ext_resource type="PackedScene" uid="uid://bjlu3ce7053b6" path="res://scenes/ope.tscn" id="8_husmu"]
+[ext_resource type="PackedScene" path="res://scenes/ope.tscn" id="8_husmu"]
 [ext_resource type="PackedScene" uid="uid://dt0ab06cirdx5" path="res://scenes/music.tscn" id="9_8qkhf"]
+[ext_resource type="Texture2D" uid="uid://boxafbldesq6b" path="res://Assets/Backgrounds/BK_Far.png" id="10_qn8a5"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5p1sd"]
 normal = Vector2(1, 0)
@@ -47,6 +50,42 @@ currentScene = "res://scenes/level1.tscn"
 character = ExtResource("2_wnbct")
 spedometer = NodePath("Camera2D/CanvasLayer/LevelIndicator/Spedometer")
 
+[node name="Background" type="Node2D" parent="."]
+
+[node name="base" type="ColorRect" parent="Background"]
+offset_left = -864.0
+offset_top = -438.0
+offset_right = 2376.0
+offset_bottom = 212.0
+color = Color(0, 0.180392, 0.552941, 1)
+
+[node name="dark" type="TextureRect" parent="Background"]
+visibility_layer = 524288
+z_as_relative = false
+offset_left = -864.0
+offset_top = -476.0
+offset_right = 2376.0
+offset_bottom = 892.0
+texture = ExtResource("10_qn8a5")
+
+[node name="mid" type="TextureRect" parent="Background"]
+visibility_layer = 524288
+z_as_relative = false
+offset_left = -864.0
+offset_top = -245.0
+offset_right = 2376.0
+offset_bottom = 1123.0
+texture = ExtResource("4_ugro6")
+
+[node name="light" type="TextureRect" parent="Background"]
+visibility_layer = 524288
+z_as_relative = false
+offset_left = -864.0
+offset_top = -64.0
+offset_right = 2376.0
+offset_bottom = 1304.0
+texture = ExtResource("5_n72a5")
+
 [node name="StartPosition" type="Marker2D" parent="."]
 position = Vector2(38, 251)
 
@@ -54,7 +93,7 @@ position = Vector2(38, 251)
 position = Vector2(38.0001, 251)
 rotation = 0.00787386
 scale = Vector2(2.10974, 1.00048)
-skew = 0.0271667
+skew = 0.0271666
 offset = Vector2(0, 200)
 zoom = Vector2(1.5, 1.5)
 
