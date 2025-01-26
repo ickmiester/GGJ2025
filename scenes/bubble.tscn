@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b4xofwudsoock" path="res://Assets/BubbleWobble_SpriteSheet.png" id="1_1hnm0"]
 [ext_resource type="Script" path="res://scenes/bubble.gd" id="1_7avtq"]
-[ext_resource type="PackedScene" path="res://scenes/killzone.tscn" id="3_lpadx"]
+[ext_resource type="PackedScene" uid="uid://vexof263c8pc" path="res://scenes/killzone.tscn" id="3_lpadx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k36sg"]
 atlas = ExtResource("1_1hnm0")
@@ -48,7 +48,7 @@ scale = Vector2(0.5, 0.5)
 script = ExtResource("1_7avtq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-modulate = Color(0.999998, 0.264903, 0.663587, 1)
+modulate = Color(1, 0.578654, 0.769444, 1)
 sprite_frames = SubResource("SpriteFrames_5wxos")
 animation = &"move"
 autoplay = "move"
