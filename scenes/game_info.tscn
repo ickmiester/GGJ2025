@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bn01my0anig87"]
+[gd_scene load_steps=4 format=3 uid="uid://bn01my0anig87"]
 
 [ext_resource type="Script" path="res://scenes/game_info.gd" id="1_telsd"]
 [ext_resource type="Texture2D" uid="uid://bbfe1bgr8kbhc" path="res://art/game info.png" id="2_r74qy"]
+[ext_resource type="PackedScene" uid="uid://dld18w03p50k8" path="res://scenes/menumusic.tscn" id="3_tval3"]
 
 [node name="GameInfo" type="Node2D"]
 script = ExtResource("1_telsd")
@@ -27,5 +28,7 @@ offset_top = 441.0
 offset_right = 509.0
 offset_bottom = 472.0
 text = "BACK"
+
+[node name="Music" parent="." instance=ExtResource("3_tval3")]
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/enemy.gd" id="1_g22lv"]
 [ext_resource type="Texture2D" uid="uid://dyia21rvfs7ls" path="res://Assets/Enemy_Anim/Enemy03_gulpAir.png" id="2_0puw5"]
-[ext_resource type="PackedScene" uid="uid://vexof263c8pc" path="res://scenes/killzone.tscn" id="2_irr52"]
+[ext_resource type="PackedScene" path="res://scenes/killzone.tscn" id="2_irr52"]
 [ext_resource type="Texture2D" uid="uid://boqwkblok1ovi" path="res://Assets/Enemy_Anim/Enemy01_Idle.png" id="2_mewoc"]
 [ext_resource type="Texture2D" uid="uid://ccw5goxhon5kj" path="res://Assets/Enemy_Anim/Enemy04_hold.png" id="3_ejes6"]
 [ext_resource type="Texture2D" uid="uid://ds1l83prb22pg" path="res://Assets/Enemy_Anim/Enemy02_idle.png" id="3_nkmb1"]

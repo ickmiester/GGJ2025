@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://cg64tss28lfvx"]
+[gd_scene load_steps=12 format=3 uid="uid://cg64tss28lfvx"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_ci6ca"]
 [ext_resource type="PackedScene" uid="uid://4bkm5ku1dlce" path="res://scenes/board.tscn" id="2_1o0vd"]
 [ext_resource type="PackedScene" uid="uid://coxxd3ndthibi" path="res://scenes/character.tscn" id="2_5w011"]
 [ext_resource type="Script" path="res://scenes/timer.gd" id="4_j01hf"]
 [ext_resource type="PackedScene" uid="uid://bibhw7mpu8iy1" path="res://scenes/enemy.tscn" id="4_tvnff"]
+[ext_resource type="PackedScene" uid="uid://dt0ab06cirdx5" path="res://scenes/music.tscn" id="6_he7s7"]
 
 [sub_resource type="Curve2D" id="Curve2D_j1iqu"]
 bake_interval = 2.0
@@ -24,7 +25,7 @@ normal = Vector2(0, 1)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6gnbg"]
 
-[node name="Game2" type="Node2D"]
+[node name="Game3" type="Node2D"]
 script = ExtResource("1_ci6ca")
 gameOverScene = "res://scenes/game_over.tscn"
 character = ExtResource("2_5w011")
@@ -115,6 +116,8 @@ shape = SubResource("WorldBoundaryShape2D_7d38f")
 [node name="CollisionShape2DBottom" type="CollisionShape2D" parent="Walls"]
 position = Vector2(0, 540)
 shape = SubResource("WorldBoundaryShape2D_6gnbg")
+
+[node name="Music" parent="." instance=ExtResource("6_he7s7")]
 
 [connection signal="pressed" from="BoardPath/BoardFollow/board/Camera2D/CanvasLayer/LoseButton" to="." method="_on_lose_button_pressed"]
 [connection signal="pressed" from="BoardPath/BoardFollow/board/Camera2D/CanvasLayer/NewPathButton" to="." method="_on_new_path_button_pressed"]

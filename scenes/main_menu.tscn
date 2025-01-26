@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cult5pickc1hw"]
+[gd_scene load_steps=4 format=3 uid="uid://cult5pickc1hw"]
 
 [ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_hb7w4"]
 [ext_resource type="Texture2D" uid="uid://hpvxgf1w32yw" path="res://art/WobbleWalker_Menu_temp.png" id="2_gncqw"]
+[ext_resource type="PackedScene" uid="uid://dld18w03p50k8" path="res://scenes/menumusic.tscn" id="3_fqrjr"]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_hb7w4")
@@ -54,6 +55,8 @@ offset_top = 2.0
 offset_right = 957.0
 offset_bottom = 33.0
 text = "MUTE"
+
+[node name="Music" parent="." instance=ExtResource("3_fqrjr")]
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]

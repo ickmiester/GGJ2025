@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dt0ab06cirdx5"]
+
+[ext_resource type="AudioStream" uid="uid://b2ljp3va4gn48" path="res://audio/SongBubbleBot.wav" id="1_qfhty"]
+
+[node name="Music" type="Node2D"]
+
+[node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_qfhty")
+autoplay = true

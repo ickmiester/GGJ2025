@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://badrcqltcbtgn"]
+[gd_scene load_steps=16 format=3 uid="uid://badrcqltcbtgn"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_x0ot6"]
 [ext_resource type="PackedScene" uid="uid://coxxd3ndthibi" path="res://scenes/character.tscn" id="2_wnbct"]
@@ -7,7 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://bibhw7mpu8iy1" path="res://scenes/enemy.tscn" id="4_ydkmp"]
 [ext_resource type="Texture2D" uid="uid://d0nwli2b3qmqp" path="res://Assets/CloudGround2.png" id="5_k4a64"]
 [ext_resource type="PackedScene" uid="uid://cu8ogd3ah2g0x" path="res://scenes/bubble.tscn" id="6_3iblh"]
-[ext_resource type="PackedScene" uid="uid://bjlu3ce7053b6" path="res://scenes/ope.tscn" id="8_husmu"]
+[ext_resource type="PackedScene" path="res://scenes/ope.tscn" id="8_husmu"]
+[ext_resource type="PackedScene" uid="uid://dt0ab06cirdx5" path="res://scenes/music.tscn" id="9_8qkhf"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5p1sd"]
 normal = Vector2(1, 0)
@@ -26,7 +27,7 @@ radius = 102.044
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hfm01"]
 size = Vector2(108, 245)
 
-[node name="Game" type="Node2D" node_paths=PackedStringArray("spedometer")]
+[node name="Game2" type="Node2D" node_paths=PackedStringArray("spedometer")]
 script = ExtResource("1_x0ot6")
 gameOverScene = "res://scenes/game_over.tscn"
 winScene = "res://scenes/level2.tscn"
@@ -438,6 +439,8 @@ position = Vector2(287, 246)
 [node name="Ope" parent="." instance=ExtResource("8_husmu")]
 position = Vector2(219, 262)
 scale = Vector2(-0.312495, 0.281279)
+
+[node name="Music" parent="." instance=ExtResource("9_8qkhf")]
 
 [connection signal="pressed" from="Camera2D/CanvasLayer/LoseButton" to="." method="_on_lose_button_pressed"]
 [connection signal="pressed" from="Camera2D/CanvasLayer/NewPathButton" to="." method="_on_new_path_button_pressed"]

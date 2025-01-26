@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://e13i84qvlh83"]
+[gd_scene load_steps=14 format=3 uid="uid://e13i84qvlh83"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_d7gh1"]
 [ext_resource type="PackedScene" uid="uid://coxxd3ndthibi" path="res://scenes/character.tscn" id="2_8jj5n"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ti2sn4g4di73" path="res://Assets/CloudGroundTile_1.png" id="4_iuwj1"]
 [ext_resource type="Texture2D" uid="uid://cbd5asmfkd7do" path="res://art/fullsizebg_temp.png" id="4_tuos5"]
 [ext_resource type="Texture2D" uid="uid://8juqu68ng3qq" path="res://Assets/BubbleGroundSquare.png" id="5_kt28r"]
+[ext_resource type="PackedScene" uid="uid://dt0ab06cirdx5" path="res://scenes/music.tscn" id="7_kxy1k"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5p1sd"]
 normal = Vector2(1, 0)
@@ -24,7 +25,7 @@ size = Vector2(35, 36)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n2w0h"]
 size = Vector2(467, 1072.5)
 
-[node name="Game2" type="Node2D" node_paths=PackedStringArray("spedometer")]
+[node name="Game3" type="Node2D" node_paths=PackedStringArray("spedometer")]
 script = ExtResource("1_d7gh1")
 gameOverScene = "res://scenes/game_over.tscn"
 winScene = "res://scenes/game_over.tscn"
@@ -282,6 +283,8 @@ texture = ExtResource("5_kt28r")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WinArea"]
 position = Vector2(5326, 621)
 shape = SubResource("RectangleShape2D_n2w0h")
+
+[node name="Music" parent="." instance=ExtResource("7_kxy1k")]
 
 [connection signal="pressed" from="Camera2D/CanvasLayer/LoseButton" to="." method="_on_lose_button_pressed"]
 [connection signal="pressed" from="Camera2D/CanvasLayer/NewPathButton" to="." method="_on_new_path_button_pressed"]

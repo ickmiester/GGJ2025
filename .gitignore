@@ -1,3 +1,18 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+exportexe/BubbleBot.html.console.exe
+exportexe/BubbleBot.html.exe
+exportexe/BubbleBot.html.pck
+exporthtml/BubbleBot.apple-touch-icon.png
+exporthtml/BubbleBot.apple-touch-icon.png.import
+exporthtml/BubbleBot.audio.worklet.js
+exporthtml/BubbleBot.icon.png
+exporthtml/BubbleBot.icon.png.import
+exporthtml/BubbleBot.js
+exporthtml/BubbleBot.pck
+exporthtml/BubbleBot.png
+exporthtml/BubbleBot.png.import
+exporthtml/BubbleBot.wasm
+exporthtml/BubbleBot_0.1.zip
+exporthtml/index.html

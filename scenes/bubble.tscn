@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b4xofwudsoock" path="res://Assets/BubbleWobble_SpriteSheet.png" id="1_1hnm0"]
 [ext_resource type="Script" path="res://scenes/bubble.gd" id="1_7avtq"]
-[ext_resource type="PackedScene" uid="uid://vexof263c8pc" path="res://scenes/killzone.tscn" id="3_lpadx"]
+[ext_resource type="PackedScene" path="res://scenes/killzone.tscn" id="3_lpadx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k36sg"]
 atlas = ExtResource("1_1hnm0")
