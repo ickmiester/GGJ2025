@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://c3lejssbre4cm"
-path="res://.godot/imported/wheelsqueak3.wav-c21510b45bcd51d15b51d2626837df69.sample"
+path="res://.godot/imported/wheelsqueak3.wav-db24bc0e9d3dd0cfdf682e31aa860fbf.sample"
 
 [deps]
 
-source_file="res://audio/wheelsqueak3.wav"
-dest_files=["res://.godot/imported/wheelsqueak3.wav-c21510b45bcd51d15b51d2626837df69.sample"]
+source_file="res://Audio/wheelsqueak3.wav"
+dest_files=["res://.godot/imported/wheelsqueak3.wav-db24bc0e9d3dd0cfdf682e31aa860fbf.sample"]
 
 [params]
 
