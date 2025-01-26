@@ -65,8 +65,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u4dx5"]
-size = Vector2(173, 110)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_alwsm"]
+radius = 55.0
+height = 116.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vu5gx"]
 radius = 6.0
@@ -102,7 +103,7 @@ flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 position = Vector2(0, 1)
-shape = SubResource("RectangleShape2D_u4dx5")
+shape = SubResource("CapsuleShape2D_alwsm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, -6)
