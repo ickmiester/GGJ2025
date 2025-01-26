@@ -234,6 +234,7 @@ position = Vector2(0, 1)
 rotation = -1.5708
 sprite_frames = SubResource("SpriteFrames_vqmry")
 autoplay = "default"
+frame = 1
 
 [node name="WheelAudio" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_3byy5")
