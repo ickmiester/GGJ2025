@@ -50,7 +50,7 @@ func _process(delta: float) -> void:
 		$Wheel/WheelSprite.pause()
 		
 	$Wheel.move_and_slide()
-	if $Wheel.velocity != Vector2.ZERO and $Wheel.is_on_floor():
+	if abs($Wheel.velocity.x) > 20 and $Wheel.is_on_floor():
 		if $RollAudio.finished: 
 			$RollAudio.play()
 	else:
