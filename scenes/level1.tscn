@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://badrcqltcbtgn"]
+[gd_scene load_steps=26 format=3 uid="uid://badrcqltcbtgn"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_x0ot6"]
 [ext_resource type="PackedScene" uid="uid://coxxd3ndthibi" path="res://scenes/character.tscn" id="2_wnbct"]
@@ -32,7 +32,10 @@ radius = 97.2523
 radius = 162.077
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m50n8"]
-size = Vector2(90, 54)
+size = Vector2(79.25, 58)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tmji8"]
+size = Vector2(100.875, 55)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7v70x"]
 size = Vector2(125, 61)
@@ -278,7 +281,7 @@ collision_layer = 2
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/Colliders/StaticBody2D15"]
-position = Vector2(46.75, -72)
+position = Vector2(41.375, -74)
 shape = SubResource("RectangleShape2D_m50n8")
 
 [node name="StaticBody2D17" type="StaticBody2D" parent="Floors/Colliders"]
@@ -296,8 +299,17 @@ collision_layer = 2
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/Colliders/StaticBody2D18"]
-position = Vector2(46.75, -72)
-shape = SubResource("RectangleShape2D_m50n8")
+position = Vector2(57.5625, -70.5)
+shape = SubResource("RectangleShape2D_tmji8")
+
+[node name="StaticBody2D19" type="StaticBody2D" parent="Floors/Colliders"]
+position = Vector2(1125, 309)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/Colliders/StaticBody2D19"]
+position = Vector2(57.5625, -70.5)
+shape = SubResource("RectangleShape2D_tmji8")
 
 [node name="StaticBody2D16" type="StaticBody2D" parent="Floors/Colliders"]
 position = Vector2(837, 363)
