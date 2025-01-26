@@ -1,10 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://badrcqltcbtgn"]
+[gd_scene load_steps=14 format=3 uid="uid://badrcqltcbtgn"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_x0ot6"]
 [ext_resource type="PackedScene" uid="uid://coxxd3ndthibi" path="res://scenes/character.tscn" id="2_wnbct"]
+[ext_resource type="Script" path="res://scenes/timer.gd" id="3_j0pg0"]
 [ext_resource type="Texture2D" uid="uid://bbuji04ax3tin" path="res://Assets/Cloud_Ground.png" id="4_y7pk5"]
 [ext_resource type="PackedScene" uid="uid://bibhw7mpu8iy1" path="res://scenes/enemy.tscn" id="4_ydkmp"]
 [ext_resource type="Texture2D" uid="uid://d0nwli2b3qmqp" path="res://Assets/CloudGround2.png" id="5_k4a64"]
+[ext_resource type="PackedScene" uid="uid://cu8ogd3ah2g0x" path="res://scenes/bubble.tscn" id="6_3iblh"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5p1sd"]
 normal = Vector2(1, 0)
@@ -23,11 +25,12 @@ radius = 102.044
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hfm01"]
 size = Vector2(108, 245)
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" node_paths=PackedStringArray("spedometer")]
 script = ExtResource("1_x0ot6")
 gameOverScene = "res://scenes/game_over.tscn"
 winScene = "res://scenes/level2.tscn"
 character = ExtResource("2_wnbct")
+spedometer = NodePath("Camera2D/CanvasLayer/LevelIndicator/Spedometer")
 
 [node name="StartPosition" type="Marker2D" parent="."]
 position = Vector2(38, 251)
@@ -77,9 +80,30 @@ offset_right = 98.0
 offset_bottom = 77.0
 show_percentage = false
 
+[node name="Spedometer" type="Label" parent="Camera2D/CanvasLayer/LevelIndicator"]
+layout_mode = 0
+offset_left = 108.0
+offset_top = 53.0
+offset_right = 148.0
+offset_bottom = 76.0
+text = "Current Speed: 55"
+
+[node name="Timer" type="Timer" parent="Camera2D/CanvasLayer"]
+autostart = true
+script = ExtResource("3_j0pg0")
+
+[node name="Label" type="RichTextLabel" parent="Camera2D/CanvasLayer/Timer"]
+anchors_preset = -1
+anchor_right = 0.0375
+offset_left = 236.0
+offset_top = 17.0
+offset_right = 276.0
+offset_bottom = 40.0
+text = "Time"
+
 [node name="Enemy" parent="." instance=ExtResource("4_ydkmp")]
-position = Vector2(885, 369)
-scale = Vector2(4, 4)
+position = Vector2(702, 376)
+scale = Vector2(0.37361, 0.38297)
 
 [node name="Walls" type="Area2D" parent="."]
 
@@ -149,7 +173,7 @@ collision_layer = 2
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/Colliders/StaticBody2D6"]
-position = Vector2(36, -32)
+position = Vector2(80, 9)
 shape = SubResource("CircleShape2D_oywe4")
 
 [node name="StaticBody2D7" type="StaticBody2D" parent="Floors/Colliders"]
@@ -158,7 +182,7 @@ collision_layer = 2
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/Colliders/StaticBody2D7"]
-position = Vector2(36, -32)
+position = Vector2(-8, 17)
 shape = SubResource("CircleShape2D_oywe4")
 
 [node name="StaticBody2D8" type="StaticBody2D" parent="Floors/Colliders"]
@@ -167,7 +191,7 @@ collision_layer = 2
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/Colliders/StaticBody2D8"]
-position = Vector2(36, -32)
+position = Vector2(-1, -65)
 shape = SubResource("CircleShape2D_oywe4")
 
 [node name="StaticBody2D9" type="StaticBody2D" parent="Floors/Colliders"]
@@ -207,7 +231,6 @@ position = Vector2(147, 380)
 shape = SubResource("CircleShape2D_oywe4")
 
 [node name="Clouds" type="Node2D" parent="Floors"]
-visible = false
 
 [node name="CloudGround" type="Sprite2D" parent="Floors/Clouds"]
 position = Vector2(-58, 346)
@@ -226,7 +249,7 @@ position = Vector2(419, 328)
 texture = ExtResource("4_y7pk5")
 
 [node name="CloudGround5" type="Sprite2D" parent="Floors/Clouds"]
-position = Vector2(506, 306)
+position = Vector2(467, 300)
 texture = ExtResource("5_k4a64")
 
 [node name="CloudGround6" type="Sprite2D" parent="Floors/Clouds"]
@@ -286,7 +309,7 @@ position = Vector2(441, 386)
 texture = ExtResource("5_k4a64")
 
 [node name="CloudGround20" type="Sprite2D" parent="Floors/Clouds"]
-position = Vector2(516, 365)
+position = Vector2(478, 335)
 texture = ExtResource("4_y7pk5")
 
 [node name="CloudGround21" type="Sprite2D" parent="Floors/Clouds"]
@@ -314,19 +337,19 @@ position = Vector2(693, 566)
 texture = ExtResource("4_y7pk5")
 
 [node name="CloudGround27" type="Sprite2D" parent="Floors/Clouds"]
-position = Vector2(777, 384)
+position = Vector2(802, 392)
 texture = ExtResource("5_k4a64")
 
 [node name="CloudGround28" type="Sprite2D" parent="Floors/Clouds"]
-position = Vector2(768, 427)
+position = Vector2(694, 514)
 texture = ExtResource("5_k4a64")
 
 [node name="CloudGround29" type="Sprite2D" parent="Floors/Clouds"]
-position = Vector2(773, 290)
+position = Vector2(814, 287)
 texture = ExtResource("4_y7pk5")
 
 [node name="CloudGround30" type="Sprite2D" parent="Floors/Clouds"]
-position = Vector2(785, 328)
+position = Vector2(821, 333)
 texture = ExtResource("5_k4a64")
 
 [node name="CloudGround31" type="Sprite2D" parent="Floors/Clouds"]
@@ -350,7 +373,7 @@ position = Vector2(776, 492)
 texture = ExtResource("5_k4a64")
 
 [node name="CloudGround36" type="Sprite2D" parent="Floors/Clouds"]
-position = Vector2(658, 572)
+position = Vector2(629, 547)
 texture = ExtResource("4_y7pk5")
 
 [node name="CloudGround37" type="Sprite2D" parent="Floors/Clouds"]
@@ -366,7 +389,7 @@ position = Vector2(713, 632)
 texture = ExtResource("4_y7pk5")
 
 [node name="CloudGround40" type="Sprite2D" parent="Floors/Clouds"]
-position = Vector2(763, 584)
+position = Vector2(769, 554)
 texture = ExtResource("5_k4a64")
 
 [node name="CloudGround41" type="Sprite2D" parent="Floors/Clouds"]
@@ -408,10 +431,10 @@ collision_layer = 2
 position = Vector2(474, 506)
 shape = SubResource("RectangleShape2D_hfm01")
 
-[node name="Timer" type="Timer" parent="."]
-autostart = true
+[node name="Bubble" parent="." instance=ExtResource("6_3iblh")]
+position = Vector2(287, 246)
 
 [connection signal="pressed" from="Camera2D/CanvasLayer/LoseButton" to="." method="_on_lose_button_pressed"]
 [connection signal="pressed" from="Camera2D/CanvasLayer/NewPathButton" to="." method="_on_new_path_button_pressed"]
 [connection signal="pressed" from="Camera2D/CanvasLayer/WinButton" to="." method="_on_win_button_pressed"]
-[connection signal="timeout" from="Timer" to="." method="secondElapsed"]
+[connection signal="timeout" from="Camera2D/CanvasLayer/Timer" to="." method="secondElapsed"]

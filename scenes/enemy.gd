@@ -64,3 +64,10 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 func _on_animated_sprite_2d_frame_changed() -> void:
 	if animated_sprite_2d.animation == "bubble" && animated_sprite_2d.frame == 2:
 		instantiate_bubble()
+
+
+func _on_killzone_body_entered(body: Node2D) -> void:
+	print("Enemy Entered by " + str(body))
+	if(body.name == "Wheel" or body.name == "Body"):
+		body.get_parent().emit_signal("lose")
+	pass # Replace with function body.

@@ -6,6 +6,8 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	var bus_idx = AudioServer.get_bus_index("Master")
+	$MUTE.set_pressed_no_signal(AudioServer.is_bus_mute(bus_idx))
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -1,4 +1,5 @@
 extends Node2D
+class_name Game
 
 signal win
 signal lose
@@ -12,14 +13,19 @@ var player: Node2D
 static var totalDistanceCovered = 0
 static var totalTimeElapsed = 0
 static var maxSpeed = 0
+static var currentLevel = 0
+static var success = false
 
 @export var distanceCovered = 0;
 @export var timeElapsed = 0
 @export var currentSpeed = 0;
+@export var spedometer:Label
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	success = false
+	currentLevel += 1
 	#$BoardPath/BoardFollow/board.position = $StartPosition.position
 	#$BoardPath/BoardFollow.progress_ratio = 0
 	#$BoardPath/BoardFollow/board/Camera2D/CanvasLayer/LevelIndicator/ProgressBar.value = 0;
@@ -39,9 +45,10 @@ func _process(delta: float) -> void:
 	currentSpeed = player.currentSpeed.x
 	if(player.maxSpeed.x > maxSpeed):
 		maxSpeed = player.maxSpeed.x
-		print("New Max Speed!" + str(maxSpeed))
+		#print("New Max Speed!" + str(maxSpeed))
 	distanceCovered += currentSpeed
 	totalDistanceCovered += currentSpeed
+	spedometer.text = "Current Speed: " + str(abs(snappedf(currentSpeed/10, 1)))
 	#$BoardPath/BoardFollow.progress += $BoardPath/BoardFollow/board.speed * delta
 	#offset = $BoardPath.get_curve().get_closest_offset($BoardPath.to_local(player.get_node("Wheel").to_global(player.get_node("Wheel").position)))
 	#var oldx = $BoardPath/BoardFollow.position.x;
@@ -71,7 +78,7 @@ func _instantiate_new_player() -> void:
 	if($WinArea != null):
 		$WinArea.body_entered.connect(player._on_area_2d_body_entered)
 	player.win.connect(onWin)
-	
+	player.lose.connect(onLose)
 
 func _on_win_button_pressed() -> void:
 	emit_signal("win")
@@ -114,4 +121,12 @@ func onWin() -> void:
 	call_deferred("winDeferred")
 	
 func winDeferred() -> void:
+	success = true
 	get_tree().change_scene_to_file(winScene)
+
+func onLose() -> void:
+	print("and lose")
+	call_deferred("loseDeferred")
+	
+func loseDeferred() -> void:
+	get_tree().change_scene_to_file(gameOverScene)

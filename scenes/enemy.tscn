@@ -77,7 +77,7 @@ animation = &"idle"
 autoplay = "idle"
 flip_h = true
 
-[node name="Killzone" parent="." instance=ExtResource("2_irr52")]
+[node name="Killzone" parent="." groups=["mob"] instance=ExtResource("2_irr52")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 position = Vector2(0, 0.5)
@@ -95,4 +95,5 @@ collide_with_areas = true
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
+[connection signal="body_entered" from="Killzone" to="." method="_on_killzone_body_entered"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

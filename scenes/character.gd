@@ -22,7 +22,7 @@ func _process(delta: float) -> void:
 		consecutiveAccel += 1
 		#print("Left Pressed")
 		$WheelAudio.play()
-		$Wheel.velocity += Vector2(-25 - consecutiveAccel**0.5, 0) * scale
+		$Wheel.velocity += Vector2(-35 - consecutiveAccel**0.5, 0) * scale
 		#$Wheel/WheelSprite.rotate(-PI/20)
 		if($Wheel.is_on_floor()):
 			$Wheel/WheelSprite.play()
@@ -30,15 +30,16 @@ func _process(delta: float) -> void:
 		consecutiveAccel += 1
 		#print("Right Pressed")
 		$WheelAudio.play()
-		$Wheel.velocity += Vector2(25 + consecutiveAccel**0.5, 0) * scale
+		$Wheel.velocity += Vector2(35 + consecutiveAccel**0.5, 0) * scale
 		#$Wheel/WheelSprite.rotate(PI/20)
 		if($Wheel.is_on_floor()):
 			$Wheel/WheelSprite.play()
-	$Wheel.velocity += Vector2(0, 20) * scale
+	$Wheel.velocity += Vector2(0, 40) * scale
 	if(Input.is_action_just_pressed("jump")):
-		$Wheel.velocity+= Vector2(0, -900) * scale
-		$Wheel/WheelSprite.frame = 0;
-		$Wheel/WheelSprite.pause()
+		if($Wheel.is_on_floor()):
+			$Wheel.velocity+= Vector2(0, -1800) * scale
+			$Wheel/WheelSprite.frame = 0;
+			$Wheel/WheelSprite.pause()
 	currentSpeed = $Wheel.velocity
 	if(currentSpeed.x > maxSpeed.x):
 		maxSpeed = currentSpeed
@@ -55,13 +56,13 @@ func _process(delta: float) -> void:
 	#make body fall if off-center
 	var direction_angle = $Wheel.to_global($Wheel.position) - $Body.to_global($Body.position)
 	direction = direction_angle
-	if abs(direction_angle.normalized().x) > .3:
-		$Body.position.y += (.95-direction_angle.normalized().y) * 2
+	#if abs(direction_angle.normalized().x) > .9:
+	#	$Body.position.y += (.95-direction_angle.normalized().y) * 2
 		#$BodyAudio.play()
 		#print("unstable!")
-	else:
-		if direction_angle.y > 0:
-			$Body.position.y -= (direction_angle.normalized().y) * 100
+	#else:
+		#if direction_angle.y > 0:
+	$Body.position.y -= abs((direction_angle.normalized().y)) * 100
 		
 	#Rotate body to face center of wheel
 	#Adjust body position to be a static distance from wheel
@@ -80,7 +81,6 @@ func _process(delta: float) -> void:
 	#body.reparent(parent)
 	body.get_node("BodyCollision/SpriteContainer/BodySprite").play()
 	$Body.move_and_slide()
-
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	print("onEnter")
