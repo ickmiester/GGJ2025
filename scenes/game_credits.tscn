@@ -1,33 +1,32 @@
-[gd_scene load_steps=7 format=3 uid="uid://bn01my0anig87"]
+[gd_scene load_steps=7 format=3 uid="uid://dkxcdv3vfmgr8"]
 
-[ext_resource type="Script" path="res://scenes/game_info.gd" id="1_telsd"]
-[ext_resource type="Texture2D" uid="uid://bbfe1bgr8kbhc" path="res://art/game info.png" id="2_r74qy"]
-[ext_resource type="PackedScene" uid="uid://kjt5bcuhwbfv" path="res://scenes/buttonaudio.tscn" id="3_8f6e8"]
-[ext_resource type="PackedScene" uid="uid://dld18w03p50k8" path="res://scenes/menumusic.tscn" id="3_tval3"]
-[ext_resource type="Texture2D" uid="uid://rp51a030w5l" path="res://art/IGDATC Logo.png" id="5_lebhk"]
-[ext_resource type="Texture2D" uid="uid://cgaasws5ix4ui" path="res://art/ggjlogo.png" id="6_vxmqa"]
+[ext_resource type="Script" path="res://scenes/game_info.gd" id="1_63fpd"]
+[ext_resource type="Texture2D" uid="uid://bbfe1bgr8kbhc" path="res://art/game info.png" id="2_p0gom"]
+[ext_resource type="PackedScene" uid="uid://dld18w03p50k8" path="res://scenes/menumusic.tscn" id="3_3vv42"]
+[ext_resource type="PackedScene" uid="uid://kjt5bcuhwbfv" path="res://scenes/buttonaudio.tscn" id="4_awg42"]
+[ext_resource type="Texture2D" uid="uid://cgaasws5ix4ui" path="res://art/ggjlogo.png" id="5_u0inc"]
+[ext_resource type="Texture2D" uid="uid://rp51a030w5l" path="res://art/IGDATC Logo.png" id="6_0r2ny"]
 
-[node name="GameInfo" type="Node2D"]
-script = ExtResource("1_telsd")
+[node name="GameCredits" type="Node2D"]
+script = ExtResource("1_63fpd")
 MainMenuScene = "res://scenes/main_menu.tscn"
 CreditScene = "res://scenes/game_credits.tscn"
 InfoScene = "res://scenes/game_info.tscn"
 
 [node name="Background" type="TextureRect" parent="."]
-visible = false
 offset_right = 960.0
 offset_bottom = 540.0
-texture = ExtResource("2_r74qy")
+texture = ExtResource("2_p0gom")
 expand_mode = 2
 stretch_mode = 4
 
 [node name="NextButton" type="Button" parent="."]
-offset_left = 872.0
+offset_left = 792.0
 offset_top = 480.0
-offset_right = 921.0
+offset_right = 896.0
 offset_bottom = 511.0
 scale = Vector2(1.5, 1.5)
-text = "NEXT"
+text = "MAIN MENU"
 
 [node name="BackButton" type="Button" parent="."]
 offset_left = 16.0
@@ -37,9 +36,9 @@ offset_bottom = 511.0
 scale = Vector2(1.5, 1.5)
 text = "BACK"
 
-[node name="Music" parent="." instance=ExtResource("3_tval3")]
+[node name="Music" parent="." instance=ExtResource("3_3vv42")]
 
-[node name="ButtonAudio" parent="." instance=ExtResource("3_8f6e8")]
+[node name="ButtonAudio" parent="." instance=ExtResource("4_awg42")]
 
 [node name="GGJButton" type="LinkButton" parent="."]
 offset_left = 848.0
@@ -50,7 +49,7 @@ offset_bottom = 112.0
 [node name="Sprite2D2" type="Sprite2D" parent="GGJButton"]
 position = Vector2(52, 53)
 scale = Vector2(0.117778, 0.117778)
-texture = ExtResource("6_vxmqa")
+texture = ExtResource("5_u0inc")
 
 [node name="IGDATCButton" type="LinkButton" parent="."]
 offset_left = 24.0
@@ -61,7 +60,7 @@ offset_bottom = 112.0
 [node name="Sprite2D" type="Sprite2D" parent="IGDATCButton"]
 position = Vector2(40, 41)
 scale = Vector2(0.481915, 0.481915)
-texture = ExtResource("5_lebhk")
+texture = ExtResource("6_0r2ny")
 
 [connection signal="button_down" from="NextButton" to="ButtonAudio" method="_on_button_down"]
 [connection signal="mouse_entered" from="NextButton" to="ButtonAudio" method="_on_mouse_entered"]
