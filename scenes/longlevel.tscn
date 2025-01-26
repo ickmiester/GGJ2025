@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://e13i84qvlh83"]
+[gd_scene load_steps=20 format=3 uid="uid://e13i84qvlh83"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_d7gh1"]
 [ext_resource type="PackedScene" uid="uid://coxxd3ndthibi" path="res://scenes/character.tscn" id="2_8jj5n"]
@@ -9,6 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://dt0ab06cirdx5" path="res://scenes/music.tscn" id="7_kxy1k"]
 [ext_resource type="PackedScene" uid="uid://b1bf8fklhk05i" path="res://scenes/enemy2.tscn" id="8_wdrot"]
 [ext_resource type="Texture2D" uid="uid://dx5o2p1d4k50f" path="res://art/Minnesota Flag.png" id="9_f3dnt"]
+[ext_resource type="Texture2D" uid="uid://d0nwli2b3qmqp" path="res://Assets/CloudGround2.png" id="10_exed3"]
+[ext_resource type="Texture2D" uid="uid://bbuji04ax3tin" path="res://Assets/Cloud_Ground.png" id="11_r7jsg"]
+[ext_resource type="Texture2D" uid="uid://dwsqu22jm8vbw" path="res://Assets/CloudGroundTile_3.png" id="12_pprac"]
+[ext_resource type="Texture2D" uid="uid://cuyl8wk4vgq0y" path="res://Assets/CloudGroundTile_2.png" id="13_cbjkj"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5p1sd"]
 normal = Vector2(1, 0)
@@ -138,6 +142,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "Time"
 
 [node name="Walls" type="Area2D" parent="."]
+position = Vector2(0, 88)
 
 [node name="CollisionShape2DLeft" type="CollisionShape2D" parent="Walls"]
 shape = SubResource("WorldBoundaryShape2D_5p1sd")
@@ -155,6 +160,7 @@ position = Vector2(0, 540)
 shape = SubResource("WorldBoundaryShape2D_6gnbg")
 
 [node name="Floor" type="Node2D" parent="."]
+position = Vector2(0, 88)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Floor"]
 position = Vector2(-4216, -608)
@@ -182,6 +188,7 @@ invert_enabled = true
 polygon = PackedVector2Array(0, 88, 25.0381, 87.9965, 265.404, 115.514, 603.239, 172.842, 924.442, 253.519, 1151.75, 380.37, 1722.08, 561.319, 2032.25, 561.563, 2032.38, 533.697, 2049.55, 533.593, 2050.62, 575.703, -2.02444, 576.501, -8.85274, 83.2018, 1.07288e-05, 83.2018)
 
 [node name="Obstacles" type="Node2D" parent="."]
+position = Vector2(0, 88)
 
 [node name="StaticBody2D" type="RigidBody2D" parent="Obstacles"]
 position = Vector2(322, 102)
@@ -756,106 +763,213 @@ texture = ExtResource("5_kt28r")
 
 [node name="Stairs" type="Node" parent="Obstacles"]
 
-[node name="StaticBody2D3" type="RigidBody2D" parent="Obstacles/Stairs"]
+[node name="StaticBody2D39" type="RigidBody2D" parent="Obstacles"]
 position = Vector2(-142, 102)
 collision_layer = 2
 collision_mask = 0
 gravity_scale = 0.0
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Stairs/StaticBody2D3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/StaticBody2D39"]
 shape = SubResource("RectangleShape2D_icmr5")
 
-[node name="Sprite2D" type="Sprite2D" parent="Obstacles/Stairs/StaticBody2D3/CollisionShape2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Obstacles/StaticBody2D39/CollisionShape2D"]
 position = Vector2(-1.90735e-06, 5.72205e-06)
 scale = Vector2(0.180625, 0.180625)
 texture = ExtResource("5_kt28r")
 
-[node name="StaticBody2D4" type="RigidBody2D" parent="Obstacles/Stairs"]
+[node name="StaticBody2D40" type="RigidBody2D" parent="Obstacles"]
 position = Vector2(-106, 102)
 collision_layer = 2
 collision_mask = 0
 gravity_scale = 0.0
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Stairs/StaticBody2D4"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/StaticBody2D40"]
 shape = SubResource("RectangleShape2D_icmr5")
 
-[node name="Sprite2D" type="Sprite2D" parent="Obstacles/Stairs/StaticBody2D4/CollisionShape2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Obstacles/StaticBody2D40/CollisionShape2D"]
 position = Vector2(-1.90735e-06, 5.72205e-06)
 scale = Vector2(0.180625, 0.180625)
 texture = ExtResource("5_kt28r")
 
-[node name="StaticBody2D5" type="RigidBody2D" parent="Obstacles/Stairs"]
+[node name="StaticBody2D41" type="RigidBody2D" parent="Obstacles"]
 position = Vector2(-70, 102)
 collision_layer = 2
 collision_mask = 0
 gravity_scale = 0.0
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Stairs/StaticBody2D5"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/StaticBody2D41"]
 shape = SubResource("RectangleShape2D_icmr5")
 
-[node name="Sprite2D" type="Sprite2D" parent="Obstacles/Stairs/StaticBody2D5/CollisionShape2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Obstacles/StaticBody2D41/CollisionShape2D"]
 position = Vector2(-1.90735e-06, 5.72205e-06)
 scale = Vector2(0.180625, 0.180625)
 texture = ExtResource("5_kt28r")
 
-[node name="StaticBody2D6" type="RigidBody2D" parent="Obstacles/Stairs"]
+[node name="StaticBody2D45" type="RigidBody2D" parent="Obstacles"]
+position = Vector2(-35, 102)
+collision_layer = 2
+collision_mask = 0
+gravity_scale = 0.0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/StaticBody2D45"]
+shape = SubResource("RectangleShape2D_icmr5")
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstacles/StaticBody2D45/CollisionShape2D"]
+position = Vector2(-1.90735e-06, 5.72205e-06)
+scale = Vector2(0.180625, 0.180625)
+texture = ExtResource("5_kt28r")
+
+[node name="StaticBody2D46" type="RigidBody2D" parent="Obstacles"]
+position = Vector2(-1, 102)
+collision_layer = 2
+collision_mask = 0
+gravity_scale = 0.0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/StaticBody2D46"]
+shape = SubResource("RectangleShape2D_icmr5")
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstacles/StaticBody2D46/CollisionShape2D"]
+position = Vector2(-1.90735e-06, 5.72205e-06)
+scale = Vector2(0.180625, 0.180625)
+texture = ExtResource("5_kt28r")
+
+[node name="StaticBody2D47" type="RigidBody2D" parent="Obstacles"]
+position = Vector2(35, 102)
+collision_layer = 2
+collision_mask = 0
+gravity_scale = 0.0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/StaticBody2D47"]
+shape = SubResource("RectangleShape2D_icmr5")
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstacles/StaticBody2D47/CollisionShape2D"]
+position = Vector2(-1.90735e-06, 5.72205e-06)
+scale = Vector2(0.180625, 0.180625)
+texture = ExtResource("5_kt28r")
+
+[node name="StaticBody2D48" type="RigidBody2D" parent="Obstacles"]
+position = Vector2(71, 102)
+collision_layer = 2
+collision_mask = 0
+gravity_scale = 0.0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/StaticBody2D48"]
+shape = SubResource("RectangleShape2D_icmr5")
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstacles/StaticBody2D48/CollisionShape2D"]
+position = Vector2(-1.90735e-06, 5.72205e-06)
+scale = Vector2(0.180625, 0.180625)
+texture = ExtResource("5_kt28r")
+
+[node name="StaticBody2D49" type="RigidBody2D" parent="Obstacles"]
+position = Vector2(-142, -6)
+collision_layer = 2
+collision_mask = 0
+gravity_scale = 0.0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/StaticBody2D49"]
+shape = SubResource("RectangleShape2D_icmr5")
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstacles/StaticBody2D49/CollisionShape2D"]
+position = Vector2(-1.90735e-06, 5.72205e-06)
+scale = Vector2(0.180625, 0.180625)
+texture = ExtResource("5_kt28r")
+
+[node name="StaticBody2D50" type="RigidBody2D" parent="Obstacles"]
+position = Vector2(-106, 30)
+collision_layer = 2
+collision_mask = 0
+gravity_scale = 0.0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/StaticBody2D50"]
+shape = SubResource("RectangleShape2D_icmr5")
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstacles/StaticBody2D50/CollisionShape2D"]
+position = Vector2(-1.90735e-06, 5.72205e-06)
+scale = Vector2(0.180625, 0.180625)
+texture = ExtResource("5_kt28r")
+
+[node name="StaticBody2D51" type="RigidBody2D" parent="Obstacles"]
+position = Vector2(-71, 67)
+collision_layer = 2
+collision_mask = 0
+gravity_scale = 0.0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/StaticBody2D51"]
+shape = SubResource("RectangleShape2D_icmr5")
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstacles/StaticBody2D51/CollisionShape2D"]
+position = Vector2(-1.90735e-06, 5.72205e-06)
+scale = Vector2(0.180625, 0.180625)
+texture = ExtResource("5_kt28r")
+
+[node name="StaticBody2D42" type="RigidBody2D" parent="Obstacles"]
 position = Vector2(-142, 67)
 collision_layer = 2
 collision_mask = 0
 gravity_scale = 0.0
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Stairs/StaticBody2D6"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/StaticBody2D42"]
 shape = SubResource("RectangleShape2D_icmr5")
 
-[node name="Sprite2D" type="Sprite2D" parent="Obstacles/Stairs/StaticBody2D6/CollisionShape2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Obstacles/StaticBody2D42/CollisionShape2D"]
 position = Vector2(-1.90735e-06, 5.72205e-06)
 scale = Vector2(0.180625, 0.180625)
 texture = ExtResource("5_kt28r")
 
-[node name="StaticBody2D7" type="RigidBody2D" parent="Obstacles/Stairs"]
+[node name="StaticBody2D43" type="RigidBody2D" parent="Obstacles"]
 position = Vector2(-106, 67)
 collision_layer = 2
 collision_mask = 0
 gravity_scale = 0.0
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Stairs/StaticBody2D7"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/StaticBody2D43"]
 shape = SubResource("RectangleShape2D_icmr5")
 
-[node name="Sprite2D" type="Sprite2D" parent="Obstacles/Stairs/StaticBody2D7/CollisionShape2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Obstacles/StaticBody2D43/CollisionShape2D"]
 position = Vector2(-1.90735e-06, 5.72205e-06)
 scale = Vector2(0.180625, 0.180625)
 texture = ExtResource("5_kt28r")
 
-[node name="StaticBody2D8" type="RigidBody2D" parent="Obstacles/Stairs"]
+[node name="StaticBody2D44" type="RigidBody2D" parent="Obstacles"]
 position = Vector2(-142, 31)
 collision_layer = 2
 collision_mask = 0
 gravity_scale = 0.0
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Stairs/StaticBody2D8"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/StaticBody2D44"]
 shape = SubResource("RectangleShape2D_icmr5")
 
-[node name="Sprite2D" type="Sprite2D" parent="Obstacles/Stairs/StaticBody2D8/CollisionShape2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Obstacles/StaticBody2D44/CollisionShape2D"]
 position = Vector2(-1.90735e-06, 5.72205e-06)
 scale = Vector2(0.180625, 0.180625)
 texture = ExtResource("5_kt28r")
 
 [node name="WinArea" type="Area2D" parent="."]
-position = Vector2(-3838, -780)
+position = Vector2(-3838, -692)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WinArea"]
 position = Vector2(5277.75, 428.375)
 shape = SubResource("RectangleShape2D_n2w0h")
 
 [node name="Music" parent="." instance=ExtResource("7_kxy1k")]
+position = Vector2(0, 88)
 
 [node name="Enemies" type="Node2D" parent="."]
+position = Vector2(0, 88)
 
 [node name="Enemy2" parent="Enemies" instance=ExtResource("8_wdrot")]
 position = Vector2(396, 88)
@@ -912,6 +1026,328 @@ scale = Vector2(0.213615, 0.202604)
 enemy_type = 1
 
 [node name="MinnesotaFlag" type="Sprite2D" parent="."]
-position = Vector2(1203, -235)
+position = Vector2(1203, -147)
 scale = Vector2(0.0893284, 0.0893284)
 texture = ExtResource("9_f3dnt")
+
+[node name="Clouds" type="Node2D" parent="."]
+position = Vector2(0, 88)
+
+[node name="CloudGround2" type="Sprite2D" parent="Clouds"]
+position = Vector2(-237, 76)
+texture = ExtResource("10_exed3")
+
+[node name="CloudGround" type="Sprite2D" parent="Clouds"]
+position = Vector2(-227, -16)
+texture = ExtResource("11_r7jsg")
+
+[node name="CloudGround3" type="Sprite2D" parent="Clouds"]
+position = Vector2(-43, 186)
+texture = ExtResource("11_r7jsg")
+
+[node name="CloudGroundTile3" type="Sprite2D" parent="Clouds"]
+position = Vector2(228, 253)
+texture = ExtResource("12_pprac")
+
+[node name="CloudGroundTile2" type="Sprite2D" parent="Clouds"]
+position = Vector2(398, 256)
+texture = ExtResource("13_cbjkj")
+
+[node name="CloudGroundTile1" type="Sprite2D" parent="Clouds"]
+position = Vector2(655, 394)
+texture = ExtResource("4_iuwj1")
+
+[node name="CloudGroundTile4" type="Sprite2D" parent="Clouds"]
+position = Vector2(-173, 217)
+texture = ExtResource("4_iuwj1")
+
+[node name="CloudGroundTile5" type="Sprite2D" parent="Clouds"]
+position = Vector2(69, 214)
+texture = ExtResource("4_iuwj1")
+
+[node name="CloudGroundTile6" type="Sprite2D" parent="Clouds"]
+position = Vector2(244, 214)
+texture = ExtResource("4_iuwj1")
+
+[node name="CloudGroundTile7" type="Sprite2D" parent="Clouds"]
+position = Vector2(428, 211)
+texture = ExtResource("4_iuwj1")
+
+[node name="CloudGroundTile8" type="Sprite2D" parent="Clouds"]
+position = Vector2(601, 216)
+texture = ExtResource("4_iuwj1")
+
+[node name="CloudGroundTile9" type="Sprite2D" parent="Clouds"]
+position = Vector2(776, 213)
+texture = ExtResource("4_iuwj1")
+
+[node name="CloudGroundTile10" type="Sprite2D" parent="Clouds"]
+position = Vector2(873, 212)
+texture = ExtResource("4_iuwj1")
+
+[node name="CloudGroundTile11" type="Sprite2D" parent="Clouds"]
+position = Vector2(1030, 226)
+rotation = 0.16665
+texture = ExtResource("4_iuwj1")
+
+[node name="CloudGroundTile12" type="Sprite2D" parent="Clouds"]
+position = Vector2(1194, 261)
+rotation = 0.16665
+texture = ExtResource("4_iuwj1")
+
+[node name="CloudGroundTile13" type="Sprite2D" parent="Clouds"]
+position = Vector2(1352, 289)
+rotation = 0.16665
+texture = ExtResource("4_iuwj1")
+
+[node name="CloudGround4" type="Sprite2D" parent="Clouds"]
+position = Vector2(-64, 316)
+texture = ExtResource("10_exed3")
+
+[node name="CloudGround5" type="Sprite2D" parent="Clouds"]
+position = Vector2(241, 288)
+texture = ExtResource("10_exed3")
+
+[node name="CloudGround6" type="Sprite2D" parent="Clouds"]
+position = Vector2(623, 195)
+texture = ExtResource("10_exed3")
+
+[node name="CloudGround7" type="Sprite2D" parent="Clouds"]
+position = Vector2(359, 195)
+texture = ExtResource("10_exed3")
+
+[node name="CloudGround8" type="Sprite2D" parent="Clouds"]
+position = Vector2(849, 186)
+texture = ExtResource("11_r7jsg")
+
+[node name="CloudGround9" type="Sprite2D" parent="Clouds"]
+position = Vector2(975, 191)
+texture = ExtResource("11_r7jsg")
+
+[node name="CloudGround10" type="Sprite2D" parent="Clouds"]
+position = Vector2(1120, 217)
+texture = ExtResource("11_r7jsg")
+
+[node name="CloudGround11" type="Sprite2D" parent="Clouds"]
+position = Vector2(1248, 255)
+texture = ExtResource("10_exed3")
+
+[node name="CloudGround12" type="Sprite2D" parent="Clouds"]
+position = Vector2(901, 196)
+texture = ExtResource("10_exed3")
+
+[node name="CloudGround13" type="Sprite2D" parent="Clouds"]
+position = Vector2(475, 192)
+texture = ExtResource("10_exed3")
+
+[node name="CloudGround14" type="Sprite2D" parent="Clouds"]
+position = Vector2(744, 188)
+texture = ExtResource("11_r7jsg")
+
+[node name="CloudGround15" type="Sprite2D" parent="Clouds"]
+position = Vector2(70, 184)
+texture = ExtResource("11_r7jsg")
+
+[node name="CloudGround16" type="Sprite2D" parent="Clouds"]
+position = Vector2(215, 194)
+texture = ExtResource("10_exed3")
+
+[node name="CloudGround17" type="Sprite2D" parent="Clouds"]
+position = Vector2(-7, 198)
+texture = ExtResource("10_exed3")
+
+[node name="CloudGround18" type="Sprite2D" parent="Clouds"]
+position = Vector2(-244, -162)
+texture = ExtResource("10_exed3")
+
+[node name="CloudGround19" type="Sprite2D" parent="Clouds"]
+position = Vector2(-232, -113)
+texture = ExtResource("11_r7jsg")
+
+[node name="CloudGround20" type="Sprite2D" parent="Clouds"]
+position = Vector2(-241, -40)
+texture = ExtResource("10_exed3")
+
+[node name="CloudGround21" type="Sprite2D" parent="Clouds"]
+position = Vector2(-248, -227)
+texture = ExtResource("10_exed3")
+
+[node name="CloudGround22" type="Sprite2D" parent="Clouds"]
+position = Vector2(-147, 183)
+texture = ExtResource("10_exed3")
+
+[node name="CloudGround23" type="Sprite2D" parent="Clouds"]
+position = Vector2(-81, 194)
+texture = ExtResource("10_exed3")
+
+[node name="CloudGround24" type="Sprite2D" parent="Clouds"]
+position = Vector2(148, 179)
+texture = ExtResource("11_r7jsg")
+
+[node name="CloudGround25" type="Sprite2D" parent="Clouds"]
+position = Vector2(172, 195)
+texture = ExtResource("10_exed3")
+
+[node name="CloudGround26" type="Sprite2D" parent="Clouds"]
+position = Vector2(88, 249)
+texture = ExtResource("10_exed3")
+
+[node name="CloudGround27" type="Sprite2D" parent="Clouds"]
+position = Vector2(360, 234)
+texture = ExtResource("10_exed3")
+
+[node name="CloudGround28" type="Sprite2D" parent="Clouds"]
+position = Vector2(621, 217)
+texture = ExtResource("11_r7jsg")
+
+[node name="CloudGround29" type="Sprite2D" parent="Clouds"]
+position = Vector2(545, 191)
+texture = ExtResource("10_exed3")
+
+[node name="CloudGround30" type="Sprite2D" parent="Clouds"]
+position = Vector2(781, 196)
+texture = ExtResource("10_exed3")
+
+[node name="CloudGround31" type="Sprite2D" parent="Clouds"]
+position = Vector2(685, 183)
+texture = ExtResource("11_r7jsg")
+
+[node name="CloudGround32" type="Sprite2D" parent="Clouds"]
+position = Vector2(427, 196)
+texture = ExtResource("10_exed3")
+
+[node name="CloudGround33" type="Sprite2D" parent="Clouds"]
+position = Vector2(-182, 275)
+texture = ExtResource("11_r7jsg")
+
+[node name="CloudGround34" type="Sprite2D" parent="Clouds"]
+position = Vector2(-272, 183)
+texture = ExtResource("10_exed3")
+
+[node name="CloudGround35" type="Sprite2D" parent="Clouds"]
+position = Vector2(-311, 48)
+texture = ExtResource("11_r7jsg")
+
+[node name="CloudGround36" type="Sprite2D" parent="Clouds"]
+position = Vector2(-358, -229)
+texture = ExtResource("10_exed3")
+
+[node name="CloudGround37" type="Sprite2D" parent="Clouds"]
+position = Vector2(-355, -94)
+texture = ExtResource("11_r7jsg")
+
+[node name="CloudGround38" type="Sprite2D" parent="Clouds"]
+position = Vector2(-332, 149)
+texture = ExtResource("11_r7jsg")
+
+[node name="CloudGround39" type="Sprite2D" parent="Clouds"]
+position = Vector2(-414, -17)
+texture = ExtResource("10_exed3")
+
+[node name="CloudGround40" type="Sprite2D" parent="Clouds"]
+position = Vector2(-313, 283)
+texture = ExtResource("10_exed3")
+
+[node name="CloudGround41" type="Sprite2D" parent="Clouds"]
+position = Vector2(-208, 403)
+texture = ExtResource("10_exed3")
+
+[node name="CloudGround42" type="Sprite2D" parent="Clouds"]
+position = Vector2(34, 387)
+texture = ExtResource("10_exed3")
+
+[node name="CloudGround43" type="Sprite2D" parent="Clouds"]
+position = Vector2(508, 359)
+texture = ExtResource("10_exed3")
+
+[node name="CloudGround44" type="Sprite2D" parent="Clouds"]
+position = Vector2(279, 187)
+texture = ExtResource("11_r7jsg")
+
+[node name="CloudGround45" type="Sprite2D" parent="Clouds"]
+position = Vector2(306, 202)
+texture = ExtResource("10_exed3")
+
+[node name="CloudGround46" type="Sprite2D" parent="Clouds"]
+position = Vector2(121, 381)
+texture = ExtResource("10_exed3")
+
+[node name="CloudGround47" type="Sprite2D" parent="Clouds"]
+position = Vector2(1028, 208)
+texture = ExtResource("10_exed3")
+
+[node name="CloudGround48" type="Sprite2D" parent="Clouds"]
+position = Vector2(1190, 234)
+texture = ExtResource("11_r7jsg")
+
+[node name="CloudGround49" type="Sprite2D" parent="Clouds"]
+position = Vector2(747, 307)
+texture = ExtResource("10_exed3")
+
+[node name="CloudGround50" type="Sprite2D" parent="Clouds"]
+position = Vector2(947, 279)
+texture = ExtResource("10_exed3")
+
+[node name="CloudGround51" type="Sprite2D" parent="Clouds"]
+position = Vector2(1099, 347)
+texture = ExtResource("10_exed3")
+
+[node name="CloudGround52" type="Sprite2D" parent="Clouds"]
+position = Vector2(1327, 271)
+texture = ExtResource("10_exed3")
+
+[node name="CloudGround53" type="Sprite2D" parent="Clouds"]
+position = Vector2(1235, 384)
+texture = ExtResource("10_exed3")
+
+[node name="CloudGround54" type="Sprite2D" parent="Clouds"]
+position = Vector2(993, 387)
+texture = ExtResource("11_r7jsg")
+
+[node name="CloudGround55" type="Sprite2D" parent="Clouds"]
+position = Vector2(829, 347)
+texture = ExtResource("10_exed3")
+
+[node name="CloudGround56" type="Sprite2D" parent="Clouds"]
+position = Vector2(1370, 167)
+texture = ExtResource("10_exed3")
+
+[node name="CloudGround57" type="Sprite2D" parent="Clouds"]
+position = Vector2(1403, -444)
+texture = ExtResource("11_r7jsg")
+
+[node name="CloudGround59" type="Sprite2D" parent="Clouds"]
+position = Vector2(1357, -212)
+texture = ExtResource("11_r7jsg")
+
+[node name="CloudGround58" type="Sprite2D" parent="Clouds"]
+position = Vector2(1380, -336)
+texture = ExtResource("10_exed3")
+
+[node name="CloudGround60" type="Sprite2D" parent="Clouds"]
+position = Vector2(1355, 72)
+texture = ExtResource("10_exed3")
+
+[node name="CloudGround61" type="Sprite2D" parent="Clouds"]
+position = Vector2(1367, -94)
+texture = ExtResource("11_r7jsg")
+
+[node name="CloudGround62" type="Sprite2D" parent="Clouds"]
+position = Vector2(57, -240)
+texture = ExtResource("11_r7jsg")
+
+[node name="CloudGround63" type="Sprite2D" parent="Clouds"]
+position = Vector2(135, -267)
+texture = ExtResource("10_exed3")
+
+[node name="CloudGround64" type="Sprite2D" parent="Clouds"]
+position = Vector2(500, -262)
+texture = ExtResource("11_r7jsg")
+
+[node name="CloudGround65" type="Sprite2D" parent="Clouds"]
+position = Vector2(650, -260)
+texture = ExtResource("10_exed3")
+
+[node name="CloudGround66" type="Sprite2D" parent="Clouds"]
+position = Vector2(577, -281)
+texture = ExtResource("11_r7jsg")
