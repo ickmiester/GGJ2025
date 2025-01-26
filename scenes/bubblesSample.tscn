@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfnbq7dx4qbdq"]
+
+[ext_resource type="Script" path="res://scenes/bubbles_sample.gd" id="1_woe2b"]
+[ext_resource type="Texture2D" uid="uid://c6hwrqs5nxd5j" path="res://Assets/EnemyUffda.png" id="2_rjq72"]
+
+[node name="BubblesSample" type="Node2D"]
+position = Vector2(704, 436)
+script = ExtResource("1_woe2b")
+mainScene = "res://scenes/main_menu.tscn"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_rjq72")
+
+[node name="BackButton" type="Button" parent="."]
+offset_left = -224.0
+offset_top = 43.0
+offset_right = -174.0
+offset_bottom = 74.0
+text = "BACK"
+
+[node name="SpawnTimer" type="Timer" parent="."]
+
+[connection signal="button_down" from="BackButton" to="." method="_on_back_button_down"]
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

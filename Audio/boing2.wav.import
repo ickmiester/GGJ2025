@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://d1278343vnpp2"
-path="res://.godot/imported/boing2.wav-1b14a55d7ecb4037fa26084835eb05b6.sample"
+path="res://.godot/imported/boing2.wav-ac731db6af2de02b9b7774541da65e5a.sample"
 
 [deps]
 
-source_file="res://audio/boing2.wav"
-dest_files=["res://.godot/imported/boing2.wav-1b14a55d7ecb4037fa26084835eb05b6.sample"]
+source_file="res://Audio/boing2.wav"
+dest_files=["res://.godot/imported/boing2.wav-ac731db6af2de02b9b7774541da65e5a.sample"]
 
 [params]
 

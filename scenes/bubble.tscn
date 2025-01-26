@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=3 uid="uid://ilwh72gp5sp6"]
+
+[ext_resource type="Texture2D" uid="uid://b4xofwudsoock" path="res://Assets/BubbleWobble_SpriteSheet.png" id="1_1hnm0"]
+[ext_resource type="Script" path="res://scenes/bubble.gd" id="1_7avtq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k36sg"]
+atlas = ExtResource("1_1hnm0")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_assg8"]
+atlas = ExtResource("1_1hnm0")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1uohx"]
+atlas = ExtResource("1_1hnm0")
+region = Rect2(0, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4i3bm"]
+atlas = ExtResource("1_1hnm0")
+region = Rect2(100, 100, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5wxos"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k36sg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_assg8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1uohx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4i3bm")
+}],
+"loop": true,
+"name": &"move",
+"speed": 6.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wyidt"]
+radius = 44.2832
+
+[node name="Bubble" type="CharacterBody2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_7avtq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_5wxos")
+animation = &"move"
+autoplay = "move"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_wyidt")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dj3ii7bluiirx"
-path="res://.godot/imported/charactersqueak2.wav-932caed2829c119900771ef3a27a577f.sample"
+path="res://.godot/imported/charactersqueak2.wav-83b8fe00b97c8f12331fb8380ef8dd6f.sample"
 
 [deps]
 
-source_file="res://audio/charactersqueak2.wav"
-dest_files=["res://.godot/imported/charactersqueak2.wav-932caed2829c119900771ef3a27a577f.sample"]
+source_file="res://Audio/charactersqueak2.wav"
+dest_files=["res://.godot/imported/charactersqueak2.wav-83b8fe00b97c8f12331fb8380ef8dd6f.sample"]
 
 [params]
 
