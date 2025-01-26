@@ -1,9 +1,12 @@
-[gd_scene load_steps=16 format=3 uid="uid://dayayrnpsw6jh"]
+[gd_scene load_steps=19 format=3 uid="uid://dayayrnpsw6jh"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_7t7mm"]
 [ext_resource type="PackedScene" uid="uid://coxxd3ndthibi" path="res://scenes/character.tscn" id="2_7mbek"]
+[ext_resource type="Texture2D" uid="uid://boxafbldesq6b" path="res://Assets/Backgrounds/BK_Far.png" id="3_3lb50"]
 [ext_resource type="Script" path="res://scenes/timer.gd" id="3_ejcoc"]
 [ext_resource type="Texture2D" uid="uid://cbd5asmfkd7do" path="res://art/fullsizebg_temp.png" id="4_820c0"]
+[ext_resource type="Texture2D" uid="uid://c4qlcada00j3" path="res://Assets/Backgrounds/BK_Mid.png" id="4_c87a3"]
+[ext_resource type="Texture2D" uid="uid://ymsx5481bwin" path="res://Assets/Backgrounds/BK_Near.png" id="5_ig37e"]
 [ext_resource type="Texture2D" uid="uid://ti2sn4g4di73" path="res://Assets/CloudGroundTile_1.png" id="5_ogyt0"]
 [ext_resource type="PackedScene" uid="uid://b1bf8fklhk05i" path="res://scenes/enemy2.tscn" id="6_7n7hx"]
 [ext_resource type="Texture2D" uid="uid://dx5o2p1d4k50f" path="res://art/Minnesota Flag.png" id="6_rf3ev"]
@@ -34,6 +37,50 @@ winScene = "res://scenes/longlevel.tscn"
 currentScene = "res://scenes/level2.tscn"
 character = ExtResource("2_7mbek")
 spedometer = NodePath("Camera2D/CanvasLayer/LevelIndicator/Spedometer")
+
+[node name="Background2" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.01, 0.01)
+
+[node name="base" type="ColorRect" parent="Background2"]
+offset_top = 5.0
+offset_right = 3240.0
+offset_bottom = 655.0
+scale = Vector2(0.25, 0.25)
+color = Color(0, 0.180392, 0.552941, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="dark" type="TextureRect" parent="Background2"]
+visibility_layer = 524288
+z_as_relative = false
+offset_top = 64.0
+offset_right = 3240.0
+offset_bottom = 1432.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_3lb50")
+flip_h = true
+metadata/_edit_use_anchors_ = true
+
+[node name="mid" type="TextureRect" parent="Background2"]
+visibility_layer = 524288
+z_as_relative = false
+offset_top = 136.0
+offset_right = 3240.0
+offset_bottom = 1504.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_c87a3")
+flip_h = true
+metadata/_edit_use_anchors_ = true
+
+[node name="light" type="TextureRect" parent="Background2"]
+visibility_layer = 524288
+z_as_relative = false
+offset_top = 200.0
+offset_right = 3240.0
+offset_bottom = 1568.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_ig37e")
+flip_h = true
+metadata/_edit_use_anchors_ = true
 
 [node name="StartPosition" type="Marker2D" parent="."]
 position = Vector2(38, 251)
@@ -160,6 +207,7 @@ shape = SubResource("WorldBoundaryShape2D_6gnbg")
 visible = false
 
 [node name="TextureRect2" type="TextureRect" parent="Background"]
+visible = false
 offset_left = -3752.0
 offset_top = -712.0
 offset_right = -1160.0
@@ -172,9 +220,10 @@ texture = ExtResource("4_820c0")
 collision_layer = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Floor/StaticBody2D"]
-polygon = PackedVector2Array(0, 256, 88, 256, 1976, 688, -11, 696, -11, 0, 0, 0)
+polygon = PackedVector2Array(0, 256, 88, 256, 1976, 688, 2240, 704, 2240, 256, 2248, 704, -11, 696, -11, 0, 0, 0)
 
 [node name="TextureRect" type="TextureRect" parent="Floor/StaticBody2D/CollisionPolygon2D"]
+visible = false
 offset_top = 176.0
 offset_right = 8000.0
 offset_bottom = 2320.0
@@ -185,9 +234,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Polygon2D" type="Polygon2D" parent="Floor/StaticBody2D/CollisionPolygon2D"]
 position = Vector2(0, 168)
-texture = ExtResource("4_820c0")
-invert_enabled = true
-polygon = PackedVector2Array(0, 88, 88, 88, 1976, 520, 0, 536)
+polygon = PackedVector2Array(0, 88, 88, 88, 1976, 520, 2264, 536, 0, 536)
 uv = PackedVector2Array(0, 88, 88, 88, 1976, 520, 0, 536)
 
 [node name="MinnesotaFlag" type="Sprite2D" parent="Floor/StaticBody2D"]
