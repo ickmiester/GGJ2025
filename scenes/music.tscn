@@ -1,9 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://dt0ab06cirdx5"]
+[gd_scene load_steps=3 format=3 uid="uid://dt0ab06cirdx5"]
 
+[ext_resource type="Script" path="res://scenes/music.gd" id="1_6yqwe"]
 [ext_resource type="AudioStream" uid="uid://b2ljp3va4gn48" path="res://audio/SongBubbleBot.wav" id="1_qfhty"]
 
 [node name="Music" type="Node2D"]
+script = ExtResource("1_6yqwe")
 
 [node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("1_qfhty")
 autoplay = true
+
+[connection signal="finished" from="MusicPlayer" to="." method="_on_music_player_finished"]
