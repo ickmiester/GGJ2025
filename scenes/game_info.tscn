@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bn01my0anig87"]
+[gd_scene load_steps=17 format=3 uid="uid://bn01my0anig87"]
 
 [ext_resource type="Script" path="res://scenes/game_info.gd" id="1_telsd"]
 [ext_resource type="Texture2D" uid="uid://bbfe1bgr8kbhc" path="res://art/game info.png" id="2_r74qy"]
@@ -14,6 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://c4nem2pcx55ky" path="res://Assets/Enemy_Anim/Enemy_Prickle.png" id="12_f6pe2"]
 [ext_resource type="Texture2D" uid="uid://djbar586gi36n" path="res://Assets/Enemy_Anim/Enemy05_Blowbubb.png" id="13_nj5xi"]
 [ext_resource type="Texture2D" uid="uid://dx5o2p1d4k50f" path="res://art/Minnesota Flag.png" id="14_bji3q"]
+[ext_resource type="Texture2D" uid="uid://b52ebepxtp5yn" path="res://Assets/Robot_Bubble.png" id="15_o6uf3"]
+[ext_resource type="Texture2D" uid="uid://crs1ma3p5vlxg" path="res://Assets/Robot_body_blink04.png" id="16_qphti"]
 
 [node name="GameInfo" type="Node2D"]
 script = ExtResource("1_telsd")
@@ -289,6 +291,7 @@ metadata/_edit_lock_ = true
 [node name="ButtonAudio" parent="." instance=ExtResource("3_8f6e8")]
 
 [node name="RobotFullLayout" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(128, 104)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("10_hyq0c")
@@ -328,6 +331,16 @@ text = "AVOID ENEMIES AND THEIR BUBBLES"
 position = Vector2(888, 120)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("14_bji3q")
+
+[node name="RobotBubble" type="Sprite2D" parent="."]
+position = Vector2(128, 152)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("15_o6uf3")
+
+[node name="RobotBodyBlink04" type="Sprite2D" parent="."]
+position = Vector2(128, 64)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("16_qphti")
 
 [connection signal="button_down" from="NextButton" to="ButtonAudio" method="_on_button_down"]
 [connection signal="mouse_entered" from="NextButton" to="ButtonAudio" method="_on_mouse_entered"]

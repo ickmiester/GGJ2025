@@ -19,17 +19,19 @@ expand_mode = 2
 stretch_mode = 4
 
 [node name="RetryButton" type="Button" parent="."]
-offset_left = 407.0
-offset_top = 481.0
-offset_right = 463.0
-offset_bottom = 512.0
+offset_left = 384.0
+offset_top = 472.0
+offset_right = 450.0
+offset_bottom = 503.0
+scale = Vector2(1.5, 1.5)
 text = "REPLAY"
 
 [node name="MainMenuButton" type="Button" parent="."]
-offset_left = 489.0
-offset_top = 481.0
-offset_right = 593.0
-offset_bottom = 512.0
+offset_left = 505.0
+offset_top = 472.0
+offset_right = 609.0
+offset_bottom = 503.0
+scale = Vector2(1.5, 1.5)
 text = "MAIN MENU"
 
 [node name="EnemyPrickle" type="Sprite2D" parent="."]
