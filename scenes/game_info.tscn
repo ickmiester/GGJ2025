@@ -1,17 +1,235 @@
-[gd_scene load_steps=7 format=3 uid="uid://bn01my0anig87"]
+[gd_scene load_steps=15 format=3 uid="uid://bn01my0anig87"]
 
 [ext_resource type="Script" path="res://scenes/game_info.gd" id="1_telsd"]
 [ext_resource type="Texture2D" uid="uid://bbfe1bgr8kbhc" path="res://art/game info.png" id="2_r74qy"]
+[ext_resource type="Texture2D" uid="uid://boxafbldesq6b" path="res://Assets/Backgrounds/BK_Far.png" id="2_tfxih"]
 [ext_resource type="PackedScene" uid="uid://kjt5bcuhwbfv" path="res://scenes/buttonaudio.tscn" id="3_8f6e8"]
+[ext_resource type="Texture2D" uid="uid://c4qlcada00j3" path="res://Assets/Backgrounds/BK_Mid.png" id="3_fpqyv"]
 [ext_resource type="PackedScene" uid="uid://dld18w03p50k8" path="res://scenes/menumusic.tscn" id="3_tval3"]
-[ext_resource type="Texture2D" uid="uid://rp51a030w5l" path="res://art/IGDATC Logo.png" id="5_lebhk"]
-[ext_resource type="Texture2D" uid="uid://cgaasws5ix4ui" path="res://art/ggjlogo.png" id="6_vxmqa"]
+[ext_resource type="Texture2D" uid="uid://ymsx5481bwin" path="res://Assets/Backgrounds/BK_Near.png" id="4_uoyjb"]
+[ext_resource type="Texture2D" uid="uid://d0nwli2b3qmqp" path="res://Assets/CloudGround2.png" id="5_kf0xw"]
+[ext_resource type="Texture2D" uid="uid://bbuji04ax3tin" path="res://Assets/Cloud_Ground.png" id="6_8flgc"]
+[ext_resource type="Texture2D" uid="uid://de8su10wi7jmm" path="res://Assets/Robot_FullLayout.png" id="10_hyq0c"]
+[ext_resource type="Texture2D" uid="uid://2leeba2k0fti" path="res://Assets/BubbleRound_haz.png" id="11_63nh2"]
+[ext_resource type="Texture2D" uid="uid://c4nem2pcx55ky" path="res://Assets/Enemy_Anim/Enemy_Prickle.png" id="12_f6pe2"]
+[ext_resource type="Texture2D" uid="uid://djbar586gi36n" path="res://Assets/Enemy_Anim/Enemy05_Blowbubb.png" id="13_nj5xi"]
+[ext_resource type="Texture2D" uid="uid://dx5o2p1d4k50f" path="res://art/Minnesota Flag.png" id="14_bji3q"]
 
 [node name="GameInfo" type="Node2D"]
 script = ExtResource("1_telsd")
 MainMenuScene = "res://scenes/main_menu.tscn"
 CreditScene = "res://scenes/game_credits.tscn"
 InfoScene = "res://scenes/game_info.tscn"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 960.0
+offset_bottom = 540.0
+color = Color(0.607843, 1, 0.984314, 1)
+metadata/_edit_lock_ = true
+
+[node name="base" type="ColorRect" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.00925926
+anchor_right = 0.625
+anchor_bottom = 0.0277778
+offset_top = 5.0
+offset_right = 3240.0
+offset_bottom = 655.0
+scale = Vector2(0.25, 0.25)
+color = Color(0, 0.180392, 0.552941, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="dark" type="TextureRect" parent="ColorRect"]
+visibility_layer = 524288
+z_as_relative = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.625
+offset_top = 64.0
+offset_right = 3240.0
+offset_bottom = 1432.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_tfxih")
+metadata/_edit_use_anchors_ = true
+
+[node name="mid" type="TextureRect" parent="ColorRect"]
+visibility_layer = 524288
+z_as_relative = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.625
+offset_top = 136.0
+offset_right = 3240.0
+offset_bottom = 1504.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_fpqyv")
+metadata/_edit_use_anchors_ = true
+
+[node name="light" type="TextureRect" parent="ColorRect"]
+visibility_layer = 524288
+z_as_relative = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.625
+offset_top = 200.0
+offset_right = 3240.0
+offset_bottom = 1568.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_uoyjb")
+metadata/_edit_use_anchors_ = true
+
+[node name="CloudGround2" type="Sprite2D" parent="ColorRect"]
+position = Vector2(32, 248)
+texture = ExtResource("5_kf0xw")
+
+[node name="CloudGround24" type="Sprite2D" parent="ColorRect"]
+position = Vector2(-16, 168)
+texture = ExtResource("5_kf0xw")
+
+[node name="CloudGround3" type="Sprite2D" parent="ColorRect"]
+position = Vector2(104, 240)
+texture = ExtResource("5_kf0xw")
+
+[node name="CloudGround4" type="Sprite2D" parent="ColorRect"]
+position = Vector2(192, 240)
+texture = ExtResource("5_kf0xw")
+
+[node name="CloudGround7" type="Sprite2D" parent="ColorRect"]
+position = Vector2(272, 256)
+texture = ExtResource("5_kf0xw")
+
+[node name="CloudGround8" type="Sprite2D" parent="ColorRect"]
+position = Vector2(248, 329)
+texture = ExtResource("5_kf0xw")
+
+[node name="CloudGround13" type="Sprite2D" parent="ColorRect"]
+position = Vector2(336, 280)
+texture = ExtResource("5_kf0xw")
+
+[node name="CloudGround14" type="Sprite2D" parent="ColorRect"]
+position = Vector2(448, 249)
+texture = ExtResource("5_kf0xw")
+
+[node name="CloudGround15" type="Sprite2D" parent="ColorRect"]
+position = Vector2(552, 272)
+texture = ExtResource("5_kf0xw")
+
+[node name="CloudGround16" type="Sprite2D" parent="ColorRect"]
+position = Vector2(656, 249)
+texture = ExtResource("5_kf0xw")
+
+[node name="CloudGround17" type="Sprite2D" parent="ColorRect"]
+position = Vector2(728, 264)
+texture = ExtResource("5_kf0xw")
+
+[node name="CloudGround18" type="Sprite2D" parent="ColorRect"]
+position = Vector2(831, 280)
+texture = ExtResource("5_kf0xw")
+
+[node name="CloudGround19" type="Sprite2D" parent="ColorRect"]
+position = Vector2(872, 256)
+texture = ExtResource("5_kf0xw")
+
+[node name="CloudGround20" type="Sprite2D" parent="ColorRect"]
+position = Vector2(872, 256)
+texture = ExtResource("5_kf0xw")
+
+[node name="CloudGround9" type="Sprite2D" parent="ColorRect"]
+position = Vector2(280, 400)
+texture = ExtResource("5_kf0xw")
+
+[node name="CloudGround10" type="Sprite2D" parent="ColorRect"]
+position = Vector2(312, 424)
+texture = ExtResource("5_kf0xw")
+
+[node name="CloudGround21" type="Sprite2D" parent="ColorRect"]
+position = Vector2(392, 352)
+texture = ExtResource("5_kf0xw")
+
+[node name="CloudGround25" type="Sprite2D" parent="ColorRect"]
+position = Vector2(760, 480)
+texture = ExtResource("5_kf0xw")
+
+[node name="CloudGround26" type="Sprite2D" parent="ColorRect"]
+position = Vector2(720, 408)
+texture = ExtResource("5_kf0xw")
+
+[node name="CloudGround27" type="Sprite2D" parent="ColorRect"]
+position = Vector2(720, 408)
+texture = ExtResource("5_kf0xw")
+
+[node name="CloudGround22" type="Sprite2D" parent="ColorRect"]
+position = Vector2(400, 256)
+texture = ExtResource("5_kf0xw")
+
+[node name="CloudGround23" type="Sprite2D" parent="ColorRect"]
+position = Vector2(888, 184)
+texture = ExtResource("5_kf0xw")
+
+[node name="CloudGround11" type="Sprite2D" parent="ColorRect"]
+position = Vector2(352, 456)
+texture = ExtResource("5_kf0xw")
+
+[node name="CloudGround12" type="Sprite2D" parent="ColorRect"]
+position = Vector2(352, 456)
+texture = ExtResource("5_kf0xw")
+
+[node name="CloudGround28" type="Sprite2D" parent="ColorRect"]
+position = Vector2(456, 400)
+texture = ExtResource("5_kf0xw")
+
+[node name="CloudGround29" type="Sprite2D" parent="ColorRect"]
+position = Vector2(544, 352)
+texture = ExtResource("5_kf0xw")
+
+[node name="CloudGround30" type="Sprite2D" parent="ColorRect"]
+position = Vector2(640, 368)
+texture = ExtResource("5_kf0xw")
+
+[node name="CloudGround31" type="Sprite2D" parent="ColorRect"]
+position = Vector2(632, 432)
+texture = ExtResource("5_kf0xw")
+
+[node name="CloudGround32" type="Sprite2D" parent="ColorRect"]
+position = Vector2(632, 472)
+texture = ExtResource("5_kf0xw")
+
+[node name="CloudGround33" type="Sprite2D" parent="ColorRect"]
+position = Vector2(544, 430)
+texture = ExtResource("5_kf0xw")
+
+[node name="CloudGround34" type="Sprite2D" parent="ColorRect"]
+position = Vector2(512, 464)
+texture = ExtResource("5_kf0xw")
+
+[node name="CloudGround35" type="Sprite2D" parent="ColorRect"]
+position = Vector2(460, 472)
+texture = ExtResource("5_kf0xw")
+
+[node name="CloudGround36" type="Sprite2D" parent="ColorRect"]
+position = Vector2(408, 472)
+texture = ExtResource("5_kf0xw")
+
+[node name="CloudGround37" type="Sprite2D" parent="ColorRect"]
+position = Vector2(796, 368)
+texture = ExtResource("5_kf0xw")
+
+[node name="CloudGround38" type="Sprite2D" parent="ColorRect"]
+position = Vector2(320, 478)
+texture = ExtResource("5_kf0xw")
+
+[node name="CloudGround" type="Sprite2D" parent="ColorRect"]
+position = Vector2(152, 416)
+texture = ExtResource("6_8flgc")
+
+[node name="CloudGround5" type="Sprite2D" parent="ColorRect"]
+position = Vector2(235, 464)
+texture = ExtResource("6_8flgc")
+
+[node name="CloudGround6" type="Sprite2D" parent="ColorRect"]
+position = Vector2(235, 464)
+texture = ExtResource("6_8flgc")
 
 [node name="Background" type="TextureRect" parent="."]
 visible = false
@@ -22,12 +240,40 @@ expand_mode = 2
 stretch_mode = 4
 
 [node name="NextButton" type="Button" parent="."]
-offset_left = 872.0
+offset_left = 840.0
 offset_top = 480.0
-offset_right = 921.0
+offset_right = 912.0
 offset_bottom = 511.0
 scale = Vector2(1.5, 1.5)
-text = "NEXT"
+text = "CREDITS"
+metadata/_edit_lock_ = true
+
+[node name="NextButton2" type="Button" parent="."]
+offset_left = 46.0
+offset_top = 248.0
+offset_right = 153.0
+offset_bottom = 280.0
+scale = Vector2(1.5, 1.5)
+button_mask = 0
+text = "THIS IS YOU!"
+
+[node name="NextButton4" type="Button" parent="."]
+offset_left = 6.0
+offset_top = 200.0
+offset_right = 173.0
+offset_bottom = 232.0
+scale = Vector2(1.5, 1.5)
+button_mask = 0
+text = "THIS IS BUBBLE BOT!"
+
+[node name="NextButton5" type="Button" parent="."]
+offset_left = 296.0
+offset_top = 232.0
+offset_right = 725.0
+offset_bottom = 264.0
+scale = Vector2(1.5, 1.5)
+button_mask = 0
+text = "MOVE AND JUMP YOUR WAY TO THE MINNESOTA FLAG"
 
 [node name="BackButton" type="Button" parent="."]
 offset_left = 16.0
@@ -36,40 +282,74 @@ offset_right = 66.0
 offset_bottom = 511.0
 scale = Vector2(1.5, 1.5)
 text = "BACK"
+metadata/_edit_lock_ = true
 
 [node name="Music" parent="." instance=ExtResource("3_tval3")]
 
 [node name="ButtonAudio" parent="." instance=ExtResource("3_8f6e8")]
 
-[node name="GGJButton" type="LinkButton" parent="."]
-offset_left = 848.0
-offset_top = 8.0
-offset_right = 952.0
-offset_bottom = 112.0
+[node name="RobotFullLayout" type="Sprite2D" parent="."]
+position = Vector2(128, 104)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("10_hyq0c")
 
-[node name="Sprite2D2" type="Sprite2D" parent="GGJButton"]
-position = Vector2(52, 53)
-scale = Vector2(0.117778, 0.117778)
-texture = ExtResource("6_vxmqa")
+[node name="BubbleRoundHaz" type="Sprite2D" parent="."]
+position = Vector2(448, 464)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_63nh2")
 
-[node name="IGDATCButton" type="LinkButton" parent="."]
-offset_left = 24.0
-offset_top = 16.0
-offset_right = 104.0
-offset_bottom = 112.0
+[node name="BubbleRoundHaz2" type="Sprite2D" parent="."]
+position = Vector2(592, 487)
+scale = Vector2(0.314516, 0.314516)
+texture = ExtResource("11_63nh2")
 
-[node name="Sprite2D" type="Sprite2D" parent="IGDATCButton"]
-position = Vector2(40, 41)
-scale = Vector2(0.481915, 0.481915)
-texture = ExtResource("5_lebhk")
+[node name="EnemyPrickle" type="Sprite2D" parent="."]
+position = Vector2(232, 431)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("12_f6pe2")
+metadata/_edit_lock_ = true
+
+[node name="Enemy05Blowbubb" type="Sprite2D" parent="."]
+position = Vector2(750.5, 485)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("13_nj5xi")
+metadata/_edit_lock_ = true
+
+[node name="NextButton3" type="Button" parent="."]
+offset_left = 328.0
+offset_top = 360.0
+offset_right = 631.0
+offset_bottom = 392.0
+scale = Vector2(1.5, 1.5)
+button_mask = 0
+text = "AVOID ENEMIES AND THEIR BUBBLES"
+
+[node name="MinnesotaFlag" type="Sprite2D" parent="."]
+position = Vector2(888, 120)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("14_bji3q")
 
 [connection signal="button_down" from="NextButton" to="ButtonAudio" method="_on_button_down"]
 [connection signal="mouse_entered" from="NextButton" to="ButtonAudio" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="NextButton" to="ButtonAudio" method="_on_mouse_exited"]
 [connection signal="pressed" from="NextButton" to="." method="_on_next_button_pressed"]
+[connection signal="button_down" from="NextButton2" to="ButtonAudio" method="_on_button_down"]
+[connection signal="mouse_entered" from="NextButton2" to="ButtonAudio" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="NextButton2" to="ButtonAudio" method="_on_mouse_exited"]
+[connection signal="pressed" from="NextButton2" to="." method="_on_next_button_pressed"]
+[connection signal="button_down" from="NextButton4" to="ButtonAudio" method="_on_button_down"]
+[connection signal="mouse_entered" from="NextButton4" to="ButtonAudio" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="NextButton4" to="ButtonAudio" method="_on_mouse_exited"]
+[connection signal="pressed" from="NextButton4" to="." method="_on_next_button_pressed"]
+[connection signal="button_down" from="NextButton5" to="ButtonAudio" method="_on_button_down"]
+[connection signal="mouse_entered" from="NextButton5" to="ButtonAudio" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="NextButton5" to="ButtonAudio" method="_on_mouse_exited"]
+[connection signal="pressed" from="NextButton5" to="." method="_on_next_button_pressed"]
 [connection signal="button_down" from="BackButton" to="ButtonAudio" method="_on_button_down"]
 [connection signal="mouse_entered" from="BackButton" to="ButtonAudio" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="BackButton" to="ButtonAudio" method="_on_mouse_exited"]
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
-[connection signal="pressed" from="GGJButton" to="." method="_on_ggj_button_pressed"]
-[connection signal="pressed" from="IGDATCButton" to="." method="_on_igdatc_button_pressed"]
+[connection signal="button_down" from="NextButton3" to="ButtonAudio" method="_on_button_down"]
+[connection signal="mouse_entered" from="NextButton3" to="ButtonAudio" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="NextButton3" to="ButtonAudio" method="_on_mouse_exited"]
+[connection signal="pressed" from="NextButton3" to="." method="_on_next_button_pressed"]
