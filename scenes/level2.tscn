@@ -1,0 +1,136 @@
+[gd_scene load_steps=10 format=3 uid="uid://ckutlbcghup8f"]
+
+[ext_resource type="Script" path="res://scenes/game.gd" id="1_7t7mm"]
+[ext_resource type="PackedScene" uid="uid://coxxd3ndthibi" path="res://scenes/character.tscn" id="2_7mbek"]
+[ext_resource type="PackedScene" uid="uid://bibhw7mpu8iy1" path="res://scenes/enemy.tscn" id="3_m42wt"]
+[ext_resource type="Texture2D" uid="uid://cbd5asmfkd7do" path="res://art/fullsizebg_temp.png" id="4_820c0"]
+[ext_resource type="Texture2D" uid="uid://8juqu68ng3qq" path="res://Assets/BubbleGroundSquare.png" id="4_jc4li"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5p1sd"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_n8tep"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7d38f"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6gnbg"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_7t7mm")
+gameOverScene = "res://scenes/game_over.tscn"
+character = ExtResource("2_7mbek")
+
+[node name="StartPosition" type="Marker2D" parent="."]
+position = Vector2(38, 251)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+visible = false
+position = Vector2(38.0001, 251)
+rotation = 0.00787386
+scale = Vector2(2.10974, 1.00048)
+skew = 0.0271667
+offset = Vector2(0, 200)
+zoom = Vector2(2, 2)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
+
+[node name="LoseButton" type="Button" parent="Camera2D/CanvasLayer"]
+offset_left = 163.0
+offset_top = 16.0
+offset_right = 215.0
+offset_bottom = 47.0
+text = "LOSE!"
+metadata/_edit_use_anchors_ = true
+
+[node name="NewPathButton" type="Button" parent="Camera2D/CanvasLayer"]
+offset_left = 8.0
+offset_top = 16.0
+offset_right = 99.0
+offset_bottom = 47.0
+text = "NEW PATH"
+metadata/_edit_use_anchors_ = true
+
+[node name="WinButton" type="Button" parent="Camera2D/CanvasLayer"]
+offset_left = 108.0
+offset_top = 16.0
+offset_right = 153.0
+offset_bottom = 47.0
+text = "WIN!"
+metadata/_edit_use_anchors_ = true
+
+[node name="LevelIndicator" type="Control" parent="Camera2D/CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="ProgressBar" type="ProgressBar" parent="Camera2D/CanvasLayer/LevelIndicator"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 50.0
+offset_right = 98.0
+offset_bottom = 77.0
+show_percentage = false
+metadata/_edit_use_anchors_ = true
+
+[node name="Enemy" parent="." instance=ExtResource("3_m42wt")]
+position = Vector2(885, 369)
+scale = Vector2(4, 4)
+
+[node name="Walls" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2DLeft" type="CollisionShape2D" parent="Walls"]
+shape = SubResource("WorldBoundaryShape2D_5p1sd")
+
+[node name="CollisionShape2DRight" type="CollisionShape2D" parent="Walls"]
+position = Vector2(959, 0)
+shape = SubResource("WorldBoundaryShape2D_n8tep")
+
+[node name="CollisionShape2DTop" type="CollisionShape2D" parent="Walls"]
+position = Vector2(452, 0)
+shape = SubResource("WorldBoundaryShape2D_7d38f")
+
+[node name="CollisionShape2DBottom" type="CollisionShape2D" parent="Walls"]
+position = Vector2(0, 540)
+shape = SubResource("WorldBoundaryShape2D_6gnbg")
+
+[node name="Background" type="Node2D" parent="."]
+visible = false
+
+[node name="TextureRect2" type="TextureRect" parent="Background"]
+offset_left = -3752.0
+offset_top = -712.0
+offset_right = -1160.0
+offset_bottom = 784.0
+texture = ExtResource("4_820c0")
+
+[node name="Floor" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Floor"]
+collision_layer = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Floor/StaticBody2D"]
+polygon = PackedVector2Array(0, 256, 88, 256, 1976, 688, 0, 696)
+
+[node name="TextureRect" type="TextureRect" parent="Floor/StaticBody2D/CollisionPolygon2D"]
+offset_top = 176.0
+offset_right = 8000.0
+offset_bottom = 2320.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_jc4li")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Polygon2D" type="Polygon2D" parent="Floor/StaticBody2D/CollisionPolygon2D"]
+position = Vector2(0, 168)
+texture = ExtResource("4_820c0")
+invert_enabled = true
+polygon = PackedVector2Array(0, 88, 88, 88, 1976, 520, 0, 536)
+
+[connection signal="pressed" from="Camera2D/CanvasLayer/LoseButton" to="." method="_on_lose_button_pressed"]
+[connection signal="pressed" from="Camera2D/CanvasLayer/NewPathButton" to="." method="_on_new_path_button_pressed"]
+[connection signal="pressed" from="Camera2D/CanvasLayer/WinButton" to="." method="_on_win_button_pressed"]
