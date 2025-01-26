@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://ckh22inh80lu4"]
+
+[ext_resource type="Script" path="res://scenes/game_over.gd" id="1_ea7ji"]
+[ext_resource type="Texture2D" uid="uid://c5ed20gfsteh8" path="res://art/game win1.png" id="2_eah5i"]
+[ext_resource type="Texture2D" uid="uid://c4nem2pcx55ky" path="res://Assets/Enemy_Anim/Enemy_Prickle.png" id="3_0bpqw"]
+[ext_resource type="Texture2D" uid="uid://ds1l83prb22pg" path="res://Assets/Enemy_Anim/Enemy02_idle.png" id="4_gihq0"]
+[ext_resource type="PackedScene" uid="uid://dld18w03p50k8" path="res://scenes/menumusic.tscn" id="5_fdkl8"]
+
+[node name="GameOver" type="Node2D"]
+script = ExtResource("1_ea7ji")
+gameScene = "res://scenes/level1.tscn"
+mainMenuScene = "res://scenes/main_menu.tscn"
+
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 960.0
+offset_bottom = 540.0
+texture = ExtResource("2_eah5i")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="RetryButton" type="Button" parent="."]
+offset_left = 407.0
+offset_top = 481.0
+offset_right = 463.0
+offset_bottom = 512.0
+text = "RETRY"
+
+[node name="MainMenuButton" type="Button" parent="."]
+offset_left = 489.0
+offset_top = 481.0
+offset_right = 593.0
+offset_bottom = 512.0
+text = "MAIN MENU"
+
+[node name="EnemyPrickle" type="Sprite2D" parent="."]
+position = Vector2(74, 523)
+scale = Vector2(0.693548, 0.693548)
+texture = ExtResource("3_0bpqw")
+
+[node name="Enemy02Idle" type="Sprite2D" parent="."]
+position = Vector2(865, 490)
+scale = Vector2(0.809091, 0.809091)
+texture = ExtResource("4_gihq0")
+
+[node name="Music" parent="." instance=ExtResource("5_fdkl8")]
+
+[connection signal="pressed" from="RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_button_pressed"]
