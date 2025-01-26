@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://d0nwli2b3qmqp" path="res://Assets/CloudGround2.png" id="5_k4a64"]
 [ext_resource type="PackedScene" uid="uid://cu8ogd3ah2g0x" path="res://scenes/bubble.tscn" id="6_3iblh"]
 [ext_resource type="PackedScene" uid="uid://bjlu3ce7053b6" path="res://scenes/ope.tscn" id="8_husmu"]
-[ext_resource type="PackedScene" path="res://scenes/music.tscn" id="9_8qkhf"]
+[ext_resource type="PackedScene" uid="uid://dt0ab06cirdx5" path="res://scenes/music.tscn" id="9_8qkhf"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5p1sd"]
 normal = Vector2(1, 0)
@@ -582,67 +582,67 @@ scale = Vector2(0.312495, -0.281279)
 [node name="Bubbles" type="Node2D" parent="."]
 
 [node name="Bubble2" parent="Bubbles" instance=ExtResource("6_3iblh")]
-position = Vector2(1227, 891)
+position = Vector2(1289, 890)
 scale = Vector2(0.278729, 0.314376)
 
 [node name="Bubble3" parent="Bubbles" instance=ExtResource("6_3iblh")]
-position = Vector2(945, 757)
+position = Vector2(1007, 756)
 scale = Vector2(0.373315, 0.396469)
 
 [node name="Bubble4" parent="Bubbles" instance=ExtResource("6_3iblh")]
-position = Vector2(807, 933)
+position = Vector2(869, 932)
 scale = Vector2(0.373315, 0.396469)
 
 [node name="Bubble5" parent="Bubbles" instance=ExtResource("6_3iblh")]
-position = Vector2(715, 805)
+position = Vector2(777, 804)
 scale = Vector2(0.373315, 0.396469)
 
 [node name="Bubble6" parent="Bubbles" instance=ExtResource("6_3iblh")]
-position = Vector2(536, 943)
+position = Vector2(598, 942)
 scale = Vector2(0.373315, 0.396469)
 
 [node name="Bubble7" parent="Bubbles" instance=ExtResource("6_3iblh")]
-position = Vector2(961, 973)
+position = Vector2(1023, 972)
 scale = Vector2(0.373315, 0.396469)
 
 [node name="Bubble8" parent="Bubbles" instance=ExtResource("6_3iblh")]
-position = Vector2(1076, 838)
+position = Vector2(1138, 837)
 scale = Vector2(0.373315, 0.396469)
 
 [node name="Bubble9" parent="Bubbles" instance=ExtResource("6_3iblh")]
-position = Vector2(1175, 1020)
+position = Vector2(1237, 1019)
 scale = Vector2(0.373315, 0.396469)
 
 [node name="Bubble10" parent="Bubbles" instance=ExtResource("6_3iblh")]
-position = Vector2(1045, 1085)
+position = Vector2(1107, 1084)
 scale = Vector2(0.373315, 0.396469)
 
 [node name="Bubble11" parent="Bubbles" instance=ExtResource("6_3iblh")]
-position = Vector2(850, 1155)
+position = Vector2(912, 1154)
 scale = Vector2(0.373315, 0.396469)
 
 [node name="Bubble12" parent="Bubbles" instance=ExtResource("6_3iblh")]
-position = Vector2(668, 1146)
+position = Vector2(730, 1145)
 scale = Vector2(0.373315, 0.396469)
 
 [node name="Bubble13" parent="Bubbles" instance=ExtResource("6_3iblh")]
-position = Vector2(1057, 1195)
+position = Vector2(1119, 1194)
 scale = Vector2(0.373315, 0.396469)
 
 [node name="Bubble14" parent="Bubbles" instance=ExtResource("6_3iblh")]
-position = Vector2(1178, 1264)
+position = Vector2(1240, 1263)
 scale = Vector2(0.373315, 0.396469)
 
 [node name="Bubble15" parent="Bubbles" instance=ExtResource("6_3iblh")]
-position = Vector2(936, 1338)
+position = Vector2(998, 1337)
 scale = Vector2(0.373315, 0.396469)
 
 [node name="Bubble16" parent="Bubbles" instance=ExtResource("6_3iblh")]
-position = Vector2(746, 1356)
+position = Vector2(808, 1355)
 scale = Vector2(0.373315, 0.396469)
 
 [node name="Bubble17" parent="Bubbles" instance=ExtResource("6_3iblh")]
-position = Vector2(746, 1356)
+position = Vector2(808, 1355)
 scale = Vector2(0.373315, 0.396469)
 
 [node name="Bubble" parent="Bubbles" instance=ExtResource("6_3iblh")]
