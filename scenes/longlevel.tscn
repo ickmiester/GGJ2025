@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://e13i84qvlh83"]
+[gd_scene load_steps=16 format=3 uid="uid://e13i84qvlh83"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_d7gh1"]
 [ext_resource type="PackedScene" uid="uid://coxxd3ndthibi" path="res://scenes/character.tscn" id="2_8jj5n"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://8juqu68ng3qq" path="res://Assets/BubbleGroundSquare.png" id="5_kt28r"]
 [ext_resource type="PackedScene" uid="uid://dt0ab06cirdx5" path="res://scenes/music.tscn" id="7_kxy1k"]
 [ext_resource type="PackedScene" uid="uid://b1bf8fklhk05i" path="res://scenes/enemy2.tscn" id="8_wdrot"]
+[ext_resource type="Texture2D" uid="uid://dx5o2p1d4k50f" path="res://art/Minnesota Flag.png" id="9_f3dnt"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5p1sd"]
 normal = Vector2(1, 0)
@@ -24,7 +25,7 @@ normal = Vector2(0, 1)
 size = Vector2(35, 36)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n2w0h"]
-size = Vector2(467, 1072.5)
+size = Vector2(563.5, 687.25)
 
 [node name="Game3" type="Node2D" node_paths=PackedStringArray("spedometer")]
 script = ExtResource("1_d7gh1")
@@ -849,7 +850,7 @@ texture = ExtResource("5_kt28r")
 position = Vector2(-3838, -780)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WinArea"]
-position = Vector2(5326, 621)
+position = Vector2(5277.75, 428.375)
 shape = SubResource("RectangleShape2D_n2w0h")
 
 [node name="Music" parent="." instance=ExtResource("7_kxy1k")]
@@ -909,3 +910,8 @@ enemy_type = 1
 position = Vector2(1206, 55)
 scale = Vector2(0.213615, 0.202604)
 enemy_type = 1
+
+[node name="MinnesotaFlag" type="Sprite2D" parent="."]
+position = Vector2(1203, -235)
+scale = Vector2(0.0893284, 0.0893284)
+texture = ExtResource("9_f3dnt")
