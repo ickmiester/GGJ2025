@@ -21,7 +21,6 @@ func _process(delta: float) -> void:
 	if(Input.is_action_pressed("left")):
 		consecutiveAccel += 1
 		#print("Left Pressed")
-		$WheelAudio.play()
 		$Wheel.velocity += Vector2(-35 - consecutiveAccel**0.5, 0) * scale
 		#$Wheel/WheelSprite.rotate(-PI/20)
 		if($Wheel.is_on_floor()):
@@ -29,7 +28,6 @@ func _process(delta: float) -> void:
 	if(Input.is_action_pressed("right")):
 		consecutiveAccel += 1
 		#print("Right Pressed")
-		$WheelAudio.play()
 		$Wheel.velocity += Vector2(35 + consecutiveAccel**0.5, 0) * scale
 		#$Wheel/WheelSprite.rotate(PI/20)
 		if($Wheel.is_on_floor()):
@@ -40,6 +38,7 @@ func _process(delta: float) -> void:
 			$Wheel.velocity+= Vector2(0, -1800) * scale
 			$Wheel/WheelSprite.frame = 0;
 			$Wheel/WheelSprite.pause()
+			$JumpAudio.play()
 	currentSpeed = $Wheel.velocity
 	if(currentSpeed.x > maxSpeed.x):
 		maxSpeed = currentSpeed
@@ -51,6 +50,11 @@ func _process(delta: float) -> void:
 		$Wheel/WheelSprite.pause()
 		
 	$Wheel.move_and_slide()
+	if $Wheel.velocity != Vector2.ZERO and $Wheel.is_on_floor():
+		if $RollAudio.finished: 
+			$RollAudio.play()
+	else:
+		$RollAudio.stop()
 	
 		
 	#make body fall if off-center
@@ -75,8 +79,10 @@ func _process(delta: float) -> void:
 	
 	if(Input.is_action_pressed("balance left")):
 		body.rotate(-PI/90)
+		$WheelAudio.play()
 	if(Input.is_action_pressed("balance right")):
 		body.rotate(PI/90)
+		$WheelAudio.play()
 		
 	#body.reparent(parent)
 	body.get_node("BodyCollision/SpriteContainer/BodySprite").play()
