@@ -4,6 +4,7 @@ signal win
 signal lose
 @export var board_scene: PackedScene
 @export_file("*.tscn") var gameOverScene: String
+@export_file("*.tscn") var winScene:String
 @export var character:PackedScene
 @export var offset:float
 var player: Node2D
@@ -41,13 +42,14 @@ func _instantiate_new_player() -> void:
 	var cam = $Camera2D
 	cam.reparent(player.get_node("Wheel"))
 	cam.offset.y=-100
-	$WinArea.body_entered.connect(player._on_area_2d_body_entered)
+	if($WinArea != null):
+		$WinArea.body_entered.connect(player._on_area_2d_body_entered)
 	player.win.connect(onWin)
 	
 
 func _on_win_button_pressed() -> void:
 	emit_signal("win")
-	get_tree().change_scene_to_file(gameOverScene)
+	get_tree().change_scene_to_file(winScene)
 
 
 func _on_lose_button_pressed() -> void:
@@ -83,4 +85,4 @@ func _on_new_path_button_pressed() -> void:
 
 func onWin() -> void:
 	print("and win")
-	get_tree().change_scene_to_file(gameOverScene)
+	call_deferred(get_tree().change_scene_to_file(winScene))

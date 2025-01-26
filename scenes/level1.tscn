@@ -26,7 +26,9 @@ size = Vector2(108, 245)
 [node name="Game" type="Node2D"]
 script = ExtResource("1_x0ot6")
 gameOverScene = "res://scenes/game_over.tscn"
+winScene = "res://scenes/level2.tscn"
 character = ExtResource("2_wnbct")
+offset = null
 
 [node name="StartPosition" type="Marker2D" parent="."]
 position = Vector2(38, 251)
