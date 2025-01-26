@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b1bf8fklhk05i"]
+[gd_scene load_steps=21 format=3 uid="uid://b1bf8fklhk05i"]
 
 [ext_resource type="Script" path="res://scenes/enemy_2.gd" id="1_oceeo"]
 [ext_resource type="Texture2D" uid="uid://dyia21rvfs7ls" path="res://Assets/Enemy_Anim/Enemy03_gulpAir.png" id="2_ikfnm"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://boqwkblok1ovi" path="res://Assets/Enemy_Anim/Enemy01_Idle.png" id="6_ntmh2"]
 [ext_resource type="Texture2D" uid="uid://ds1l83prb22pg" path="res://Assets/Enemy_Anim/Enemy02_idle.png" id="7_ubt58"]
 [ext_resource type="PackedScene" uid="uid://vexof263c8pc" path="res://scenes/killzone.tscn" id="8_t8gvd"]
+[ext_resource type="Texture2D" uid="uid://c4nem2pcx55ky" path="res://Assets/Enemy_Anim/Enemy_Prickle.png" id="9_6i4j4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sykow"]
 atlas = ExtResource("2_ikfnm")
@@ -71,11 +72,26 @@ size = Vector2(173, 110)
 radius = 6.0
 height = 92.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_uajl8"]
+atlas = ExtResource("9_6i4j4")
+region = Rect2(0, 0, 434, 434)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_52rk0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uajl8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Enemy2" type="CharacterBody2D"]
 collision_mask = 2
 script = ExtResource("1_oceeo")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Uffd" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_j0782")
 animation = &"idle"
@@ -102,7 +118,13 @@ collide_with_areas = true
 
 [node name="SpawnTimer" type="Timer" parent="."]
 
-[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
-[connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
+[node name="Spike" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_52rk0")
+autoplay = "default"
+frame_progress = 0.712829
+
+[connection signal="animation_finished" from="Uffd" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="frame_changed" from="Uffd" to="." method="_on_animated_sprite_2d_frame_changed"]
 [connection signal="body_entered" from="Killzone" to="." method="_on_killzone_body_entered"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

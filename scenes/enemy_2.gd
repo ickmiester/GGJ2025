@@ -1,5 +1,11 @@
 extends CharacterBody2D
 
+enum EnemyType {
+	Uffd,
+	Spike
+}
+
+@export var enemy_type: EnemyType
 
 const SPEED = 50.0
 
@@ -14,39 +20,46 @@ var move_max_distance : int = 50
 var initial_position: float
 var nextWaitTime: int = randi_range(1, 3) #initial wait time for bubble spawn
 
-@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var uffd: AnimatedSprite2D = $Uffd
+@onready var spike: AnimatedSprite2D = $Spike
 @onready var ray_cast_right: RayCast2D = $RayCastRight
 @onready var ray_cast_left: RayCast2D = $RayCastLeft
 @onready var spawn_timer: Timer = $SpawnTimer
 
 func _ready() -> void:
-	initial_position = position.x
-	spawn_timer.set_wait_time(nextWaitTime)
-	spawn_timer.start()
+	if enemy_type == EnemyType.Uffd:
+		initial_position = position.x
+		spawn_timer.set_wait_time(nextWaitTime)
+		spawn_timer.start()
+		spike.visible = false
+	else:
+		uffd.visible = false
 
 
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
-		
-	if position.x > initial_position + move_max_distance || position.x < initial_position - move_max_distance:
-		if position.x > initial_position + move_max_distance || ray_cast_right.is_colliding():
-			direction = -1
-			animated_sprite_2d.flip_h = false
-		if position.x < initial_position + move_max_distance || ray_cast_left.is_colliding():
-			direction = 1
-			animated_sprite_2d.flip_h = true
+	if enemy_type == EnemyType.Uffd:
+		# Add the gravity.
+		if not is_on_floor():
+			velocity += get_gravity() * delta
+			
+		if position.x > initial_position + move_max_distance || position.x < initial_position - move_max_distance:
+			if position.x > initial_position + move_max_distance || ray_cast_right.is_colliding():
+				direction = -1
+				uffd.flip_h = false
+			if position.x < initial_position + move_max_distance || ray_cast_left.is_colliding():
+				direction = 1
+				uffd.flip_h = true
 
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		if direction:
+			velocity.x = direction * SPEED
+		else:
+			velocity.x = move_toward(velocity.x, 0, SPEED)
 
-	move_and_slide()
+		move_and_slide()
 
 func _on_spawn_timer_timeout() -> void:
-	animated_sprite_2d.play("bubble")
+	if enemy_type == EnemyType.Uffd:
+		uffd.play("bubble")
 
 func instantiate_bubble() -> void:
 	var bubbleInstance = BUBBLE.instantiate()
@@ -60,11 +73,11 @@ func instantiate_bubble() -> void:
 func _on_animated_sprite_2d_animation_finished() -> void:
 	nextWaitTime = randi() % MAX_WAIT_TIME + MIN_WAIT_TIME
 	spawn_timer.set_wait_time(nextWaitTime)
-	animated_sprite_2d.play("idle")
+	uffd.play("idle")
 
 
 func _on_animated_sprite_2d_frame_changed() -> void:
-	if animated_sprite_2d.animation == "bubble" && animated_sprite_2d.frame == 2:
+	if uffd.animation == "bubble" && uffd.frame == 2:
 		instantiate_bubble()
 
 

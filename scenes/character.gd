@@ -10,7 +10,7 @@ var WheelAudio
 var RollAudio
 var JumpAudio
 
-const JUMP_HEIGHT = -2500 #was -1800 before
+const JUMP_HEIGHT = -2000 #was -1800 before
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
