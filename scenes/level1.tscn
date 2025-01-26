@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://badrcqltcbtgn"]
+[gd_scene load_steps=25 format=3 uid="uid://badrcqltcbtgn"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_x0ot6"]
 [ext_resource type="PackedScene" uid="uid://coxxd3ndthibi" path="res://scenes/character.tscn" id="2_wnbct"]
@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://d0nwli2b3qmqp" path="res://Assets/CloudGround2.png" id="5_k4a64"]
 [ext_resource type="Texture2D" uid="uid://ymsx5481bwin" path="res://Assets/Backgrounds/BK_Near.png" id="5_n72a5"]
 [ext_resource type="PackedScene" uid="uid://cu8ogd3ah2g0x" path="res://scenes/bubble.tscn" id="6_3iblh"]
-[ext_resource type="PackedScene" path="res://scenes/ope.tscn" id="8_husmu"]
+[ext_resource type="PackedScene" uid="uid://bjlu3ce7053b6" path="res://scenes/ope.tscn" id="8_husmu"]
 [ext_resource type="PackedScene" uid="uid://dt0ab06cirdx5" path="res://scenes/music.tscn" id="9_8qkhf"]
 [ext_resource type="Texture2D" uid="uid://boxafbldesq6b" path="res://Assets/Backgrounds/BK_Far.png" id="10_qn8a5"]
 [ext_resource type="Texture2D" uid="uid://dx5o2p1d4k50f" path="res://art/Minnesota Flag.png" id="13_w81ac"]
@@ -32,7 +32,10 @@ radius = 97.2523
 radius = 162.077
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m50n8"]
-size = Vector2(80.5, 48)
+size = Vector2(90, 54)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7v70x"]
+size = Vector2(125, 61)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qnlag"]
 radius = 112.0
@@ -275,8 +278,35 @@ collision_layer = 2
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/Colliders/StaticBody2D15"]
-position = Vector2(46.75, -69)
+position = Vector2(46.75, -72)
 shape = SubResource("RectangleShape2D_m50n8")
+
+[node name="StaticBody2D17" type="StaticBody2D" parent="Floors/Colliders"]
+position = Vector2(1021, 304)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/Colliders/StaticBody2D17"]
+position = Vector2(46.75, -72)
+shape = SubResource("RectangleShape2D_m50n8")
+
+[node name="StaticBody2D18" type="StaticBody2D" parent="Floors/Colliders"]
+position = Vector2(1084, 304)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/Colliders/StaticBody2D18"]
+position = Vector2(46.75, -72)
+shape = SubResource("RectangleShape2D_m50n8")
+
+[node name="StaticBody2D16" type="StaticBody2D" parent="Floors/Colliders"]
+position = Vector2(837, 363)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/Colliders/StaticBody2D16"]
+position = Vector2(19.5, -75.5)
+shape = SubResource("RectangleShape2D_7v70x")
 
 [node name="StaticBody2D6" type="StaticBody2D" parent="Floors/Colliders"]
 position = Vector2(717, 344)
@@ -302,7 +332,7 @@ collision_layer = 2
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/Colliders/StaticBody2D8"]
-position = Vector2(-1, -65)
+position = Vector2(2, -59)
 shape = SubResource("CircleShape2D_oywe4")
 
 [node name="StaticBody2D9" type="StaticBody2D" parent="Floors/Colliders"]
@@ -372,7 +402,7 @@ position = Vector2(467, 300)
 texture = ExtResource("5_k4a64")
 
 [node name="CloudGround6" type="Sprite2D" parent="Floors/Clouds"]
-position = Vector2(502, 292)
+position = Vector2(475, 291)
 texture = ExtResource("4_y7pk5")
 
 [node name="CloudGround7" type="Sprite2D" parent="Floors/Clouds"]
