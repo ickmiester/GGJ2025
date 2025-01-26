@@ -85,4 +85,4 @@ func _on_new_path_button_pressed() -> void:
 
 func onWin() -> void:
 	print("and win")
-	call_deferred(get_tree().change_scene_to_file(winScene))
+	get_tree().change_scene_to_file(winScene)
