@@ -140,4 +140,5 @@ func onLose() -> void:
 	call_deferred("loseDeferred")
 	
 func loseDeferred() -> void:
-	get_tree().change_scene_to_file(gameOverScene)
+	if get_tree() != null:
+		get_tree().change_scene_to_file(gameOverScene)
